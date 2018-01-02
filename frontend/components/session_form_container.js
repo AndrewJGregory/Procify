@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   let formType = 'log in';
-  debugger;
+  ;
   if (ownProps.match.path === '/signup') {
     formType = 'sign up';
   }
