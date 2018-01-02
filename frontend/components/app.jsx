@@ -6,7 +6,6 @@ import SessionFormContainer from './session_form_container';
 const App = () => (
   <main id='app'>
     <header>
-      Procify from a react component!
       <GreetingContainer />
     </header>
     <Route path='/login' component={SessionFormContainer} />

@@ -7,21 +7,25 @@ class Greeting extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser) {
-      return (
-        <section className='greeting'>
-          <h2>Welcome, {this.props.currentUser.username}</h2>
-          <button onClick={() => this.props.logout()}>Logout</button>
-        </section>
-      );
-    } else {
-      return (
-        <section className='greeting'>
-          <h2>Have an account? <Link to='/login'>Login</Link></h2>
-          <h2>First time? <Link to='/signup'>Signup</Link></h2>
-        </section>
-      );
-    }
+    return (
+      <main className='greeting-page'>
+        <div className='greeting-content'>
+          <section className='greeting-left'>
+            <Link to='/signup'>Signup</Link>
+            <h3 className='separator-text'>already have an account?</h3>
+            <Link to='/login'>Login</Link>
+          </section>
+          <section className='greeting-right'>
+            <p className='greeting-text'>Get awesome music, all the time.</p>
+            <h3>Listen to billions of songs for free.</h3>
+            <ul>
+              <li>Find new music you'll love</li>
+              <li>Create playlists of your favorite music</li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    );
   }
 }
 export default Greeting;
