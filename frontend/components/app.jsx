@@ -1,10 +1,13 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import GreetingContainer from './greeting_container';
 
 const App = () => (
   <main id='app'>
-    <h1>
+    <header>
       Procify from a react component!
-    </h1>
+      <GreetingContainer />
+    </header>
   </main>
 );
 

@@ -8,5 +8,5 @@
 
 User.destroy_all
 
-user_one = User.create(username: 'Andrew', password: 'password')
-user_two = User.create(username: 'cheryl', password: 'threecookies')
+user_one = User.create(username: 'andrew', password: 'password')
+user_two = User.create(username: 'cheryl', password: 'password')
