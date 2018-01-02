@@ -1,0 +1,42 @@
+.greeting-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.greeting-side {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 200px;
+  text-align: center;
+}
+
+.separator-text {
+  text-transform: uppercase;
+}
+
+.session-link {
+  background-color: green;
+  height: 25px;
+  width: 200px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+  padding: 10px 0;
+}
+
+.login-link {
+  background-color: white;
+  color: black;
+}
+
+.logo {
+  padding-bottom: 10px;
+}
+
+h1 {
+  color: green;
+  font-weight: bold;
+}

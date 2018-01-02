@@ -10,13 +10,16 @@ class Greeting extends React.Component {
     return (
       <main className='greeting-page'>
         <div className='greeting-content'>
-          <section className='greeting-left'>
-            <Link to='/signup'>Signup</Link>
+          <section className='greeting-side'>
+            <div className='logo'>LOGO Procify</div>
+            <Link className='session-link'
+              to='/signup'>sign up</Link>
             <h3 className='separator-text'>already have an account?</h3>
-            <Link to='/login'>Login</Link>
+            <Link className='session-link login-link'
+              to='/login'>log in</Link>
           </section>
-          <section className='greeting-right'>
-            <p className='greeting-text'>Get awesome music, all the time.</p>
+          <section className='greeting-side'>
+            <h1>Get awesome music, all the time.</h1>
             <h3>Listen to billions of songs for free.</h3>
             <ul>
               <li>Find new music you'll love</li>
