@@ -1,3 +1,40 @@
 // Place all the styles related to the Api::Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.logo-header {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid gray;
+}
+
+.form-link {
+  color: green;
+}
+
+input {
+  padding: 10px;
+  text-align: left;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.session-form, .session-link {
+  margin: 0 auto;
+  width: 75%;
+  text-align: center;
+}
+
+.session-form-input {
+  margin: 20px 0;
+}
+
+.session-link {
+  height: 100px;
+  cursor: pointer;
+}

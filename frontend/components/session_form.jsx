@@ -26,38 +26,41 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'log in') {
       otherFormType = 'Sign up';
       otherLinkText = '/signup';
-      otherFormText = 'Don\'t have an account?';
+      otherFormText = 'Don\'t have an account? ';
     } else {
       otherFormType = 'Log in';
       otherLinkText = '/login';
-      otherFormText = 'Already have an account?';
+      otherFormText = 'Already have an account? ';
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text'
-          value={this.state.username}
-          placeholder='Username'
-          className='session-form-input'
-          onChange={this.updateInput('username')}
-          />
-        <br />
-        <input type='text'
-          value={this.state.password}
-          placeholder='Password'
-          className='session-form-input'
-          onChange={this.updateInput('password')}
-          />
-        <br />
-        <button className='session-form-btn'>
-          {this.props.formType}
-        </button>
+      <main className='session-page'>
+        <header className='logo-header'>Procify img</header>
+        <form className='session-form' onSubmit={this.handleSubmit}>
+          <input type='text'
+            value={this.state.username}
+            placeholder='Username'
+            className='session-form-input'
+            onChange={this.updateInput('username')}
+            />
+          <br />
+          <input type='text'
+            value={this.state.password}
+            placeholder='Password'
+            className='session-form-input'
+            onChange={this.updateInput('password')}
+            />
+          <br />
+          <button className='session-link'>
+            {this.props.formType}
+          </button>
 
-        <h4>
-          {otherFormText}
-          <Link to={otherLinkText}>{otherFormType}</Link>
-        </h4>
-      </form>
+          <h4>
+            {otherFormText}
+            <Link className='form-link' to={otherLinkText}>{otherFormType}</Link>
+          </h4>
+        </form>
+      </main>
     );
   }
 }

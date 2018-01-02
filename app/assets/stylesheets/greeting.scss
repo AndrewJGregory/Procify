@@ -1,7 +1,7 @@
 .greeting-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .greeting-side {
@@ -17,9 +17,9 @@
 }
 
 .session-link {
-  background-color: green;
+  background-color: #00C24B;
   height: 25px;
-  width: 200px;
+  width: 250px;
   border-radius: 10px;
   text-transform: uppercase;
   color: white;
@@ -37,6 +37,6 @@
 }
 
 h1 {
-  color: green;
+  color: #00C24B;
   font-weight: bold;
 }
