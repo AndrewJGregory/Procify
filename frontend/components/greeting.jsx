@@ -11,7 +11,7 @@ class Greeting extends React.Component {
       return (
         <section className='greeting'>
           <h2>Welcome, {this.props.currentUser.username}</h2>
-          <button onClick={() => this.props.logout}>Logout</button>
+          <button onClick={() => this.props.logout()}>Logout</button>
         </section>
       );
     } else {
