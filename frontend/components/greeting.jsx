@@ -18,9 +18,13 @@ class Greeting extends React.Component {
             <Link className='session-link login-link'
               to='/login'>log in</Link>
           </section>
-          <section className='greeting-side'>
-            <h1>Get awesome music, all the time.</h1>
-            <h3>Listen to billions of songs for free.</h3>
+          <section className='greeting-side-right'>
+            <h1 className='side-header-text'>
+              Get awesome music, all the time.
+            </h1>
+            <h3 className='side-content-text'>
+              Listen to billions of songs for free.
+            </h3>
             <ul className='greeting-ul'>
               <li>Find new music you'll love</li>
               <li>Create playlists of your favorite music</li>

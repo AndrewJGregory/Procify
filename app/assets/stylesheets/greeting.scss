@@ -1,13 +1,31 @@
+// TODO: separator line, add logo, remove responsiveness?
+
+html {
+  background:  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100%;
+  background-image: linear-gradient(
+  rgba(0, 0, 0, 0.65),
+  rgba(0, 0, 0, 0.65)
+  ), image_url('greeting-background.jpeg');
+}
+
 .greeting-content {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  height: 700px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .greeting-side {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 300px;
   text-align: center;
   justify-content: center;
 }
@@ -15,13 +33,14 @@
 .separator-text {
   text-transform: uppercase;
   padding: 10px 0;
+  color: white;
 }
 
 .session-link {
   background-color: #00C24B;
   height: 25px;
-  width: 100%;
-  border-radius: 10px;
+  width: 280px;
+  border-radius: 50px;
   text-transform: uppercase;
   color: white;
   font-size: 24px;
@@ -29,7 +48,7 @@
 }
 
 .login-link {
-  background-color: red;
+  background-color: white;
   color: black;
 }
 
@@ -39,11 +58,19 @@
 
 .greeting-ul li:before {
   content: '✓';
-  color: 'green';
+  color: green;
   font-size: 24px;
 }
 
-h1 {
+.side-content-text, .greeting-ul {
+  color: white;
+  font-size: 20px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.side-header-text {
   color: #00C24B;
-  font-weight: bold;
+  font-size: 48px;
+  padding-bottom: 15px;
 }
