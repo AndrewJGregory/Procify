@@ -7,19 +7,20 @@
 .greeting-side {
   display: flex;
   flex-direction: column;
-  height: 300px;
-  width: 200px;
+  width: 100%;
   text-align: center;
+  justify-content: center;
 }
 
 .separator-text {
   text-transform: uppercase;
+  padding: 10px 0;
 }
 
 .session-link {
   background-color: #00C24B;
   height: 25px;
-  width: 250px;
+  width: 100%;
   border-radius: 10px;
   text-transform: uppercase;
   color: white;
@@ -28,12 +29,18 @@
 }
 
 .login-link {
-  background-color: white;
+  background-color: red;
   color: black;
 }
 
 .logo {
   padding-bottom: 10px;
+}
+
+.greeting-ul li:before {
+  content: '✓';
+  color: 'green';
+  font-size: 24px;
 }
 
 h1 {

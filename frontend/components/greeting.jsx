@@ -21,7 +21,7 @@ class Greeting extends React.Component {
           <section className='greeting-side'>
             <h1>Get awesome music, all the time.</h1>
             <h3>Listen to billions of songs for free.</h3>
-            <ul>
+            <ul className='greeting-ul'>
               <li>Find new music you'll love</li>
               <li>Create playlists of your favorite music</li>
             </ul>
