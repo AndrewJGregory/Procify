@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './navbar';
 
 class InnerCollection extends React.Component {
   constructor(props) {
@@ -8,9 +9,11 @@ class InnerCollection extends React.Component {
   render() {
     return (
       <section id="inner-collection">
+        <NavBar />
         "Hey from the inner collection"
       </section>
     );
   }
 }
+
 export default InnerCollection;

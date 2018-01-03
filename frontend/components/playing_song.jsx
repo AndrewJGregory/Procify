@@ -13,4 +13,5 @@ class PlayingSong extends React.Component {
     );
   }
 }
+
 export default PlayingSong;
