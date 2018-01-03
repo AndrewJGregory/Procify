@@ -46,14 +46,22 @@ class SessionForm extends React.Component {
 
     if (this.props.errors.password) {
       passwordErrorClass = 'invalid-input';
-      this.props.errors.password = this.props.errors.password.slice(0,1);
     }
 
+    let errorHeader;
+    if (this.props.errors.credentials) {
+      errorHeader =
+      <header className='error-header'>
+        {this.props.errors.credentials}
+      </header>;
+    }
     return (
       <main className='session-page'>
-        <header className='logo-header'>Procify img</header>
-        
+        <header className='logo-header'>
+          Procify img
+        </header>
         <form className='session-form' onSubmit={this.handleSubmit}>
+          {errorHeader}
           <input type='text'
             value={this.state.username}
             placeholder='Username'
