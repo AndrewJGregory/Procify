@@ -11,9 +11,9 @@
 #
 
 class User < ApplicationRecord
-  validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password_digest, :session_token, presence: true
+  validates :username, presence: { message: "Please enter your Procify username." }, uniqueness: { message: "Username has already been taken. Try another username."}
+  validates :password, length: { minimum: 6, allow_nil: true, message: "Your password is too short. Minimum is 6 characters." }
 
   attr_reader :password
   after_initialize :ensure_session_token

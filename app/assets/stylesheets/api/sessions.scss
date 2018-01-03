@@ -34,7 +34,26 @@ input {
   margin: 20px 0;
 }
 
-.session-link {
-  height: 100px;
+.session-form .session-link {
+  background-color: #00C24B;
+  height: 50px;
+  width: 280px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+  padding: 10px 0;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+.invalid-input {
+  border: 1px solid red;
+}
+
+.session-error {
+  color: red;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
 }

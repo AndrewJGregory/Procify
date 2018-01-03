@@ -21,6 +21,10 @@ class SessionForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   render() {
     let otherFormType, otherFormText, otherLinkText;
     if (this.props.formType === 'log in') {
@@ -33,23 +37,40 @@ class SessionForm extends React.Component {
       otherFormText = 'Already have an account? ';
     }
 
+    let usernameErrorClass = '';
+    let passwordErrorClass = '';
+
+    if (this.props.errors.username) {
+      usernameErrorClass = 'invalid-input';
+    }
+
+    if (this.props.errors.password) {
+      passwordErrorClass = 'invalid-input';
+      this.props.errors.password = this.props.errors.password.slice(0,1);
+    }
+
     return (
       <main className='session-page'>
         <header className='logo-header'>Procify img</header>
+        
         <form className='session-form' onSubmit={this.handleSubmit}>
           <input type='text'
             value={this.state.username}
             placeholder='Username'
-            className='session-form-input'
+            className={`session-form-input ${usernameErrorClass}`}
             onChange={this.updateInput('username')}
+            onFocus={() => this.props.clearErrors()}
             />
+          <h4 className='session-error'>{this.props.errors.username}</h4>
           <br />
           <input type='text'
             value={this.state.password}
             placeholder='Password'
-            className='session-form-input'
+            className={`session-form-input ${passwordErrorClass}`}
             onChange={this.updateInput('password')}
+            onFocus={() => this.props.clearErrors()}
             />
+          <h4 className='session-error'>{this.props.errors.password}</h4>
           <br />
           <button className='session-link'>
             {this.props.formType}

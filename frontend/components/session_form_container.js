@@ -2,13 +2,21 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { login, signup } from '../actions/session_actions';
 import { withRouter } from 'react-router-dom';
+import { receiveErrors } from '../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let formType = 'log in';
+  // pass errors here
   if (ownProps.match.path === '/signup') {
     formType = 'sign up';
   }
-  return { formType, };
+
+  const errors = {
+    username: state.errors.session.username,
+    password: state.errors.session.password,
+  };
+
+  return { formType, errors };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -17,7 +25,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     submitForm = signup;
   }
   return {
-    submitForm: user => dispatch(submitForm(user))
+    submitForm: user => dispatch(submitForm(user)),
+    clearErrors: () => dispatch(receiveErrors({}))
   };
 };
 
