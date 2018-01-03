@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     this.props.submitForm(this.state).then(() => {
-      this.props.history.push('/');
+      this.props.history.push('/collection/playlists');
     });
   }
 
