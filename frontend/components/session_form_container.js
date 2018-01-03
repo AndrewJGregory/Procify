@@ -6,7 +6,6 @@ import { receiveErrors } from '../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let formType = 'log in';
-  // pass errors here
   if (ownProps.match.path === '/signup') {
     formType = 'sign up';
   }
