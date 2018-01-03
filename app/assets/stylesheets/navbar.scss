@@ -1,8 +1,12 @@
 #nav-bar-ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.nav-bar {
-  text-align: right;
+.new-playlist-link {  
+  height: 36px;
+  width: 183px;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 2px;
 }
