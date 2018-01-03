@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewPlaylistForm from './new_playlist_form';
+import {NewPlaylistFormContainer} from './playlist_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showPlaylist: false };
-    this.handleClick = this.handleClick.bind(this);
+    this.displayForm = this.displayForm.bind(this);
   }
 
-  handleClick() {
-    this.setState({showPlaylist: !this.state.showPlaylist });
+  displayForm() {
+    this.props.swapPlaylistFormShow();
   }
 
   render() {
-    const form = (this.state.showPlaylist ? <NewPlaylistForm /> : null);
+    const form = (
+      this.props.isPlaylistFormDisplayed ? <NewPlaylistFormContainer /> : null
+    );
+
     return (
       <section className='nav-bar'>
         {form}
@@ -25,7 +27,7 @@ class NavBar extends React.Component {
           <Link to='/collection/artists'><li>Artists</li></Link>
         </ul>
         <button className='session-link new-playlist-link'
-          onClick={this.handleClick}>
+          onClick={this.displayForm}>
         new playlist
         </button>
       </section>

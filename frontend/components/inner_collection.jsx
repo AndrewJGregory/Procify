@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './navbar';
+import {NavBarContainer} from './playlist_form_container';
 
 class InnerCollection extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class InnerCollection extends React.Component {
   render() {
     return (
       <section id="inner-collection">
-        <NavBar />
+        <NavBarContainer />
         "Hey from the inner collection"
       </section>
     );
