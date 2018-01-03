@@ -24,10 +24,12 @@ class Greeting extends React.Component {
             <h3 className='separator-text'>already have an account?</h3>
             <Link className='session-link login-link'
               to='/login'>log in</Link>
-            <h3 className='separator-text'>Just looking around? Try a guest demo: </h3>
-            <button onClick={this.handleLogin}>
-              Guest Demo
-            </button>
+            <section className='guest-side'>
+              <h3 className='separator-text guest-info-text'>Just looking around? Try a guest demo: </h3>
+              <button onClick={this.handleLogin} className='session-link guest-login-link'>
+                Guest Demo
+              </button>
+            </section>
           </section>
           <section className='greeting-side-right'>
             <h1 className='side-header-text'>

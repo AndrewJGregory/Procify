@@ -45,6 +45,7 @@
   color: white;
   font-size: 24px;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 .login-link {
@@ -73,4 +74,10 @@
   color: #00C24B;
   font-size: 48px;
   padding-bottom: 15px;
+}
+
+.guest-login-link {
+  height: 50px;
+  background-color: cornflowerblue;
+  border: 0;
 }
