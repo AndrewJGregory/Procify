@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import Greeting from './greeting';
-import { logout } from '../actions/session_actions';
-
-const mapStateToProps = state => {
-  return { currentUser: state.session.currentUser };
-};
+import { signup } from '../actions/session_actions';
 
 const mapDispatchToProps = dispatch => {
+  const randomNum = parseInt(Math.random()*1000);
+  const username = 'Guest'.concat(randomNum);
+  const password = 'abcdefghij';
+  const user = {username, password};
+
   return {
-    logout: () => dispatch(logout())
+    loginAsGuest: () => dispatch(signup(user)),
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Greeting);

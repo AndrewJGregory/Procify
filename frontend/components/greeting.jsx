@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Greeting extends React.Component {
   constructor(props) {
     super(props);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  handleLogin() {
+    this.props.loginAsGuest().then(() => {
+      this.props.history.push('/collection/playlists');
+    });
   }
 
   render() {
@@ -17,6 +24,10 @@ class Greeting extends React.Component {
             <h3 className='separator-text'>already have an account?</h3>
             <Link className='session-link login-link'
               to='/login'>log in</Link>
+            <h3 className='separator-text'>Just looking around? Try a guest demo: </h3>
+            <button onClick={this.handleLogin}>
+              Guest Demo
+            </button>
           </section>
           <section className='greeting-side-right'>
             <h1 className='side-header-text'>
