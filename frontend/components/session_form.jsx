@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
             />
           <h4 className='session-error'>{this.props.errors.username}</h4>
           <br />
-          <input type='text'
+          <input type='password'
             value={this.state.password}
             placeholder='Password'
             className={`session-form-input ${passwordErrorClass}`}
