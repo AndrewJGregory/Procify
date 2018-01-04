@@ -23,12 +23,19 @@
 }
 
 .session-form-input {
-  padding: 13.5px;
+  padding: 4.5px;
   text-align: left;
   width: 421px;
   &:focus {
     border: 1px solid #909496;
   }
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  border-radius: 1px;
+}
+
+::placeholder {
+  color: #cdcfd3;
 }
 
 .session-form .session-link {
