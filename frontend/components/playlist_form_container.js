@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import Navbar from './navbar';
 import NewPlaylistForm from './new_playlist_form';
-import { swapPlaylistFormShow } from '../actions/playlist_actions';
+import { swapPlaylistFormShow, createNewPlaylist } from '../actions/playlist_actions';
 
 const mapStateToProps = state => {
   return {
-    isPlaylistFormDisplayed: state.ui.isPlaylistFormDisplayed
+    isPlaylistFormDisplayed: state.ui.isPlaylistFormDisplayed,
+    user_id: state.session.currentUser.id
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     swapPlaylistFormShow: () => dispatch(swapPlaylistFormShow()),
+    createNewPlaylist: playlist => dispatch(createNewPlaylist(playlist))
   };
 };
 
