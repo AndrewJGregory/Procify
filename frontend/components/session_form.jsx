@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateInput = this.updateInput.bind(this);
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -21,11 +22,7 @@ class SessionForm extends React.Component {
       this.setState({ [type]: e.target.value });
     };
   }
-
-  componentWillMount() {
-    this.props.clearErrors();
-  }
-
+  
   render() {
     let otherFormType, otherFormText, otherLinkText;
     if (this.props.formType === 'log in') {

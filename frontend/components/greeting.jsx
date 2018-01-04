@@ -20,17 +20,27 @@ class Greeting extends React.Component {
           <section className='greeting-side'>
             <div className='logo'>LOGO Procify</div>
             <Link className='session-link'
-              to='/signup'>sign up</Link>
-            <h3 className='separator-text'>already have an account?</h3>
+              to='/signup'>
+              sign up
+            </Link>
+            <div className='separator-text-with-lines'>
+              <div className='horizontal-separator-line'>
+              </div>
+              <h3 className='separator-text'>already have an account?</h3>
+              <div className='horizontal-separator-line'>
+              </div>
+            </div>
             <Link className='session-link login-link'
               to='/login'>log in</Link>
             <section className='guest-side'>
-              <h3 className='separator-text guest-info-text'>Just looking around? Try a guest demo: </h3>
+              <h3 className='separator-text guest-info-text'>Just looking around? </h3>
               <button onClick={this.handleLogin} className='session-link guest-login-link'>
                 Guest Demo
               </button>
             </section>
           </section>
+          <div className='vertical-separator-line'>
+          </div>
           <section className='greeting-side-right'>
             <h1 className='side-header-text'>
               Get awesome music, all the time.

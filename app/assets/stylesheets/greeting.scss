@@ -16,7 +16,7 @@
 .greeting-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 700px;
   font-family: 'Oswald', sans-serif;
@@ -25,28 +25,35 @@
 .greeting-side {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 315px;
   text-align: center;
   justify-content: center;
 }
 
 .separator-text {
   text-transform: uppercase;
-  padding: 10px 0;
-  color: white;
+  padding: 30px 0;
+  color: #AAA8AF;
+  font-family: 'Mukta Malar', sans-serif;
+  letter-spacing: 1.25px;
+  width: 315px;
 }
 
 .session-link {
   background-color: #00C24B;
-  height: 25px;
-  width: 280px;
+  height: 40px;
+  width: inherit;
   border-radius: 50px;
   text-transform: uppercase;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px 0;
   cursor: pointer;
   letter-spacing: 3px;
+  line-height: 40px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 1.25px;
 }
 
 .login-link {
@@ -62,23 +69,58 @@
   content: '✓';
   color: green;
   font-size: 24px;
+  padding-right: 15px;
 }
 
 .side-content-text, .greeting-ul {
   color: white;
   font-size: 20px;
-  padding-top: 10px;
   text-align: left;
+  font-family: 'Heebo', sans-serif;
+}
+
+
+.side-content-text {
+  margin: 40px 0;
+  letter-spacing: 1.0px;
+}
+
+.greeting-ul {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.greeting-ul li {
+  padding: 5px 0;
 }
 
 .side-header-text {
-  color: #00C24B;
+  color: #00DB4D;
   font-size: 48px;
   padding-bottom: 15px;
 }
 
 .guest-login-link {
-  height: 50px;
   background-color: cornflowerblue;
   border: 0;
+  height: inherit;
+  width: 315px;
+}
+
+.vertical-separator-line {
+  border: 1px solid gray;
+  height: 500px;
+  margin: 0 50px;
+}
+
+.separator-text-with-lines {
+  display: flex;
+  justify-content: space-between;
+}
+
+.horizontal-separator-line {
+  border: 1px solid gray;
+  width: 25px;
+  height: 0;
+  margin-top: 35px;
 }
