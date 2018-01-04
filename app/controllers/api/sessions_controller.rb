@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
 
     errors = {}
     if params[:user][:username].empty?
-      errors[:username] = "Plese enter your Procify username."
+      errors[:username] = "Please enter your Procify username."
     end
 
     if params[:user][:password].empty?

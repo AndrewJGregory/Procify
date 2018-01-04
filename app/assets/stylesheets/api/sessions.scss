@@ -6,47 +6,46 @@
 .logo-header {
   text-align: center;
   padding: 10px;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid #D9DADC;
+  margin-bottom: 15px;
+  height: 100px;
 }
 
 .form-link {
   color: green;
 }
 
-input {
-  padding: 10px;
-  text-align: left;
-}
-
 .session-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.session-form, .session-link {
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
+  align-items: center;
 }
 
 .session-form-input {
-  margin: 20px 0;
+  padding: 13.5px;
+  text-align: left;
+  width: 421px;
+  &:focus {
+    border: 1px solid #909496;
+  }
 }
 
 .session-form .session-link {
-  background-color: #00C24B;
-  height: 50px;
-  width: 280px;
+  background-color: #00AB42;
+  height: 35px;
+  width: 210px;
   border-radius: 50px;
   text-transform: uppercase;
   color: white;
-  font-size: 24px;
+  font-size: 14px;
   padding: 10px 0;
   cursor: pointer;
   margin-bottom: 10px;
+  text-align: center;
+  line-height: 15px;
+  letter-spacing: 2px;
 }
-
 
 .invalid-input {
   border: 1px solid red;
@@ -55,12 +54,23 @@ input {
 .session-error {
   color: red;
   text-align: left;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 450px;
+  margin-top: 10px;
 }
 
 .error-header {
-  background-color: #FF9A00; // orange
+  background-color: #FF9A00;
   padding: 15px;
-  margin-top: 10px;
+  margin: 20px 0;
   color: white;
+  width: 420px;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.session-link-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 450px;
 }

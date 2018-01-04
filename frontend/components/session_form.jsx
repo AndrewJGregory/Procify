@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
       this.setState({ [type]: e.target.value });
     };
   }
-  
+
   render() {
     let otherFormType, otherFormText, otherLinkText;
     if (this.props.formType === 'log in') {
@@ -78,10 +78,11 @@ class SessionForm extends React.Component {
             />
           <h4 className='session-error'>{this.props.errors.password}</h4>
           <br />
-          <button className='session-link'>
-            {this.props.formType}
-          </button>
-
+          <div className='session-link-container'>
+            <button className='session-link'>
+              {this.props.formType}
+            </button>
+          </div>
           <h4>
             {otherFormText}
             <Link className='form-link' to={otherLinkText}>{otherFormType}</Link>
