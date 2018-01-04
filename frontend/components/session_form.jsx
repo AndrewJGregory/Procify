@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
     };
   }
 
-  render() {
+  _otherFormInfo() {
     let otherFormType, otherFormText, otherLinkText;
     if (this.props.formType === 'log in') {
       otherFormType = 'Sign up';
@@ -34,7 +34,10 @@ class SessionForm extends React.Component {
       otherLinkText = '/login';
       otherFormText = 'Already have an account? ';
     }
+    return {otherFormType, otherFormText, otherLinkText};
+  }
 
+  _errorInfo() {
     let usernameErrorClass = '';
     let passwordErrorClass = '';
 
@@ -46,13 +49,21 @@ class SessionForm extends React.Component {
       passwordErrorClass = 'invalid-input';
     }
 
-    let errorHeader;
+    let errorHeader = null;
     if (this.props.errors.credentials) {
       errorHeader =
       <header className='error-header'>
         {this.props.errors.credentials}
       </header>;
     }
+    return {usernameErrorClass, passwordErrorClass, errorHeader};
+  }
+
+  render() {
+    const {otherFormType, otherFormText, otherLinkText} = this._otherFormInfo();
+
+    const {usernameErrorClass, passwordErrorClass, errorHeader} = this._errorInfo();
+
     return (
       <main className='session-page'>
         <header className='logo-header'>
