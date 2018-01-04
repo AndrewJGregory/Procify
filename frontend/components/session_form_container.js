@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   const errors = {
     username: state.errors.session.username,
     password: state.errors.session.password,
+    email: state.errors.session.email,
     credentials: state.errors.session.credentials
   };
 

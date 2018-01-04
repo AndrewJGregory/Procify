@@ -4,7 +4,13 @@ import { Link, Redirect } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = {
+      username: '',
+      email: '',
+      confirmEmail: '',
+      password: '',
+      birthday: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateInput = this.updateInput.bind(this);
     this.props.clearErrors();
@@ -12,7 +18,10 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state).then(() => {
+    const user =  Object.assign({}, this.state);
+    delete user['confirmEmail'];
+
+    this.props.submitForm(user).then(() => {
       this.props.history.push('/collection/playlists');
     });
   }
@@ -23,7 +32,7 @@ class SessionForm extends React.Component {
     };
   }
 
-  _otherFormInfo() {
+  _generateFormInfo() {
     let otherFormType, otherFormText, otherLinkText;
     if (this.props.formType === 'log in') {
       otherFormType = 'Sign up';
@@ -37,7 +46,7 @@ class SessionForm extends React.Component {
     return {otherFormType, otherFormText, otherLinkText};
   }
 
-  _errorInfo() {
+  _generateErrorInfo() {
     let usernameErrorClass = '';
     let passwordErrorClass = '';
 
@@ -56,13 +65,94 @@ class SessionForm extends React.Component {
         {this.props.errors.credentials}
       </header>;
     }
+
     return {usernameErrorClass, passwordErrorClass, errorHeader};
   }
 
-  render() {
-    const {otherFormType, otherFormText, otherLinkText} = this._otherFormInfo();
+  _generateFieldsAbovePassword(otherFormType, usernameErrorClass) {
+    let fieldsAbovePassword = (
+      <input type='text'
+        value={this.state.email}
+        placeholder='Username'
+        className={`session-form-input ${usernameErrorClass}`}
+        onChange={this.updateInput('username')}
+        onFocus={() => this.props.clearErrors()}
+        />
+    );
 
-    const {usernameErrorClass, passwordErrorClass, errorHeader} = this._errorInfo();
+    if (otherFormType === 'Log in') {
+      fieldsAbovePassword = (
+        <section className='email-fields'>
+          <input type='text'
+            value={this.state.email}
+            placeholder='Email'
+            className={`session-form-input`}
+            onChange={this.updateInput('email')}
+            onFocus={() => this.props.clearErrors()}
+            />
+          <input type='text'
+            value={this.state.confirmEmail}
+            placeholder='Confirm email'
+            className={`session-form-input`}
+            onChange={this.updateInput('confirmEmail')}
+            onFocus={() => this.props.clearErrors()}
+            />
+        </section>
+      );
+    }
+    return fieldsAbovePassword;
+  }
+
+  _generateFieldsBelowPassword(otherFormType, usernameErrorClass) {
+
+    let fieldsBelowPassword = null;
+    if (otherFormType === 'Log in') {
+      fieldsBelowPassword = (
+        <section
+          className='fields-below-password-input'>
+          <input type='text'
+            value={this.state.username}
+            placeholder='What should we call you?'
+            className={`session-form-input ${usernameErrorClass}`}
+            onChange={this.updateInput('username')}
+            onFocus={() => this.props.clearErrors()}
+            />
+          <input type='date'
+            value={this.state.birthday}
+            className={`session-form-input`}
+            onChange={this.updateInput('birthday')}
+            onFocus={() => this.props.clearErrors()}
+            />
+        </section>
+      );
+    }
+
+    return fieldsBelowPassword;
+  }
+
+  render() {
+    const {
+      otherFormType,
+      otherFormText,
+      otherLinkText
+    } = this._generateFormInfo();
+
+    const {
+      usernameErrorClass,
+      passwordErrorClass,
+      errorHeader
+    } = this._generateErrorInfo();
+
+    const fieldsAbovePassword =
+    this._generateFieldsAbovePassword(
+      otherFormType, usernameErrorClass
+    );
+
+
+    const fieldsBelowPassword =
+    this._generateFieldsBelowPassword(
+      otherFormType, usernameErrorClass
+    );
 
     return (
       <main className='session-page'>
@@ -71,14 +161,9 @@ class SessionForm extends React.Component {
         </header>
         <form className='session-form' onSubmit={this.handleSubmit}>
           {errorHeader}
-          <input type='text'
-            value={this.state.username}
-            placeholder='Username'
-            className={`session-form-input ${usernameErrorClass}`}
-            onChange={this.updateInput('username')}
-            onFocus={() => this.props.clearErrors()}
-            />
-          <h4 className='session-error'>{this.props.errors.username}</h4>
+          {fieldsAbovePassword}
+          <h4 className='session-error'>{this.props.errors.username}
+          </h4>
           <br />
           <input type='password'
             value={this.state.password}
@@ -89,6 +174,7 @@ class SessionForm extends React.Component {
             />
           <h4 className='session-error'>{this.props.errors.password}</h4>
           <br />
+          {fieldsBelowPassword}
           <div className='session-link-container'>
             <button className='session-link'>
               {this.props.formType}
@@ -96,7 +182,8 @@ class SessionForm extends React.Component {
           </div>
           <h4>
             {otherFormText}
-            <Link className='form-link' to={otherLinkText}>{otherFormType}</Link>
+            <Link className='form-link'
+              to={otherLinkText}>{otherFormType}</Link>
           </h4>
         </form>
       </main>

@@ -8,10 +8,14 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  email           :string           not null
+#  birthday        :date             not null
 #
 
 class User < ApplicationRecord
   validates :password_digest, :session_token, presence: true
+  validates :email, presence: { message: "Please enter your email." }
+  validates :birthday, presence: { message: "When were you born?" }
   validates :username, presence: { message: "Please enter your Procify username." }, uniqueness: { message: "Username has already been taken. Try another username."}
   validates :password, length: { minimum: 6, allow_nil: true, message: "Your password is too short. Minimum is 6 characters." }
 

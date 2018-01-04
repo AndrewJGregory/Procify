@@ -3,7 +3,7 @@ import React from 'react';
 class NewPlaylistForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: '', user_id: this.props.user_id };
+    this.state = { title: '' };
     this.updateInput = this.updateInput.bind(this);
     this.createNewPlaylist = this.createNewPlaylist.bind(this);
   }
