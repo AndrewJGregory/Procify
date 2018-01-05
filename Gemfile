@@ -31,6 +31,8 @@ gem 'jquery-rails'
 gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "paperclip", '~> 5.0.0'
+gem 'aws-sdk', '< 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
@@ -42,8 +44,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'pry-rails'
-  gem "paperclip", '~> 5.0.0'
-  gem 'aws-sdk', '< 3.0'
   gem 'mp3info'
 end
 
