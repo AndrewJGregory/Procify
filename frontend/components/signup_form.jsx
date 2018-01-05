@@ -151,7 +151,7 @@ class SignupForm extends React.Component {
                     }
                     <div className='session-link-container'>
                       <button className='session-link'>
-                        {this.props.formType}
+                        log in
                       </button>
                     </div>
                     <h4>
