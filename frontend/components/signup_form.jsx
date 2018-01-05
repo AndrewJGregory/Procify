@@ -95,6 +95,7 @@ class SignupForm extends React.Component {
               <input type='text'
                 value={this.state.email}
                 placeholder='Email'
+                id='signup-form-element'
                 className={`session-form-input ${emailInputErrorClass}`}
                 onChange={this.updateInput('email')}
                 onFocus={() => this.clearAllErrors()}
@@ -106,6 +107,7 @@ class SignupForm extends React.Component {
                 <input type='text'
                   value={this.state.confirmEmail}
                   placeholder='Confirm email'
+                  id='signup-form-element'
                   className={`session-form-input
                     ${confirmEmailInputErrorClass}`}
                     onChange={this.updateInput('confirmEmail')}
@@ -115,6 +117,7 @@ class SignupForm extends React.Component {
                   <input type='password'
                     value={this.state.password}
                     placeholder='Password'
+                    id='signup-form-element'
                     className={`session-form-input
                       ${passwordInputErrorClass}`}
                       onChange={this.updateInput('password')}
@@ -127,6 +130,7 @@ class SignupForm extends React.Component {
                       <input type='text'
                         value={this.state.username}
                         placeholder='What should we call you?'
+                        id='signup-form-element'
                         className={`session-form-input ${usernameInputErrorClass}`}
                         onChange={this.updateInput('username')}
                         onFocus={() => this.clearAllErrors()}
@@ -143,6 +147,7 @@ class SignupForm extends React.Component {
                           </div>
                           <div className='birthday-inputs-container'>
                             <select
+                              id='signup-form-element'
                               className={`session-form-input
                               birthday-month-dropdown
                               ${birthdayInputErrorClass}`}
@@ -163,6 +168,7 @@ class SignupForm extends React.Component {
                               <option value="12">December</option>
                             </select>
                             <input type='number'
+                              id='signup-form-element'
                               value={this.state.birthdayDay}
                               placeholder='Day'
                               className={`session-form-input
@@ -171,6 +177,7 @@ class SignupForm extends React.Component {
                               onChange={this.updateInput('birthdayDay')}
                               ></input>
                             <input type='number'
+                              id='signup-form-element'
                               value={this.state.birthdayYear}
                               placeholder='Year'
                               className={`session-form-input

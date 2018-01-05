@@ -135,3 +135,8 @@
   font-size: 20px;
   font-weight: 600;
 }
+
+#signup-form-element:focus {
+  box-shadow: 0 0 5px rgba(80, 155, 245, 1);
+  border: 2px solid rgba(81, 155, 245, 1);
+}
