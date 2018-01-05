@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-rails'
   gem "paperclip", '~> 5.0.0'
   gem 'aws-sdk', '< 3.0'
+  gem 'mp3info'
 end
 
 group :development do

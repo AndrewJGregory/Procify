@@ -15,4 +15,6 @@ class Song < ApplicationRecord
   validates :title, :album_id, :artist_id, :playlist_id, presence: true
   has_attached_file :musicfile, default_url: "missing.png"
   validates_attachment_content_type :musicfile, content_type: /\Aaudio\/.*\Z/
+
+  
 end
