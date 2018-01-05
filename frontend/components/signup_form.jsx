@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
     this.confirmEmailErrorMessage = "Email address doesn't match.";
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateInput = this.updateInput.bind(this);
-    this.clearErrors();
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -36,11 +36,6 @@ class SignupForm extends React.Component {
       this.props.history.push('/collection/playlists');
     });
   }
-}
-
-clearErrors() {
-  this.props.clearErrors();
-  this.setState({isSameEmail: true});
 }
 
 updateInput(type) {
@@ -62,6 +57,11 @@ _formatUserObject() {
   delete user['birthdayMonth'];
   delete user['isSameEmail'];
   return user;
+}
+
+clearAllErrors() {
+  this.props.clearErrors();
+  this.setState({isSameEmail: true});
 }
 
 render() {
@@ -93,7 +93,7 @@ render() {
               placeholder='Email'
               className={`session-form-input ${emailInputErrorClass}`}
               onChange={this.updateInput('email')}
-              onFocus={() => this.clearErrors()}
+              onFocus={() => this.clearAllErrors()}
               />
             {
               errorUtil.generateErrorElement(
@@ -105,7 +105,7 @@ render() {
                 className={`session-form-input
                   ${confirmEmailInputErrorClass}`}
                   onChange={this.updateInput('confirmEmail')}
-                  onFocus={() => this.clearErrors()}
+                  onFocus={() => this.clearAllErrors()}
                   />
                 {confirmEmailErrorElement}
                 <input type='password'
@@ -114,7 +114,7 @@ render() {
                   className={`session-form-input
                     ${passwordInputErrorClass}`}
                     onChange={this.updateInput('password')}
-                    onFocus={() => this.clearErrors()}
+                    onFocus={() => this.clearAllErrors()}
                     />
                   {
                     errorUtil.generateErrorElement(
@@ -125,7 +125,7 @@ render() {
                       placeholder='What should we call you?'
                       className={`session-form-input ${usernameInputErrorClass}`}
                       onChange={this.updateInput('username')}
-                      onFocus={() => this.clearErrors()}
+                      onFocus={() => this.clearAllErrors()}
                       />
                     {
                       errorUtil.generateErrorElement(
