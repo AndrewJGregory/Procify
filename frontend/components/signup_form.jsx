@@ -70,6 +70,7 @@ class SignupForm extends React.Component {
       passwordInputErrorClass,
       emailInputErrorClass,
       confirmEmailInputErrorClass,
+      birthdayInputErrorClass,
       errorHeader
     } = errorUtil.generateInputErrorClasses(
       this.props.errors, this.state.isSameEmail);
@@ -87,6 +88,9 @@ class SignupForm extends React.Component {
           </header>
           <form className='session-form' onSubmit={this.handleSubmit}>
             <section className='session-form-contents'>
+              <h3 className='form-email-header-text'>
+                Sign up with your email address.
+              </h3>
               {errorHeader}
               <input type='text'
                 value={this.state.email}
@@ -139,8 +143,9 @@ class SignupForm extends React.Component {
                           </div>
                           <div className='birthday-inputs-container'>
                             <select
-                              className="session-form-input
-                              birthday-month-dropdown"
+                              className={`session-form-input
+                              birthday-month-dropdown
+                              ${birthdayInputErrorClass}`}
                               value={this.state.birthdayMonth}
                               onChange={this.updateInput('birthdayMonth')}>
                               <option disabled>Month</option>
@@ -160,13 +165,16 @@ class SignupForm extends React.Component {
                             <input type='number'
                               value={this.state.birthdayDay}
                               placeholder='Day'
-                              className='session-form-input birthday-input'
+                              className={`session-form-input
+                                birthdayDay-input
+                                ${birthdayInputErrorClass}`}
                               onChange={this.updateInput('birthdayDay')}
                               ></input>
                             <input type='number'
                               value={this.state.birthdayYear}
                               placeholder='Year'
-                              className='session-form-input'
+                              className={`session-form-input
+                                ${birthdayInputErrorClass}`}
                               onChange={this.updateInput('birthdayYear')}
                               ></input>
                           </div>

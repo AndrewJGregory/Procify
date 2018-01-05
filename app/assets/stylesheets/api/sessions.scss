@@ -8,7 +8,6 @@
   padding: 10px;
   border-bottom: 1px solid #D9DADC;
   margin-bottom: 15px;
-  height: 100px;
 }
 
 .form-link {
@@ -24,11 +23,11 @@
 }
 
 .session-form-input {
-  padding: 4.5px;
+  padding: 8.5px;
   text-align: left;
   width: 100%;
-  font-size: 20px;
-  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   margin: 15px 0px;
   background-color: white;
@@ -39,7 +38,7 @@
 }
 
 ::placeholder {
-  color: #A6AEB5;
+  color: #A0A0A0;
 }
 
 .session-form-contents .session-link {
@@ -58,7 +57,7 @@
 }
 
 .invalid-input {
-  border: 1px solid red;
+  border: 1px solid #BD3200;
 }
 
 .session-error {
@@ -73,7 +72,7 @@
   padding: 15px;
   margin: 20px 0;
   color: white;
-  width: 420px;
+  width: 100%;
   text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
   box-sizing: border-box;
@@ -95,6 +94,7 @@
 .birthday-form-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .birthday-inputs-container {
@@ -113,7 +113,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-.birthday-input {
+.birthdayDay-input {
   margin: 15px 20px;
 }
 
@@ -124,7 +124,14 @@
 }
 
 #dob-text {
-  margin: 0 0 -10px 0;
+  margin: 10px 0 -10px 0;
   padding: 0;
   color: #A6AEB5;
+}
+
+.form-email-header-text {
+  font-family: sans-serif;
+  letter-spacing: 1.25px;
+  font-size: 20px;
+  font-weight: 600;
 }

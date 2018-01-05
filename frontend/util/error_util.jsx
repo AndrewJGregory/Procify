@@ -5,6 +5,7 @@ export const generateInputErrorClasses = (errors, isSameEmail) => {
   let passwordInputErrorClass = '';
   let emailInputErrorClass = '';
   let confirmEmailInputErrorClass = '';
+  let birthdayInputErrorClass = '';
 
   if (errors.username) {
     usernameInputErrorClass = 'invalid-input';
@@ -18,8 +19,13 @@ export const generateInputErrorClasses = (errors, isSameEmail) => {
     emailInputErrorClass = 'invalid-input';
   }
 
+
   if (!isSameEmail) {
     confirmEmailInputErrorClass = 'invalid-input';
+  }
+
+  if (errors.birthday) {
+    birthdayInputErrorClass = 'invalid-input';
   }
 
   let errorHeader = null;
@@ -35,10 +41,11 @@ export const generateInputErrorClasses = (errors, isSameEmail) => {
     passwordInputErrorClass,
     emailInputErrorClass,
     confirmEmailInputErrorClass,
+    birthdayInputErrorClass,
     errorHeader
   };
 };
 
 export const generateErrorElement = (errors, errorField) => {
   return <h4 className='session-error'>{errors[errorField]}</h4>;
-};
+  };
