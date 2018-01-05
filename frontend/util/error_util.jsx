@@ -30,7 +30,6 @@ export const generateInputErrorClasses = (errors, isSameEmail) => {
     </header>;
   }
 
-
   return {
     usernameInputErrorClass,
     passwordInputErrorClass,

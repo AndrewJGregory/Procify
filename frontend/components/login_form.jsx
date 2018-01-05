@@ -61,10 +61,10 @@ class LoginForm extends React.Component {
                 Log in
               </button>
             </div>
-            <h4>
+            <h4 className='otherFormText'>
               Don't have an account?
               <Link className='form-link'
-                to='/signup'> sign up</Link>
+                to='/signup'> Sign up</Link>
             </h4>
           </section>
         </form>

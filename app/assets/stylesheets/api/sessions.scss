@@ -13,6 +13,7 @@
 
 .form-link {
   color: green;
+  font-family: 'Roboto', sans-serif;
 }
 
 .session-form {
@@ -32,7 +33,9 @@
   font-size: 20px;
   font-family: 'Work Sans', sans-serif;
   box-sizing: border-box;
-  margin: 15px 0;
+  margin: 15px 0px;
+  background-color: white;
+  color: #cdcfd3;
 }
 
 ::placeholder {
@@ -41,18 +44,17 @@
 
 .session-form-contents .session-link {
   background-color: #00AB42;
-  height: 35px;
+  height: 50px;
   width: 210px;
   border-radius: 50px;
   text-transform: uppercase;
   color: white;
   font-size: 14px;
-  padding: 10px 0;
   cursor: pointer;
-  margin-bottom: 10px;
   text-align: center;
   line-height: 15px;
   letter-spacing: 2px;
+  margin: 10px 0px;
 }
 
 .invalid-input {
@@ -60,7 +62,7 @@
 }
 
 .session-error {
-  color: red;
+  color: #BD3200;
   text-align: left;
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
@@ -89,6 +91,27 @@
   align-items: center;
 }
 
+.birthday-inputs-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#signup-btn {
+  width: 100%;
+  &:hover {
+    background-color: #00E155;
+  }
+}
+
+.otherFormText {
+  font-family: 'Lato', sans-serif;
+}
+
+.birthday-input {
+  margin: 15px 20px;
+}
+
 .birthday-month-dropdown {
-  font-size: inherit;
+  width: 200%;
+  border-color: #cdcfd3;
 }
