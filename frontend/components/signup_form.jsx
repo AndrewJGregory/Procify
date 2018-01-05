@@ -169,7 +169,7 @@ render() {
                         </section>
                         <div className='session-link-container'>
                           <button className='session-link'>
-                            log in
+                            sign up
                           </button>
                         </div>
                         <h4>

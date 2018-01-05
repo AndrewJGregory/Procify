@@ -58,7 +58,7 @@ class LoginForm extends React.Component {
             <h4 className='session-error'>{this.props.errors.password}</h4>
             <div className='session-link-container'>
               <button className='session-link'>
-                {'log in'}
+                Log in
               </button>
             </div>
             <h4>
