@@ -15,6 +15,10 @@
       user: current_user
     ).html_safe %>
   <% end %>
+
+  window.staticImages = {
+    checkmark: '<%= asset_url('checkmark.png') %>'
+  }
 </script>
 <body>
   <%= yield %>

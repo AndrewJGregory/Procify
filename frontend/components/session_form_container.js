@@ -1,23 +1,11 @@
 import { connect } from 'react-redux';
-import SessionForm from './session_form';
+import LoginForm from './login_form';
+import SignupForm from './signup_form';
 import { login, signup } from '../actions/session_actions';
-import { withRouter } from 'react-router-dom';
 import { receiveErrors } from '../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  let formType = 'log in';
-  if (ownProps.match.path === '/signup') {
-    formType = 'sign up';
-  }
-
-  const errors = {
-    username: state.errors.session.username,
-    password: state.errors.session.password,
-    email: state.errors.session.email,
-    credentials: state.errors.session.credentials
-  };
-
-  return { formType, errors };
+const mapStateToProps = state => {
+  return { errors: state.errors.session };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -25,13 +13,21 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   if (ownProps.match.path.includes('signup')) {
     submitForm = signup;
   }
+
   return {
     submitForm: user => dispatch(submitForm(user)),
     clearErrors: () => dispatch(receiveErrors({}))
   };
 };
 
-export default withRouter(connect(
+export const LoginFormContainer =
+connect(
   mapStateToProps,
   mapDispatchToProps
-)(SessionForm));
+)(LoginForm);
+
+export const SignupFormContainer =
+connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignupForm);

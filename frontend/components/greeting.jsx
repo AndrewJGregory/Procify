@@ -49,8 +49,8 @@ class Greeting extends React.Component {
               Listen to billions of songs for free.
             </h3>
             <ul className='greeting-ul'>
-              <li>Find new music you'll love</li>
-              <li>Create playlists of your favorite music</li>
+              <li><img src={window.staticImages.checkmark}></img>Find new music you'll love</li>
+              <li><img src={window.staticImages.checkmark}></img>Create playlists of your favorite music</li>
             </ul>
           </section>
         </div>

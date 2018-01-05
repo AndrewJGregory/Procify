@@ -120,7 +120,6 @@ class SessionForm extends React.Component {
           <input type='date'
             value={this.state.birthday}
             className={`session-form-input`}
-            onChange={this.updateInput('birthday')}
             onFocus={() => this.props.clearErrors()}
             />
         </section>
@@ -190,4 +189,3 @@ class SessionForm extends React.Component {
     );
   }
 }
-export default SessionForm;
