@@ -9,7 +9,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  email           :string           not null
-#  birthday        :date             not null
+#  birthday        :datetime         not null
 #
 
 class User < ApplicationRecord

@@ -14,7 +14,7 @@ class SignupForm extends React.Component {
       birthdayDay: '',
       birthdayMonth: 'Month',
       birthday: '',
-      isSameEmail: true,
+      isSameEmail: true
     };
     this.confirmEmailErrorMessage = "Email address doesn't match.";
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,13 +24,16 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let isSameEmail = true;
     if (this.state.email !== this.state.confirmEmail) {
       this.setState({isSameEmail: false});
+      isSameEmail = false;
     } else {
       this.setState({isSameEmail: true});
+      isSameEmail = true;
     }
 
-    if (this.state.isSameEmail) {
+    if (isSameEmail) {
       const user = this._formatUserObject();
       this.props.submitForm(user).then(() => {
         this.props.history.push('/collection/playlists');
@@ -45,7 +48,7 @@ class SignupForm extends React.Component {
   }
 
   _formatBirthday() {
-    return `${this.state.birthdayYear}-${this.state.birthdayDay}-${this.state.birthdayMonth}`;
+    return `${this.state.birthdayYear}-${this.state.birthdayDay}-${this.state.birthdayMonth} 00:00:00`;
   }
 
   _formatUserObject() {
@@ -92,7 +95,7 @@ class SignupForm extends React.Component {
                 Sign up with your email address.
               </h3>
               {errorHeader}
-              <input type='text'
+              <input type='email'
                 value={this.state.email}
                 placeholder='Email'
                 className={`session-form-input
@@ -105,7 +108,7 @@ class SignupForm extends React.Component {
                 errorUtil.generateErrorElement(
                   this.props.errors, 'email')
                 }
-                <input type='text'
+                <input type='email'
                   value={this.state.confirmEmail}
                   placeholder='Confirm email'
                   className={`session-form-input
