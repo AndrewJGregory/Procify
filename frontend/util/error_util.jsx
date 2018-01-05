@@ -1,9 +1,10 @@
 import React from 'react';
 
-export const generateInputErrorClasses = (errors) => {
+export const generateInputErrorClasses = (errors, isSameEmail) => {
   let usernameInputErrorClass = '';
   let passwordInputErrorClass = '';
   let emailInputErrorClass = '';
+  let confirmEmailInputErrorClass = '';
 
   if (errors.username) {
     usernameInputErrorClass = 'invalid-input';
@@ -17,6 +18,10 @@ export const generateInputErrorClasses = (errors) => {
     emailInputErrorClass = 'invalid-input';
   }
 
+  if (!isSameEmail) {
+    confirmEmailInputErrorClass = 'invalid-input';
+  }
+
   let errorHeader = null;
   if (errors.credentials) {
     errorHeader =
@@ -25,43 +30,16 @@ export const generateInputErrorClasses = (errors) => {
     </header>;
   }
 
+
   return {
     usernameInputErrorClass,
     passwordInputErrorClass,
     emailInputErrorClass,
+    confirmEmailInputErrorClass,
     errorHeader
   };
 };
 
-export const generateElementErrorClasses = (errors) => {
-  let usernameErrorElementClass = null;
-  let passwordErrorElementClass = null;
-  let emailErrorElementClass = null;
-  let birthdayErrorElementClass = null;
-  if (errors.username) {
-    usernameErrorElementClass = 'session-error';
-  }
-
-  if (errors.password) {
-    passwordErrorElementClass = 'session-error';
-  }
-
-  if (errors.email) {
-    emailErrorElementClass = 'session-error';
-  }
-
-  if (errors.birthday) {
-    birthdayErrorElementClass = 'session-error';
-  }
-
-  return {
-    usernameErrorElementClass,
-    passwordErrorElementClass,
-    emailErrorElementClass,
-    birthdayErrorElementClass
-  };
-};
-
-export const generateErrorElement = (errors, errorText, errorField) => {
+export const generateErrorElement = (errors, errorField) => {
   return <h4 className='session-error'>{errors[errorField]}</h4>;
-  };
+};
