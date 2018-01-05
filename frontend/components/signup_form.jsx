@@ -131,42 +131,50 @@ class SignupForm extends React.Component {
                         errorUtil.generateErrorElement(
                           this.props.errors, 'username')
                         }
-                        <section className='birthday-inputs-container'>
-                          <select
-                            className="birthday-month-dropdown session-form-input"
-                            value={this.state.birthdayMonth}
-                            onChange={this.updateInput('birthdayMonth')}>
-                            <option disabled>Month</option>
-                            <option value="01">January</option>
-                            <option value="02">February</option>
-                            <option value="03">March</option>
-                            <option value="04">April</option>
-                            <option value="05">May</option>
-                            <option value="06">June</option>
-                            <option value="07">July</option>
-                            <option value="08">August</option>
-                            <option value="09">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                          </select>
-                          <input type='number'
-                            value={this.state.birthdayDay}
-                            placeholder='Day'
-                            className='session-form-input birthday-input'
-                            onChange={this.updateInput('birthdayDay')}
-                            ></input>
-                          <input type='number'
-                            value={this.state.birthdayYear}
-                            placeholder='Year'
-                            className='session-form-input'
-                            onChange={this.updateInput('birthdayYear')}
-                            ></input>
-                          </section>
-                          {
-                            errorUtil.generateErrorElement(
-                              this.props.errors, 'birthday')
-                            }
+                        <section className='birthday-form-container'>
+                          <div className='dob-text-container'>
+                            <h4 className='session-form-input'
+                              id='dob-text'
+                              >Date of birth:</h4>
+                          </div>
+                          <div className='birthday-inputs-container'>
+                            <select
+                              className="session-form-input
+                              birthday-month-dropdown"
+                              value={this.state.birthdayMonth}
+                              onChange={this.updateInput('birthdayMonth')}>
+                              <option disabled>Month</option>
+                              <option value="01">January</option>
+                              <option value="02">February</option>
+                              <option value="03">March</option>
+                              <option value="04">April</option>
+                              <option value="05">May</option>
+                              <option value="06">June</option>
+                              <option value="07">July</option>
+                              <option value="08">August</option>
+                              <option value="09">September</option>
+                              <option value="10">October</option>
+                              <option value="11">November</option>
+                              <option value="12">December</option>
+                            </select>
+                            <input type='number'
+                              value={this.state.birthdayDay}
+                              placeholder='Day'
+                              className='session-form-input birthday-input'
+                              onChange={this.updateInput('birthdayDay')}
+                              ></input>
+                            <input type='number'
+                              value={this.state.birthdayYear}
+                              placeholder='Year'
+                              className='session-form-input'
+                              onChange={this.updateInput('birthdayYear')}
+                              ></input>
+                          </div>
+                        </section>
+                        {
+                          errorUtil.generateErrorElement(
+                            this.props.errors, 'birthday')
+                          }
                           <div className='session-link-container'>
                             <button id='signup-btn' className='session-link'>
                               sign up

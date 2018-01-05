@@ -42,7 +42,8 @@ class LoginForm extends React.Component {
             <input type='text'
               value={this.state.username}
               placeholder='Username'
-              className={`session-form-input ${usernameInputErrorClass}`}
+              className={`session-form-input
+                ${usernameInputErrorClass}`}
               onChange={this.updateInput('username')}
               onFocus={() => this.props.clearErrors()}
               />

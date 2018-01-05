@@ -27,19 +27,19 @@
   padding: 4.5px;
   text-align: left;
   width: 100%;
-  &:focus {
-    border: 1px solid #909496;
-  }
   font-size: 20px;
   font-family: 'Work Sans', sans-serif;
   box-sizing: border-box;
   margin: 15px 0px;
   background-color: white;
-  color: #cdcfd3;
+  color: black;
+  &:focus {
+    border: 1px solid #909496;
+  }
 }
 
 ::placeholder {
-  color: #cdcfd3;
+  color: #A6AEB5;
 }
 
 .session-form-contents .session-link {
@@ -76,6 +76,7 @@
   width: 420px;
   text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
+  box-sizing: border-box;
 }
 
 .session-link-container {
@@ -89,6 +90,11 @@
   width: 33%;
   display: flex;
   align-items: center;
+}
+
+.birthday-form-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .birthday-inputs-container {
@@ -114,4 +120,11 @@
 .birthday-month-dropdown {
   width: 200%;
   border-color: #cdcfd3;
+  color: #A6AEB5;
+}
+
+#dob-text {
+  margin: 0 0 -10px 0;
+  padding: 0;
+  color: #A6AEB5;
 }
