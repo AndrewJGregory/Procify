@@ -7,9 +7,7 @@ import MainPageContainer from './main_page_container';
 
 const App = () => (
   <main id='app'>
-    <header id='header'>
-      <Route exact path='/' component={GreetingContainer} />
-    </header>
+    <Route exact path='/' component={GreetingContainer} />
 
     <ProtectedRoute path='/collection/:type' component={MainPageContainer} />
     <AuthRoute path='/login' component={LoginFormContainer} />

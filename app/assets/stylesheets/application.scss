@@ -19,3 +19,6 @@
 
 button:focus {outline:0;}
 input:focus {outline:0;}
+html, #root, body, #app {
+  height: 100%;
+}

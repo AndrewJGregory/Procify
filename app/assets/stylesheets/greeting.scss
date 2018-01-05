@@ -1,14 +1,12 @@
-// html, #root, body, #app, #header {
-//   height: 100%;
-// }
-
 .greeting-page {
   background-size: 100% 100%;
-  height: 900px;
+  height: 100%;
   background-image: linear-gradient(
   rgba(0, 0, 0, 0.65),
   rgba(0, 0, 0, 0.65)
   ), image_url('greeting-background.jpeg');
+  display: flex;
+  justify-content: center;
 }
 
 .greeting-content {
@@ -16,7 +14,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
   font-family: 'Oswald', sans-serif;
 }
 
