@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as errorUtil from '../util/error_util.jsx';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -9,7 +10,11 @@ class SignupForm extends React.Component {
       email: '',
       confirmEmail: '',
       password: '',
-      birthday: ''
+      birthday: {
+        month: '',
+        day: '',
+        year: ''
+      }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateInput = this.updateInput.bind(this);
@@ -32,86 +37,20 @@ class SignupForm extends React.Component {
     };
   }
 
-  _generateInputErrorClasses() {
-    let usernameInputErrorClass = '';
-    let passwordInputErrorClass = '';
-    let emailInputErrorClass = '';
-
-    if (this.props.errors.username) {
-      usernameInputErrorClass = 'invalid-input';
-    }
-
-    if (this.props.errors.password) {
-      passwordInputErrorClass = 'invalid-input';
-    }
-
-    if (this.props.errors.email) {
-      emailInputErrorClass = 'invalid-input';
-    }
-
-    let errorHeader = null;
-    if (this.props.errors.credentials) {
-      errorHeader =
-      <header className='error-header'>
-        {this.props.errors.credentials}
-      </header>;
-    }
-
-    return {
-      usernameInputErrorClass,
-      passwordInputErrorClass,
-      emailInputErrorClass,
-      errorHeader
-    };
-  }
-
-  _generateElementErrorClasses() {
-    let usernameErrorElementClass = null;
-    let passwordErrorElementClass = null;
-    let emailErrorElementClass = null;
-    let birthdayErrorElementClass = null;
-    if (this.props.errors.username) {
-      usernameErrorElementClass = 'session-error';
-    }
-
-    if (this.props.errors.password) {
-      passwordErrorElementClass = 'session-error';
-    }
-
-    if (this.props.errors.email) {
-      emailErrorElementClass = 'session-error';
-    }
-
-    if (this.props.errors.birthday) {
-      birthdayErrorElementClass = 'session-error';
-    }
-
-    return {
-      usernameErrorElementClass,
-      passwordErrorElementClass,
-      emailErrorElementClass,
-      birthdayErrorElementClass
-    };
-  }
-
-  _generateErrorElement(errorText, errorField) {
-    return <h4 className='session-error'>{this.props.errors[errorField]}</h4>;
-    }
-
     render() {
       const {
         usernameInputErrorClass,
         passwordInputErrorClass,
         emailInputErrorClass,
         errorHeader
-      } = this._generateInputErrorClasses();
+      } = errorUtil.generateInputErrorClasses(this.props.errors);
 
       const {
         usernameElementErrorClass,
         passwordElementErrorClass,
         emailElementErrorClass,
         birthdayElementErrorClass
-      } = this._generateElementErrorClasses();
+      } = errorUtil.generateElementErrorClasses(this.props.errors);
 
 
       return (
@@ -129,7 +68,10 @@ class SignupForm extends React.Component {
                 onChange={this.updateInput('email')}
                 onFocus={() => this.props.clearErrors()}
                 />
-              {this._generateErrorElement(emailElementErrorClass, 'email')}
+              {
+                errorUtil.generateErrorElement(
+                this.props.errors, emailElementErrorClass, 'email')
+              }
               <input type='text'
                 value={this.state.confirmEmail}
                 placeholder='Confirm email'
@@ -144,7 +86,10 @@ class SignupForm extends React.Component {
                 onChange={this.updateInput('password')}
                 onFocus={() => this.props.clearErrors()}
                 />
-              {this._generateErrorElement(passwordElementErrorClass, 'password')}
+              {
+                errorUtil.generateErrorElement(
+                  this.props.errors, passwordElementErrorClass, 'password')
+              }
               <input type='text'
                 value={this.state.username}
                 placeholder='What should we call you?'
@@ -152,13 +97,19 @@ class SignupForm extends React.Component {
                 onChange={this.updateInput('username')}
                 onFocus={() => this.props.clearErrors()}
                 />
-              {this._generateErrorElement(usernameElementErrorClass, 'username')}
+              {
+                errorUtil.generateErrorElement(
+                  this.props.errors, usernameElementErrorClass, 'username')
+              }
               <input type='date'
                 value={this.state.birthday}
                 className={`session-form-input`}
                 onFocus={() => this.props.clearErrors()}
                 />
-              {this._generateErrorElement(birthdayElementErrorClass, 'birthday')}
+              {
+                errorUtil.generateErrorElement(
+                  this.props.errors, birthdayElementErrorClass, 'birthday')
+              }
               <div className='session-link-container'>
                 <button className='session-link'>
                   {this.props.formType}

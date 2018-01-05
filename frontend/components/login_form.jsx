@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import * as errorUtil from '../util/error_util.jsx';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -22,35 +23,12 @@ class LoginForm extends React.Component {
     };
   }
 
-  _generateErrorInfo() {
-    let usernameErrorClass = '';
-    let passwordErrorClass = '';
-
-    if (this.props.errors.username) {
-      usernameErrorClass = 'invalid-input';
-    }
-
-    if (this.props.errors.password) {
-      passwordErrorClass = 'invalid-input';
-    }
-
-    let errorHeader = null;
-    if (this.props.errors.credentials) {
-      errorHeader =
-      <header className='error-header'>
-        {this.props.errors.credentials}
-      </header>;
-    }
-
-    return {usernameErrorClass, passwordErrorClass, errorHeader};
-  }
-
   render() {
     const {
-      usernameErrorClass,
-      passwordErrorClass,
+      usernameInputErrorClass,
+      passwordInputErrorClass,
       errorHeader
-    } = this._generateErrorInfo();
+    } = errorUtil.generateInputErrorClasses(this.props.errors);
 
     return (
       <main className='session-page'>
@@ -63,7 +41,7 @@ class LoginForm extends React.Component {
             <input type='text'
               value={this.state.username}
               placeholder='Username'
-              className={`session-form-input ${usernameErrorClass}`}
+              className={`session-form-input ${usernameInputErrorClass}`}
               onChange={this.updateInput('username')}
               onFocus={() => this.props.clearErrors()}
               />
@@ -72,7 +50,7 @@ class LoginForm extends React.Component {
             <input type='password'
               value={this.state.password}
               placeholder='Password'
-              className={`session-form-input ${passwordErrorClass}`}
+              className={`session-form-input ${passwordInputErrorClass}`}
               onChange={this.updateInput('password')}
               onFocus={() => this.props.clearErrors()}
               />
