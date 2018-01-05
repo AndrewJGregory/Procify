@@ -19,7 +19,6 @@ export const generateInputErrorClasses = (errors, isSameEmail) => {
     emailInputErrorClass = 'invalid-input';
   }
 
-
   if (!isSameEmail) {
     confirmEmailInputErrorClass = 'invalid-input';
   }

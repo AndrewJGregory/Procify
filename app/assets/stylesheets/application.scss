@@ -14,5 +14,8 @@
  *= require_self
  */
 
+@import "base/reset.scss";
+@import "base/colors.scss";
+
 button:focus {outline:0;}
 input:focus {outline:0;}
