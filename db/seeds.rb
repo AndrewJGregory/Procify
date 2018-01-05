@@ -10,3 +10,8 @@ User.destroy_all
 
 user_one = User.create(username: 'andrew', password: 'password')
 user_two = User.create(username: 'cheryl', password: 'password')
+
+song_one = Song.new(title: 'The Days', playlist_id: 1, artist_id: 5, album_id: 21)
+file = File.open('app/assets/songs/The Days.mp3')
+song_one.musicfile = file
+song_one.save!

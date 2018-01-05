@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+app/assets/songs/*
 /node_modules
 /yarn-error.log
 node_modules/
