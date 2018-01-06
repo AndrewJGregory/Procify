@@ -21,5 +21,9 @@ class Song < ApplicationRecord
   has_attached_file :musicfile, default_url: "missing.png"
   validates_attachment_content_type :musicfile, content_type: /\Aaudio\/.*\Z/
 
-  
+  has_many :playlist_songs
+
+  has_many :playlists,
+  through: :playlist_songs,
+  source: :playlist
 end
