@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const Auth = ({component: Component, path, loggedIn}) => (
   <Route path={path} render={(props) => (
       loggedIn ? (
-        <Redirect to="/" />
+        <Redirect to="/collection/playlists" />
       ) : (
         <Component {...props} />
       )
@@ -21,7 +21,7 @@ const Auth = ({component: Component, path, loggedIn}) => (
         )
       )} />
   );
-  
+
   const mapStateToProps = state => {
     return  { loggedIn: Boolean(state.session.currentUser) };
   };
