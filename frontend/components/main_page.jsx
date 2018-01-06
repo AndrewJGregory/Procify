@@ -1,12 +1,12 @@
 import React from 'react';
-import InnerCollection from './inner_collection';
+import InnerCollectionContainer from './inner_collection_container';
 import Sidebar from './sidebar';
 import PlayingSong from './playing_song';
 
 const MainPage = ({ username, type, logout }) => {
   return (
     <main id="main-page">
-      <InnerCollection />
+      <InnerCollectionContainer />
       <Sidebar />
       <PlayingSong />
       <p>

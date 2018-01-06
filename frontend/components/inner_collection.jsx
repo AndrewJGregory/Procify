@@ -7,9 +7,14 @@ class InnerCollection extends React.Component {
   }
 
   render() {
+    let component = null;
+    if (this.props.component) {
+      component = <this.props.component/>;
+    }
     return (
       <section id="inner-collection">
         <NavBarContainer />
+        {component}
         "Hey from the inner collection"
       </section>
     );
