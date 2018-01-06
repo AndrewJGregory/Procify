@@ -17,6 +17,7 @@ export const receiveNewPlaylist = playlist => {
 
 export const createNewPlaylist = playlist => dispatch => {
   return PlaylistUtil.createNewPlaylist(playlist).then(newPlaylist => {
-    return dispatch(receiveNewPlaylist(newPlaylist));
+    dispatch(receiveNewPlaylist(newPlaylist));
+    return newPlaylist;
   });
 };

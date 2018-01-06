@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class NewPlaylistForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,11 @@ class NewPlaylistForm extends React.Component {
 
   createNewPlaylist(e) {
     e.preventDefault();
-    this.props.createNewPlaylist({playlist: this.state});
+    this.props.createNewPlaylist({playlist: this.state}).then(playlist => {
+      this.props.swapPlaylistFormShow();
+      const playlistId = Object.keys(playlist);
+      this.props.history.push(`/user/${this.props.currentUserId}/playlists/${playlistId}`);
+    });
   }
 
   render() {
@@ -53,4 +58,4 @@ class NewPlaylistForm extends React.Component {
   }
 }
 
-export default NewPlaylistForm;
+export default withRouter(NewPlaylistForm);

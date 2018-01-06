@@ -5,6 +5,7 @@ import { swapPlaylistFormShow, createNewPlaylist } from '../actions/playlist_act
 
 const mapStateToProps = state => {
   return {
+    currentUserId: state.session.currentUser.id,
     isPlaylistFormDisplayed: state.ui.isPlaylistFormDisplayed
   };
 };
