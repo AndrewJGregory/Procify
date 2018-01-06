@@ -1,13 +1,13 @@
 import { withRouter } from 'react-router-dom';
 import InnerCollection from './inner_collection';
-import SongIndexContainer from './song_index_container';
+import SongIndex from './song_index';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
   let component = null;
   switch (ownProps.match.params.type) {
     case 'tracks':
-    component = SongIndexContainer;
+    component = SongIndex;
     break;
     default:
     component = null;

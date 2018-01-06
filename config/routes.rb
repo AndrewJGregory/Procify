@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :playlists
     end
+    resources :playlists, only: [:show]
   end
 
   root to: 'static_pages#root'
