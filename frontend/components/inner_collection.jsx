@@ -7,8 +7,21 @@ class InnerCollection extends React.Component {
   }
 
   componentDidMount() {
-    
+    let id = null;
+    switch (this.props.match.params.type) {
+      case 'playlists':
+      if (this.props.match.params.userId && this.props.match.params.typeId) {
+        id = this.props.match.params.typeId;
+      } else {
+        id = this.props.currentUserId;
+      }
+      break;
+      default:
+      id = null;
+    }
+    this.props.fetchAction(id);
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.type !== this.props.match.params.type) {
       let id = null;
