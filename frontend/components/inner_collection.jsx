@@ -9,7 +9,8 @@ class InnerCollection extends React.Component {
   render() {
     let component = null;
     if (this.props.component) {
-      component = <this.props.component/>;
+      component = <this.props.component fetchAction={this.props.fetchAction}
+        songs={this.props.songs} />;
     }
     return (
       <section id="inner-collection">

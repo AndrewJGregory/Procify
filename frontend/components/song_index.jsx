@@ -6,6 +6,10 @@ class SongIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchAction();
+  }
+
   render() {
     const songs = this.props.songs.map(song => {
       return <SongIndexItem key={song.id} song={song} />;
