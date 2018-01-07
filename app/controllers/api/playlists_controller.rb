@@ -1,7 +1,7 @@
 class Api::PlaylistsController < ApplicationController
 
   def index
-
+    @playlists = current_user.playlists
   end
 
   def create

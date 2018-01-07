@@ -3,7 +3,9 @@ import InnerCollection from './inner_collection';
 import SongIndex from './song_index';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/song_actions';
-import { PlaylistIndex } from './playlist_index';
+import PlaylistIndex from './playlist_index';
+import { fetchCurrentUsersPlaylists, fetchPlaylist } from '../actions/playlist_actions';
+import PlaylistShowContainer from './playlist_show_container';
 
 const mapStateToProps = (state, ownProps) => {
   let component = null;
@@ -12,7 +14,11 @@ const mapStateToProps = (state, ownProps) => {
     component = SongIndex;
     break;
     case 'playlists':
-    component = PlaylistIndex;
+    if (ownProps.match.params.userId && ownProps.match.params.typeId) {
+      component = PlaylistShowContainer;
+    } else {
+      component = PlaylistIndex;
+    }
     break;
     default:
     component = null;
@@ -20,7 +26,9 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     component,
-    songs: Object.values(state.entities.songs)
+    songs: Object.values(state.entities.songs),
+    playlists: Object.values(state.entities.playlists),
+    currentUserId: state.session.currentUser.id,
   };
 };
 
@@ -30,11 +38,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     case 'tracks':
     fetchAction = fetchSongs;
     break;
+    case 'playlists':
+    if (ownProps.match.params.userId && ownProps.match.params.typeId) {
+      fetchAction = fetchPlaylist;
+    } else {
+      fetchAction = fetchCurrentUsersPlaylists;
+    }
+    break;
     default:
-    fetchAction = null;
+    fetchAction = () => null;
   }
+
   return {
-    fetchAction: () => dispatch(fetchAction())
+    fetchAction: id => dispatch(fetchAction(id))
   };
 };
 

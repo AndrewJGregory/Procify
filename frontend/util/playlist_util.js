@@ -12,3 +12,10 @@ export const fetchPlaylist = id => {
     method: 'GET'
   });
 };
+
+export const fetchCurrentUsersPlaylists = userId => {
+  return $.ajax({
+    url: `api/users/${userId}/playlists`,
+    method: 'GET'
+  });
+};

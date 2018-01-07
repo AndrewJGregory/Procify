@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show';
-import { fetchPlaylist } from '../actions/playlist_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = ownProps.match.params.typeId;
@@ -10,13 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return { songs };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    fetchPlaylist: id => dispatch(fetchPlaylist(id))
-  };
-};
-
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
-)(PlaylistShow);
+  null
+)(PlaylistShow));

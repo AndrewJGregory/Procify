@@ -6,11 +6,36 @@ class InnerCollection extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.type !== this.props.match.params.type) {
+      let id = null;
+      switch (nextProps.match.params.type) {
+        case 'playlists':
+        if (nextProps.match.params.userId && nextProps.match.params.typeId) {
+          id = nextProps.match.params.typeId;
+        } else {
+          id = nextProps.currentUserId;
+        }
+        break;
+        default:
+        id = null;
+      }
+      nextProps.fetchAction(id);
+    }
+
+  }
+
   render() {
     let component = null;
     if (this.props.component) {
-      component = <this.props.component fetchAction={this.props.fetchAction}
-        songs={this.props.songs} />;
+      component = <this.props.component
+        playlists={this.props.playlists}
+        songs={this.props.songs}
+        currentUserId={this.props.currentUserId}
+        />;
     }
     return (
       <section id="inner-collection">

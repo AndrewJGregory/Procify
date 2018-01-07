@@ -1,5 +1,6 @@
 export const SWAP_PLAYLIST_FORM_SHOW = 'SWAP_PLAYLIST_FORM_SHOW';
 export const RECEIVE_NEW_PLAYLIST = 'RECEIVE_NEW_PLAYLIST';
+export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 
 import * as PlaylistUtil from '../util/playlist_util';
 
@@ -16,6 +17,13 @@ export const receiveNewPlaylist = payload => {
   };
 };
 
+export const receivePlaylists = playlists => {
+  return {
+    type: RECEIVE_PLAYLISTS,
+    playlists
+  };
+};
+
 export const createNewPlaylist = playlist => dispatch => {
   return PlaylistUtil.createNewPlaylist(playlist).then(newPlaylist => {
     dispatch(receiveNewPlaylist(newPlaylist));
@@ -23,9 +31,16 @@ export const createNewPlaylist = playlist => dispatch => {
   });
 };
 
-export const fetchPlaylist = id => dispatch => {
-  return PlaylistUtil.fetchPlaylist(id).then(playlist => {
+export const fetchPlaylist = playlistId => dispatch => {
+  return PlaylistUtil.fetchPlaylist(playlistId).then(playlist => {
     dispatch(receiveNewPlaylist(playlist));
     return playlist;
+  });
+};
+
+export const fetchCurrentUsersPlaylists = currentUserId => dispatch => {
+  return PlaylistUtil.fetchCurrentUsersPlaylists(currentUserId).then(playlists => {
+    dispatch(receivePlaylists(playlists));
+    return playlists;
   });
 };
