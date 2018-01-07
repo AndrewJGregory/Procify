@@ -6,23 +6,17 @@ import { fetchSongs } from '../actions/song_actions';
 import PlaylistIndex from './playlist_index';
 import { fetchCurrentUsersPlaylists, fetchPlaylist } from '../actions/playlist_actions';
 import PlaylistShowContainer from './playlist_show_container';
+import * as innerCollectionUtil from '../util/inner_collection_util';
 
 const mapStateToProps = (state, ownProps) => {
-  let component = null;
-  switch (ownProps.match.params.type) {
-    case 'tracks':
-    component = SongIndex;
-    break;
-    case 'playlists':
-    if (ownProps.match.params.userId && ownProps.match.params.typeId) {
-      component = PlaylistShowContainer;
-    } else {
-      component = PlaylistIndex;
-    }
-    break;
-    default:
-    component = null;
-  }
+  const components = {
+    SongIndex,
+    PlaylistShowContainer,
+    PlaylistIndex,
+  };
+  const component = innerCollectionUtil.switchOnType(
+    ownProps.match.params, components, {}, 'component'
+  );
 
   return {
     component,
@@ -33,21 +27,15 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let fetchAction;
-  switch (ownProps.match.params.type) {
-    case 'tracks':
-    fetchAction = fetchSongs;
-    break;
-    case 'playlists':
-    if (ownProps.match.params.userId && ownProps.match.params.typeId) {
-      fetchAction = fetchPlaylist;
-    } else {
-      fetchAction = fetchCurrentUsersPlaylists;
-    }
-    break;
-    default:
-    fetchAction = () => null;
-  }
+  const actions = {
+    fetchSongs,
+    fetchPlaylist,
+    fetchCurrentUsersPlaylists,
+  };
+
+  const fetchAction = innerCollectionUtil.switchOnType(
+    ownProps.match.params, {}, actions, 'action'
+  );
 
   return {
     fetchAction: id => dispatch(fetchAction(id))
