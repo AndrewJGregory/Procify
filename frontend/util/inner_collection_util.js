@@ -25,7 +25,16 @@ export const switchOnType = (props, components, actions, decision) => {
       };
       return result[decision];
     }
+
+    case 'account':
+    return components.AccountInfo;
     default:
     return null;
   }
+};
+
+export const shouldFetchInfo = (props) => {
+  return (!props.location.pathname.includes('account')) &&
+    (!props.location.pathname.includes('albums')) &&
+    (!props.location.pathname.includes('artists'));
 };

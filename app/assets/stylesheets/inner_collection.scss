@@ -1,6 +1,6 @@
 #inner-collection {
   position: fixed;
   right: 0;
-  height: 75%;
+  height: calc(100vh - 110px);
   width: calc(100vw - 220px);
 }

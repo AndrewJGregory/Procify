@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -8,7 +9,10 @@ class Sidebar extends React.Component {
   render() {
     return (
       <aside id="sidebar">
-        "Hey from the sidebar"
+
+        <Link to='/settings/account'>
+          {this.props.username}
+        </Link>
       </aside>
     );
   }

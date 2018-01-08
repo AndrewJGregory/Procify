@@ -9,14 +9,18 @@ class InnerCollection extends React.Component {
   }
 
   componentDidMount() {
-    const id = innerCollectionUtil.switchOnType(
-      this.props, {}, {}, 'id'
-    );
-    this.props.fetchAction(id);
+    if (innerCollectionUtil.shouldFetchInfo(this.props)) {
+      const id = innerCollectionUtil.switchOnType(
+        this.props, {}, {}, 'id'
+      );
+      this.props.fetchAction(id);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname) {
+    if ((nextProps.location.pathname !== this.props.location.pathname)
+    && (innerCollectionUtil.shouldFetchInfo(nextProps)))
+    {
       const id = innerCollectionUtil.switchOnType(
         nextProps, {}, {}, 'id');
         nextProps.fetchAction(id);
