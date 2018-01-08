@@ -10,15 +10,15 @@ class InnerCollection extends React.Component {
 
   componentDidMount() {
     const id = innerCollectionUtil.switchOnType(
-      this.props.match.params, {}, {}, 'id'
+      this.props, {}, {}, 'id'
     );
     this.props.fetchAction(id);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.type !== this.props.match.params.type) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
       const id = innerCollectionUtil.switchOnType(
-        nextProps.match.params, {}, {}, 'id');
+        nextProps, {}, {}, 'id');
         nextProps.fetchAction(id);
       }
     }

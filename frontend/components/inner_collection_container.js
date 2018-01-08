@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     PlaylistIndex,
   };
   const component = innerCollectionUtil.switchOnType(
-    ownProps.match.params, components, {}, 'component'
+    ownProps, components, {}, 'component'
   );
 
   return {
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 
   const fetchAction = innerCollectionUtil.switchOnType(
-    ownProps.match.params, {}, actions, 'action'
+    ownProps, {}, actions, 'action'
   );
 
   return {
