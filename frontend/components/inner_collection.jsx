@@ -42,7 +42,6 @@ class InnerCollection extends React.Component {
           {form}
           <NavBarContainer />
           {component}
-          "Hey from the inner collection"
         </section>
       );
     }
