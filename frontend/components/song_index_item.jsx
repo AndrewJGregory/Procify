@@ -21,12 +21,17 @@ class SongIndexItem extends React.Component {
   }
 
   render() {
+    let deleteButton = null;
+    if (this.props.shouldHaveDeleteButton) {
+      deleteButton =
+      <button onClick={this.handleDeleteClick}>Delete from playlist</button>;
+    }
     return (
       <div className='song-item-container'>
         <li className='song-item'>
           {this.props.song.title}
           <button onClick={this.displayForm}>Add to playlist</button>
-          <button onClick={this.handleDeleteClick}>Delete from playlist</button>
+          {deleteButton}
         </li>
       </div>
     );
