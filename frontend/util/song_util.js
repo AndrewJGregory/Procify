@@ -4,3 +4,11 @@ export const fetchSongs = () => {
     method: 'GET'
   });
 };
+
+export const deleteSongFromPlaylist = (userId, songId, playlistId) => {
+  return $.ajax({
+    url: `api/users/${userId}/playlists/${playlistId}`,
+    method: 'DELETE',
+    data: { songId }
+  });
+};

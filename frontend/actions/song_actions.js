@@ -2,6 +2,14 @@ import * as SongUtil from '../util/song_util';
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 export const SWAP_ADD_SONG_FORM_SHOW = 'SWAP_ADD_SONG_FORM_SHOW';
 export const SELECT_SONG_ID = 'SELECT_SONG_ID';
+export const RECEIVE_SONG = 'RECEIVE_SONG';
+
+export const receiveSong = song => {
+  return {
+    type: RECEIVE_SONG,
+    song
+  };
+};
 
 export const receiveSongs = songs => {
   return {
@@ -27,4 +35,11 @@ export const selectSongId = songId => {
     type: SELECT_SONG_ID,
     songId
   };
+};
+
+export const deleteSongFromPlaylist = (userId, songId, playlistId) => dispatch => {
+  return SongUtil.deleteSongFromPlaylist(userId, songId, playlistId).then(song => {
+    dispatch(receiveSong(song));
+    return song;
+  });
 };

@@ -29,7 +29,14 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def destroy
-
+    @song = Song.find(params[:songId])
+    record = PlaylistSong.find_by(
+      song_id: params[:songId],
+      playlist_id: params[:id]
+    )
+    PlaylistSong.delete(record.id)
+    @playlists = @song.playlists
+    render 'api/songs/show'
   end
 
   def update
