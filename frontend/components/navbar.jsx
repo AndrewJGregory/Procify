@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {NewPlaylistFormContainer} from './playlist_form_container';
+import { NewPlaylistFormContainer } from './playlist_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {

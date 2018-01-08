@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PlaylistIndexItemContainer from './playlist_index_item_container';
 
 const PlaylistIndex = (props) => {
   const playlists = props.playlists.map(playlist => {
-    return <li key={playlist.id}>
-      <Link to={`/user/${props.currentUserId}/playlists/${playlist.id}`}>{playlist.title}</Link>
-    </li>;
+    return <PlaylistIndexItemContainer
+      key={playlist.id}
+      playlist={playlist}
+      />;
   });
 
   return (

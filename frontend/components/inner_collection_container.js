@@ -23,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
     songs: Object.values(state.entities.songs),
     playlists: Object.values(state.entities.playlists),
     currentUserId: state.session.currentUser.id,
+    isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed
   };
 };
 

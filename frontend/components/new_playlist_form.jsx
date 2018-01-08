@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class NewPlaylistForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: '' };
+    this.state = { title: '', userId: this.props.currentUserId };
     this.updateInput = this.updateInput.bind(this);
     this.createNewPlaylist = this.createNewPlaylist.bind(this);
   }
@@ -17,23 +17,25 @@ class NewPlaylistForm extends React.Component {
 
   createNewPlaylist(e) {
     e.preventDefault();
-    this.props.createNewPlaylist({playlist: this.state}).then(playlist => {
+
+    this.props.createNewPlaylist(this.state).then(playlist => {
       this.props.swapPlaylistFormShow();
-      const playlistId = Object.keys(playlist);
+      const playlistId = Object.keys(playlist)[0];
+
       this.props.history.push(`/user/${this.props.currentUserId}/playlists/${playlistId}`);
     });
   }
 
   render() {
     return (
-      <main className='playlist-form-page'>
+      <main className='transparent-form-page'>
         <section className='playlist-form-content'>
           <h1
             className='x-mark'
             onClick={() => this.props.swapPlaylistFormShow()}>
             ✕
           </h1>
-          <header className='playlist-form-header'>
+          <header className='transparent-form-header'>
             Create new playlist
           </header>
           <input

@@ -9,7 +9,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist.user_id = current_user.id
 
     if @playlist.save
-      render :show
+      render :new
     else
       render json: @playlist.errors.messages, status: 422
     end
@@ -32,8 +32,19 @@ class Api::PlaylistsController < ApplicationController
 
   end
 
+  def update
+    @playlist = Playlist.find(params[:id])
+    PlaylistSong.create(
+      song_id: params[:songId],
+      playlist_id: params[:id]
+    )
+    @playlist.songs.reload
+    @songs = @playlist.songs
+    render 'api/playlists/show'
+  end
+
   private
   def playlist_params
-    params.require(:playlist).permit(:title, :playlist_id)
+    params.require(:playlist).permit(:title, :playlist_id, :song_id, :user_id)
   end
 end

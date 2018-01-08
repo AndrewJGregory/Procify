@@ -44,3 +44,10 @@ export const fetchCurrentUsersPlaylists = currentUserId => dispatch => {
     return playlists;
   });
 };
+
+export const addSongToPlaylist = (userId, songId, playlistId) => dispatch => {
+  return PlaylistUtil.addSongToPlaylist(userId, songId, playlistId).then(payload => {
+    dispatch(receiveNewPlaylist(payload));
+    return payload;
+  });
+};

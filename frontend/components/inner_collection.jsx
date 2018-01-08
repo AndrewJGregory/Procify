@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavBarContainer} from './playlist_form_container';
 import * as innerCollectionUtil from '../util/inner_collection_util';
+import AddSongFormContainer from './add_song_form_container';
 
 class InnerCollection extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class InnerCollection extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.type !== this.props.match.params.type) {
       const id = innerCollectionUtil.switchOnType(
-        this.props.match.params, {}, {}, 'id');
+        nextProps.match.params, {}, {}, 'id');
         nextProps.fetchAction(id);
       }
     }
@@ -31,8 +32,14 @@ class InnerCollection extends React.Component {
           currentUserId={this.props.currentUserId}
           />;
       }
+
+      let form = null;
+      if (this.props.isAddSongFormDisplayed) {
+        form = <AddSongFormContainer />;
+      }
       return (
         <section id="inner-collection">
+          {form}
           <NavBarContainer />
           {component}
           "Hey from the inner collection"

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   const playlistId = ownProps.match.params.typeId;
   const songs = Object.values(state.entities.songs).filter(song => (
-    song.playlist_id === parseInt(playlistId)
+    song.playlist_ids.includes(parseInt(playlistId))
   ));
   return { songs };
 };

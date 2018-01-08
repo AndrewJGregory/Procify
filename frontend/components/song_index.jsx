@@ -1,9 +1,9 @@
 import React from 'react';
-import SongIndexItem from './song_index_item';
+import SongIndexItemContainer from './song_index_item_container';
 
 const SongIndex = (props) => {
   const songs = props.songs.map(song => {
-    return <SongIndexItem key={song.id} song={song} />;
+    return <SongIndexItemContainer key={song.id} song={song} />;
   });
   return (
     <section className='song-index'>
