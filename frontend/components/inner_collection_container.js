@@ -3,7 +3,7 @@ import InnerCollection from './inner_collection';
 import SongIndex from './song_index';
 import { connect } from 'react-redux';
 import { fetchSongs } from '../actions/song_actions';
-import PlaylistIndex from './playlist_index';
+import PlaylistIndexContainer from './playlist_index_container';
 import { fetchCurrentUsersPlaylists, fetchPlaylist } from '../actions/playlist_actions';
 import PlaylistShowContainer from './playlist_show_container';
 import * as innerCollectionUtil from '../util/inner_collection_util';
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   const components = {
     SongIndex,
     PlaylistShowContainer,
-    PlaylistIndex,
+    PlaylistIndexContainer,
   };
   const component = innerCollectionUtil.switchOnType(
     ownProps, components, {}, 'component'

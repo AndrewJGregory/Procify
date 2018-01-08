@@ -19,7 +19,7 @@ export const switchOnType = (props, components, actions, decision) => {
       return result[decision];
     } else {
       result = {
-        component: components.PlaylistIndex,
+        component: components.PlaylistIndexContainer,
         action: actions.fetchCurrentUsersPlaylists,
         id: props.currentUserId
       };
