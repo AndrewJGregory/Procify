@@ -27,7 +27,7 @@ export const switchOnType = (props, components, actions, decision) => {
     }
 
     case 'account':
-    return components.AccountInfo;
+    return components.AccountInfoContainer;
     default:
     return null;
   }

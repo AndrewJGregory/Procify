@@ -7,14 +7,14 @@ import PlaylistIndexContainer from './playlist_index_container';
 import { fetchCurrentUsersPlaylists, fetchPlaylist } from '../actions/playlist_actions';
 import PlaylistShowContainer from './playlist_show_container';
 import * as innerCollectionUtil from '../util/inner_collection_util';
-import AccountInfo from './account_info';
+import AccountInfoContainer from './account_info_container';
 
 const mapStateToProps = (state, ownProps) => {
   const components = {
     SongIndex,
     PlaylistShowContainer,
     PlaylistIndexContainer,
-    AccountInfo
+    AccountInfoContainer
   };
   const component = innerCollectionUtil.switchOnType(
     ownProps, components, {}, 'component'
