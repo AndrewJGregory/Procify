@@ -15,7 +15,6 @@ class SongIndexItem extends React.Component {
 
   handleDeleteClick() {
     this.props.deleteSongFromPlaylist(
-      this.props.currentUserId,
       this.props.song.id,
       this.props.match.params.typeId
     );

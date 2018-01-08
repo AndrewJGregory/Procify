@@ -1,8 +1,16 @@
 export const SWAP_PLAYLIST_FORM_SHOW = 'SWAP_PLAYLIST_FORM_SHOW';
 export const RECEIVE_NEW_PLAYLIST = 'RECEIVE_NEW_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
+export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
 
 import * as PlaylistUtil from '../util/playlist_util';
+
+export const removePlaylist = playlist => {
+  return {
+    type: REMOVE_PLAYLIST,
+    playlistId: Object.keys(playlist)[0]
+  };
+};
 
 export const swapPlaylistFormShow = () => {
   return {
@@ -49,5 +57,12 @@ export const addSongToPlaylist = (userId, songId, playlistId) => dispatch => {
   return PlaylistUtil.addSongToPlaylist(userId, songId, playlistId).then(payload => {
     dispatch(receiveNewPlaylist(payload));
     return payload;
+  });
+};
+
+export const deletePlaylist = playlistId => dispatch => {
+  return PlaylistUtil.deletePlaylist(playlistId).then(playlist => {
+    dispatch(removePlaylist(playlist));
+    return playlist;
   });
 };

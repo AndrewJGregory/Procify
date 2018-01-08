@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   return {
     isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
-    currentUserId: state.session.currentUser.id,
   };
 };
 
@@ -15,7 +14,7 @@ const mapDispatchToProps = dispatch => {
   return {
     swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
     selectSongId: songId => dispatch(selectSongId(songId)),
-    deleteSongFromPlaylist: (userId, songId, playlistId) => dispatch(deleteSongFromPlaylist(userId, songId, playlistId))
+    deleteSongFromPlaylist: (songId, playlistId) => dispatch(deleteSongFromPlaylist(songId, playlistId))
   };
 };
 

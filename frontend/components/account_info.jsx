@@ -8,4 +8,5 @@ const AccountInfo = ({ username, logout }) => {
     </section>
   );
 };
+
 export default AccountInfo;

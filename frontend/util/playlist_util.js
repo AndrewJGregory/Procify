@@ -27,3 +27,10 @@ export const addSongToPlaylist = (userId, songId, playlistId) => {
     data: { songId }
   });
 };
+
+export const deletePlaylist = playlistId => {
+  return $.ajax({
+    url: `api/playlists/${playlistId}`,
+    method: 'DELETE'
+  });
+};

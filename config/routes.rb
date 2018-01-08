@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :songs, only: [:index]
     resources :users, only: [:create] do
-      resources :playlists
+      resources :playlists, except: [:destroy, :show]
     end
-    resources :playlists, only: [:show]
+    resources :playlists, only: [:destroy, :show]
   end
 
   root to: 'static_pages#root'

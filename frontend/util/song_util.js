@@ -5,10 +5,10 @@ export const fetchSongs = () => {
   });
 };
 
-export const deleteSongFromPlaylist = (userId, songId, playlistId) => {
+export const deleteSongFromPlaylist = (songId, playlistId) => {
   return $.ajax({
-    url: `api/users/${userId}/playlists/${playlistId}`,
+    url: `api/songs/${songId}`,
     method: 'DELETE',
-    data: { songId }
+    data: { playlistId }
   });
 };
