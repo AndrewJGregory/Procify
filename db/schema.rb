@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180106030512) do
     t.string "musicfile_content_type"
     t.integer "musicfile_file_size"
     t.datetime "musicfile_updated_at"
-    t.string "url"
+    t.string "length"
   end
 
   create_table "users", force: :cascade do |t|
