@@ -7,20 +7,24 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <link href="https://fonts.googleapis.com/css?family=Mukta+Malar|Oswald|Source+Sans+Pro|Heebo|Roboto+Condensed|Work+Sans:500|Lato|Roboto" rel="stylesheet">
+  <head>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  </head>
 </head>
 <script type="text/javascript">
-  <% if logged_in? %>
-    window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
-      user: current_user
-    ).html_safe %>
-  <% end %>
+<% if logged_in? %>
+window.currentUser = <%= render(
+  "api/users/user.json.jbuilder",
+  user: current_user
+).html_safe %>
+<% end %>
 
-  window.staticImages = {
-    checkmark: '<%= asset_url('checkmark.png') %>'
-  }
+window.staticImages = {
+  checkmark: '<%= asset_url('checkmark.png') %>'
+}
 </script>
 <body>
-  <%= yield %>
+<%= yield %>
 </body>
 </html>
