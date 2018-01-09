@@ -6,6 +6,7 @@ class SongIndexItem extends React.Component {
     super(props);
     this.displayForm = this.displayForm.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.selectPlayingSong = this.selectPlayingSong.bind(this);
   }
 
   displayForm() {
@@ -20,6 +21,10 @@ class SongIndexItem extends React.Component {
     );
   }
 
+  selectPlayingSong() {
+    this.props.selectPlayingSong(this.props.song);
+  }
+
   render() {
     let deleteButton = null;
     if (this.props.shouldHaveDeleteButton) {
@@ -32,6 +37,7 @@ class SongIndexItem extends React.Component {
           {this.props.song.title}
           <button onClick={this.displayForm}>Add to playlist</button>
           {deleteButton}
+          <button onClick={this.selectPlayingSong}>Play</button>
         </li>
       </div>
     );

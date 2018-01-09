@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SongIndexItem from './song_index_item';
-import { swapAddSongFormShow, selectSongId } from '../actions/song_actions';
+import { swapAddSongFormShow, selectSongId, selectPlayingSong } from '../actions/song_actions';
 import { deleteSongFromPlaylist } from '../actions/song_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => {
   return {
     swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
     selectSongId: songId => dispatch(selectSongId(songId)),
-    deleteSongFromPlaylist: (songId, playlistId) => dispatch(deleteSongFromPlaylist(songId, playlistId))
+    deleteSongFromPlaylist: (songId, playlistId) => dispatch(deleteSongFromPlaylist(songId, playlistId)),
+    selectPlayingSong: song => dispatch(selectPlayingSong(song))
   };
 };
 
