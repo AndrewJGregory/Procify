@@ -7,17 +7,16 @@ class AddSongForm extends React.Component {
   }
 
   componentDidMount() {
-      this.props.fetchCurrentUsersPlaylists(this.props.currentUserId);
+    this.props.fetchCurrentUsersPlaylists(this.props.currentUserId);
   }
 
   render() {
     return (
       <main className='transparent-form-page'>
-        <section className='add-song-form-content'>
+        <section className='transparent-form-content'>
           <h1
             className='x-mark'
             onClick={() => this.props.swapAddSongFormShow()}>
-            ✕
           </h1>
           <header className='transparent-form-header'>
           </header>

@@ -9,12 +9,11 @@ class PlaylistIndexItem extends React.Component {
 
   handleClick() {
     if (this.props.isAddSongFormDisplayed) {
-
       this.props.addSongToPlaylist(
         this.props.currentUserId,
         this.props.selectedSongId,
         this.props.playlist.id
-      );
+      ).then(() => this.props.swapAddSongFormShow());
     } else {
       this.props.history.push(`/user/${this.props.currentUserId}/playlists/${this.props.playlist.id}`);
     }

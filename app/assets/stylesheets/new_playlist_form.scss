@@ -8,20 +8,26 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.playlist-form-content {
+.transparent-form-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.playlist-form-btns {
-  display: flex;
-  justify-content: center;
-}
-
 .x-mark {
   background-image: image_url('transparent-x-mark.png');
   background-repeat: no-repeat;
   font-size: 36px;
+  height: 100px;
+  width: 100px;
+}
+
+.transparent-form-header {
+  color: white;
+}
+
+.playlist-form-btns {
+  display: flex;
+  justify-content: center;
 }

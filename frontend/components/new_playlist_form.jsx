@@ -17,7 +17,6 @@ class NewPlaylistForm extends React.Component {
 
   createNewPlaylist(e) {
     e.preventDefault();
-
     this.props.createNewPlaylist(this.state).then(playlist => {
       this.props.swapPlaylistFormShow();
       const playlistId = Object.keys(playlist)[0];
@@ -29,7 +28,7 @@ class NewPlaylistForm extends React.Component {
   render() {
     return (
       <main className='transparent-form-page'>
-        <section className='playlist-form-content'>
+        <section className='transparent-form-content'>
           <div
             className='x-mark'
             onClick={() => this.props.swapPlaylistFormShow()}>
