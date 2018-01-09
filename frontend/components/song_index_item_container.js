@@ -5,36 +5,37 @@ import {
   selectSongId,
   selectPlayingSong,
   toggleDropdownMenu,
-  setDropdownMenuCoords } from '../actions/song_actions';
+  setDropdownMenuCoords,
+  deleteSongFromPlaylist
+} from '../actions/song_actions';
 
-  import { deleteSongFromPlaylist } from '../actions/song_actions';
-  import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-  const mapStateToProps = (state, ownProps) => {
-    const shouldHaveDeleteButton = (ownProps.match.params.type === 'playlists');
-    const xPos = state.ui.dropdownMenuXpos;
-    const yPos = state.ui.dropdownMenuYpos;
-    return {
-      isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
-      shouldHaveDeleteButton,
-      isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,
-      xPos,
-      yPos
-    };
+const mapStateToProps = (state, ownProps) => {
+  const shouldHaveDeleteButton = (ownProps.match.params.type === 'playlists');
+  const xPos = state.ui.dropdownMenuXpos;
+  const yPos = state.ui.dropdownMenuYpos;
+  return {
+    isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
+    shouldHaveDeleteButton,
+    isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,
+    xPos,
+    yPos
   };
+};
 
-  const mapDispatchToProps = dispatch => {
-    return {
-      swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
-      selectSongId: songId => dispatch(selectSongId(songId)),
-      deleteSongFromPlaylist: (songId, playlistId) => dispatch(deleteSongFromPlaylist(songId, playlistId)),
-      selectPlayingSong: song => dispatch(selectPlayingSong(song)),
-      setDropdownMenuCoords: (xPos, yPos) => dispatch(setDropdownMenuCoords(xPos, yPos)),
-      toggleDropdownMenu: () => dispatch(toggleDropdownMenu())
-    };
+const mapDispatchToProps = dispatch => {
+  return {
+    selectPlayingSong: song => dispatch(selectPlayingSong(song)),
+    setDropdownMenuCoords: (xPos, yPos) => dispatch(setDropdownMenuCoords(xPos, yPos)),
+    toggleDropdownMenu: () => dispatch(toggleDropdownMenu()),
+    deleteSongFromPlaylist: (songId, playlistId) => dispatch(deleteSongFromPlaylist(songId, playlistId)),
+    selectSongId: songId => dispatch(selectSongId(songId)),
+    swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
   };
+};
 
-  export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SongIndexItem));
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SongIndexItem));

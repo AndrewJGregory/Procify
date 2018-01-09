@@ -1,26 +1,12 @@
 import React from 'react';
 import AddSongFormContainer from './add_song_form_container';
-import DropdownMenuContainer from './dropdown_menu_container';
+import DropdownMenu from './dropdown_menu';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.displayForm = this.displayForm.bind(this);
-    this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.selectPlayingSong = this.selectPlayingSong.bind(this);
     this.displayDropdownMenu = this.displayDropdownMenu.bind(this);
-  }
-
-  displayForm() {
-    this.props.swapAddSongFormShow();
-    this.props.selectSongId(this.props.song.id);
-  }
-
-  handleDeleteClick() {
-    this.props.deleteSongFromPlaylist(
-      this.props.song.id,
-      this.props.match.params.typeId
-    );
   }
 
   selectPlayingSong() {
@@ -31,7 +17,6 @@ class SongIndexItem extends React.Component {
     const xPos = e.clientX;
     const yPos = e.clientY;
     if (this.props.isDropdownMenuDisplayed) {
-      debugger;
       this.props.setDropdownMenuCoords(xPos, yPos);
     } else {
       this.props.setDropdownMenuCoords(xPos, yPos);
@@ -53,17 +38,28 @@ class SongIndexItem extends React.Component {
 
       let menu = null;
       if (this.props.isDropdownMenuDisplayed) {
-        menu = <DropdownMenuContainer menuPos={menuPos} />;
+        menu = <DropdownMenu
+           toggleDropdownMenu={this.props.toggleDropdownMenu}
+           typeId={this.props.match.params.typeId}
+           swapAddSongFormShow={this.props.swapAddSongFormShow}
+           selectSongId={this.props.selectSongId}
+           menuPos={menuPos}
+           song={this.props.song} />;
       }
 
       return (
         <div className='song-item-container'>
-          <li className='song-item'>
-            {this.props.song.title}
+          <div className='song-item-content'>
+            <li className='song-item'>
+              {this.props.song.title}
+            </li>
+          </div>
+          <div className='menu-content'>
             <button
+              className='three-dots'
               onClick={this.displayDropdownMenu}>Three dots</button>
             {menu}
-          </li>
+          </div>
         </div>
       );
     }

@@ -1,4 +1,13 @@
 .song-item {
   color: white;
-  display: inline-block;
+  margin: 10px;
+}
+
+.song-item-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.three-dots {
+  margin-right: 100px;
 }
