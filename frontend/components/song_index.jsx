@@ -8,12 +8,12 @@ const SongIndex = (props) => {
       key={shortid.generate()}
       song={song} />;
   });
-  
+
   return (
     <section className='song-index'>
-      <ul className='song-list'>
+      <ol className='song-list'>
         {songs}
-      </ul>
+      </ol>
     </section>
   );
 };
