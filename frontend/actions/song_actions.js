@@ -4,6 +4,22 @@ export const SWAP_ADD_SONG_FORM_SHOW = 'SWAP_ADD_SONG_FORM_SHOW';
 export const SELECT_SONG_ID = 'SELECT_SONG_ID';
 export const RECEIVE_SONG = 'RECEIVE_SONG';
 export const SELECT_PLAYING_SONG = 'SELECT_PLAYING_SONG';
+export const SET_DROPDOWN_MENU_COORDS = 'SET_DROPDOWN_MENU_COORDS';
+export const TOGGLE_DROPDOWN_MENU = 'TOGGLE_DROPDOWN_MENU';
+
+export const setDropdownMenuCoords = (xPos, yPos) => {
+  return {
+    type: SET_DROPDOWN_MENU_COORDS,
+    xPos,
+    yPos
+  };
+};
+
+export const toggleDropdownMenu = () => {
+  return {
+    type: TOGGLE_DROPDOWN_MENU
+  };
+};
 
 export const receiveSong = song => {
   return {

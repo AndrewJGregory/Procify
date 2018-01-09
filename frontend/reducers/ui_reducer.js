@@ -3,13 +3,18 @@ import {
   SWAP_ADD_SONG_FORM_SHOW,
   SELECT_SONG_ID,
   SELECT_PLAYING_SONG,
+  TOGGLE_DROPDOWN_MENU,
+  SET_DROPDOWN_MENU_COORDS
 } from '../actions/song_actions';
 
 const initialState = {
   isPlaylistFormDisplayed: false,
   isAddSongFormDisplayed: false,
   selectedSongId: null,
-  playingSong: {}
+  playingSong: {},
+  isDropdownMenuDisplayed: false,
+  dropdownMenuXpos: 0,
+  dropdownMenuYpos: 0
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -40,8 +45,22 @@ const uiReducer = (state = initialState, action) => {
           state,
           {playingSong: action.song}
         );
-        default:
-        return state;
-      }
-    };
-    export default uiReducer;
+        case TOGGLE_DROPDOWN_MENU:
+        return Object.assign(
+          {},
+          state,
+          {
+            isDropdownMenuDisplayed: !state.isDropdownMenuDisplayed,
+          });
+          case SET_DROPDOWN_MENU_COORDS:
+          let newState = Object.assign(
+            {},
+            state,
+            {dropdownMenuXpos: action.xPos, dropdownMenuYpos: action.yPos}
+          );
+          return newState;
+          default:
+          return state;
+        }
+      };
+      export default uiReducer;
