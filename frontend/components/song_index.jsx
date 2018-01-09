@@ -1,10 +1,11 @@
 import React from 'react';
 import SongIndexItemContainer from './song_index_item_container';
+import shortid from 'shortid';
 
 const SongIndex = (props) => {
   const songs = props.songs.map(song => {
     return <SongIndexItemContainer
-      key={song.id}
+      key={shortid.generate()}
       song={song} />;
   });
   

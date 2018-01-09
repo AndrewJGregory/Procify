@@ -4,9 +4,18 @@ import { withRouter } from 'react-router-dom';
 import { deletePlaylist } from '../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const playlistId = ownProps.match.params.typeId;
-  const songs = Object.values(state.entities.songs).filter(song => {
-    return song.playlist_ids.includes(parseInt(playlistId));
+  const playlistId = parseInt(ownProps.match.params.typeId);
+  const songs = [];
+  let duplicateCount = 0;
+  Object.values(state.entities.songs).forEach(song => {
+    if (song.playlist_ids.includes(playlistId)) {
+      duplicateCount =
+      (song.playlist_ids.filter(id => id === playlistId).length);
+      while (duplicateCount > 0) {
+        songs.push(song);
+        duplicateCount--;
+      }
+    }
   });
 
   return { songs, playlistId };
