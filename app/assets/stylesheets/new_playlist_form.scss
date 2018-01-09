@@ -25,9 +25,24 @@
 
 .transparent-form-header {
   color: white;
+  font-size: 36px;
 }
 
 .playlist-form-btns {
   display: flex;
   justify-content: center;
+}
+
+.playlist-input {
+  width: 100vw;
+  height: 150px;
+  padding-left: 75px;
+  border: 0;
+  background-color: #282828;
+  caret-color: #2EBD54;
+  color: #535353;
+  font-size: 36px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 35px 0 45px 0;
 }

@@ -2,11 +2,13 @@ import { connect } from 'react-redux';
 import Navbar from './navbar';
 import NewPlaylistForm from './new_playlist_form';
 import { swapPlaylistFormShow, createNewPlaylist } from '../actions/playlist_actions';
+import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUserId: state.session.currentUser.id,
-    isPlaylistFormDisplayed: state.ui.isPlaylistFormDisplayed
+    isPlaylistFormDisplayed: state.ui.isPlaylistFormDisplayed,
+    type: ownProps.match.params.type
   };
 };
 
@@ -18,13 +20,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 export const NavBarContainer =
-connect(
+withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(Navbar));
 
 export const NewPlaylistFormContainer =
-  connect(
+  withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-  )(NewPlaylistForm);
+  )(NewPlaylistForm));

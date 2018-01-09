@@ -1,9 +1,7 @@
-
-
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { NewPlaylistFormContainer } from './playlist_form_container';
+import * as navbarUtil from '../util/navbar_util.jsx';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -20,23 +18,17 @@ class NavBar extends React.Component {
       this.props.isPlaylistFormDisplayed ? <NewPlaylistFormContainer /> : null
     );
 
+    const type = this.props.type;
+    const lis = ['playlists', 'tracks', 'albums', 'artists'].map(navbarWord => (
+      navbarUtil.generateLi(type, navbarWord)
+    ));
+    
     return (
       <section className='nav-bar'>
         {form}
         <div className='nav-bar-ul-container'>
           <ul id="nav-bar-ul">
-            <li className='nav-link'>
-              <Link to='/collection/playlists'>Playlists</Link>
-            </li>
-            <li className='nav-link'>
-              <Link to='/collection/tracks'>Songs</Link>
-            </li>
-            <li className='nav-link'>
-              <Link to='/collection/albums'>Albums</Link>
-            </li>
-            <li className='nav-link'>
-              <Link to='/collection/artists'>Artists</Link>
-            </li>
+            {lis}
           </ul>
         </div>
         <div className='new-playlist-btn-container'>
