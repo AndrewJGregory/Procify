@@ -1,19 +1,27 @@
 .transparent-form-page {
   position: fixed;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .playlist-form-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .playlist-form-btns {
   display: flex;
   justify-content: center;
+}
+
+.x-mark {
+  background-image: image_url('transparent-x-mark.png');
+  background-repeat: no-repeat;
+  font-size: 36px;
 }

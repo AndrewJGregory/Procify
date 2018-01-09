@@ -30,11 +30,10 @@ class NewPlaylistForm extends React.Component {
     return (
       <main className='transparent-form-page'>
         <section className='playlist-form-content'>
-          <h1
+          <div
             className='x-mark'
             onClick={() => this.props.swapPlaylistFormShow()}>
-            ✕
-          </h1>
+          </div>
           <header className='transparent-form-header'>
             Create new playlist
           </header>
