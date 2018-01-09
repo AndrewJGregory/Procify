@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { NewPlaylistFormContainer } from './playlist_form_container';
@@ -21,15 +24,23 @@ class NavBar extends React.Component {
       <section className='nav-bar'>
         {form}
         <ul id="nav-bar-ul">
-          <Link to='/collection/playlists'><li>Playlists</li></Link>
-          <Link to='/collection/tracks'><li>Songs</li></Link>
-          <Link to='/collection/albums'><li>Albums</li></Link>
-          <Link to='/collection/artists'><li>Artists</li></Link>
+          <li className='nav-link'>
+            <Link to='/collection/playlists'>Playlists</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/collection/tracks'>Songs</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/collection/albums'>Albums</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/collection/artists'>Artists</Link>
+          </li>
+          <button className='session-link new-playlist-link'
+            onClick={this.displayForm}>
+            new playlist
+          </button>
         </ul>
-        <button className='session-link new-playlist-link'
-          onClick={this.displayForm}>
-        new playlist
-        </button>
       </section>
     );
   }

@@ -3,9 +3,10 @@ import InnerCollectionContainer from './inner_collection_container';
 import SidebarContainer from './sidebar_container';
 import PlayingSongContainer from './playing_song_container';
 
-const MainPage = ({ username, type, logout }) => {
+const MainPage = (props) => {
   return (
-    <main id="main-page">
+    <main id="main-page"
+      className={props.match.params.type}>
       <InnerCollectionContainer />
       <SidebarContainer />
       <PlayingSongContainer />

@@ -1,12 +1,23 @@
 #nav-bar-ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.new-playlist-link {  
-  height: 36px;
-  width: 183px;
-  font-size: 12px;
+.nav-link {
+  padding: 20px;
+  padding-bottom: 0px;
+  color: white;
+}
+
+.new-playlist-link {
+  height: 30px;
+  width: 140px;
+  font-size: 11px;
   cursor: pointer;
   letter-spacing: 2px;
+  border: 0;
+  line-height: 10px;
+  margin: 15px -60px 0 0;
 }
