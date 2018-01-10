@@ -5,4 +5,18 @@
   height: 110px;
   color: white;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+}
+
+.song-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+i {
+  font-size: 40px;
+  color: gray;
+  line-height: 100px;
 }

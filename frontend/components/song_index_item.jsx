@@ -59,6 +59,7 @@ class SongIndexItem extends React.Component {
               className='three-dots'
               onClick={this.displayDropdownMenu}>Three dots</button>
             {menu}
+            <button onClick={this.selectPlayingSong}>Play</button>
           </div>
         </div>
       );
