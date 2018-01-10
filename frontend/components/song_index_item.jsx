@@ -18,6 +18,7 @@ class SongIndexItem extends React.Component {
   displayDropdownMenu(e) {
     const xPos = e.clientX;
     const yPos = e.clientY;
+    this.setState({isHovered: false});
     if (this.props.isDropdownMenuDisplayed) {
       this.props.setDropdownMenuCoords(xPos, yPos);
       this.props.selectSongId(this.props.song.id);
