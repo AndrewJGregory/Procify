@@ -8,7 +8,6 @@ class PlayingSong extends React.Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.intervalId = null;
   }
 
   handleClick(e) {
@@ -30,7 +29,8 @@ class PlayingSong extends React.Component {
 
   play() {
     this.props.audio.play().then(() => {
-      this.intervalId = window.setInterval(() => this.incrementTime(), 1000);
+      const intervalId = window.setInterval(() => this.incrementTime(), 1000);
+      this.props.setIntervalId(intervalId);
       const length = secToMin(this.props.audio.duration);
       this.setState({length});
     });
@@ -39,7 +39,7 @@ class PlayingSong extends React.Component {
 
   pause() {
     this.props.audio.pause();
-    window.clearInterval(this.intervalId);
+    window.clearInterval(this.props.intervalId);
     this.props.toggleSongPlaying();
   }
 

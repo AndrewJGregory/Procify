@@ -10,6 +10,7 @@ import {
 import { TOGGLE_SONG_PLAYING,
 SET_AUDIO_SRC,
 SELECT_PLAYING_SONG,
+SET_INTERVAL_ID
 } from '../actions/playing_song_actions';
 
 const audio = document.createElement('audio');
@@ -24,6 +25,7 @@ const initialState = {
   isSongPlaying: false,
   playingSong: {},
   hoveredSongId: -1,
+  intervalId: -1,
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -82,6 +84,12 @@ const uiReducer = (state = initialState, action) => {
             {},
             state,
             {hoveredSongId: action.id}
+          );
+          case SET_INTERVAL_ID:
+          return Object.assign(
+            {},
+            state,
+            {intervalId: action.id}
           );
           default:
           return state;
