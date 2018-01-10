@@ -23,14 +23,8 @@ class PlayingSong extends React.Component {
     if (nextProps.playingSong !== this.props.playingSong) {
       this.props.setAudioSrc(nextProps.playingSong.url);
       this.props.audio.load();
-      if (this.props.isSongPlaying) {
-        this.props.audio.play().then(() => {
-          const length = secToMin(this.props.audio.duration);
-          this.setState({length});
-        });
-      } else {
-        this.play();
-      }
+      this.setState({currentSecs: 0});
+      this.play();
     }
   }
 
