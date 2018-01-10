@@ -22,7 +22,6 @@ class SongIndexItem extends React.Component {
     this.props.toggleSongPlaying();
   }
 
-
   handleClick(e) {
     if (this.props.isSongPlaying) {
       this.pause();
@@ -34,7 +33,6 @@ class SongIndexItem extends React.Component {
   displayDropdownMenu(e) {
     const xPos = e.clientX;
     const yPos = e.clientY;
-    this.setState({isHovered: false});
     if (this.props.isDropdownMenuDisplayed) {
       this.props.setDropdownMenuCoords(xPos, yPos);
       this.props.selectSongId(this.props.song.id);
@@ -79,7 +77,6 @@ class SongIndexItem extends React.Component {
           aria-hidden="true"
           onClick={this.handleClick}></i>;
         }
-
         return (
           <div className={`song-item-container ${activeClass}`}
             onMouseEnter={this.toggleActiveClass}

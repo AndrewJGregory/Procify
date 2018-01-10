@@ -4,6 +4,7 @@ import secToMin from 'sec-to-min';
 class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { length: '0:00' };
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -22,7 +23,10 @@ class PlayingSong extends React.Component {
       this.props.setAudioSrc(nextProps.playingSong.url);
       this.props.audio.load();
       if (this.props.isSongPlaying) {
-        this.props.audio.play();
+        this.props.audio.play().then(() => {
+          const length = secToMin(this.props.audio.duration);
+          this.setState({length});
+        });
       } else {
         this.play();
       }
@@ -30,7 +34,10 @@ class PlayingSong extends React.Component {
   }
 
   play() {
-    this.props.audio.play();
+    this.props.audio.play().then(() => {
+      const length = secToMin(this.props.audio.duration);
+      this.setState({length});
+    });
     this.props.toggleSongPlaying();
   }
 
@@ -58,6 +65,7 @@ class PlayingSong extends React.Component {
             <i className="fa fa-step-forward playing-song-btn" aria-hidden="true"></i>
           </div>
           <div className='volume-container'>
+            {this.state.length}
           </div>
         </footer>
       );
