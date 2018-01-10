@@ -76,10 +76,15 @@ class SongIndexItem extends React.Component {
       threeDots = <button
         className='three-dots'
         onClick={this.displayDropdownMenu}>Three dots</button>;
-        numOrPlayBtn =
-        <i className="fa fa-play" aria-hidden="true"
-          onClick={this.handleClick}></i>;
+        if (this.props.song.id === this.props.playingSongId) {
+          numOrPlayBtn = <i className="fa fa-pause-circle-o playing-song-btn" aria-hidden="true"
+            onClick={this.handleClick}></i>;
+          } else {
+            numOrPlayBtn = <i className="fa fa-play" aria-hidden="true"
+              onClick={this.handleClick}></i>;
+          }
         }
+
         return (
           <div className={`song-item-container ${activeClass}`}
             onMouseEnter={this.hoverOverSong}

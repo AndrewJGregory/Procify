@@ -25,7 +25,9 @@ const mapStateToProps = (state, ownProps) => {
     xPos,
     yPos,
     audio: state.ui.audio,
-    selectedSongId: state.ui.hoveredSongId
+    selectedSongId: state.ui.hoveredSongId,
+    isSongPlaying: state.ui.isSongPlaying,
+    playingSongId: state.ui.playingSong.id
   };
 };
 
