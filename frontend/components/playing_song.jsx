@@ -4,7 +4,7 @@ import secToMin from 'sec-to-min';
 class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { length: '0:00' };
+    this.state = { length: '0:00', currentSecs: 0 };
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -44,6 +44,10 @@ class PlayingSong extends React.Component {
   pause() {
     this.props.audio.pause();
     this.props.toggleSongPlaying();
+  }
+
+  incrementTime() {
+    this.setState({currentSecs: this.state.currentSecs + 1});
   }
 
   render() {

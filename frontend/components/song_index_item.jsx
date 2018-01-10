@@ -5,12 +5,12 @@ import DropdownMenu from './dropdown_menu';
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isHovered: false };
     this.displayDropdownMenu = this.displayDropdownMenu.bind(this);
-    this.toggleActiveClass = this.toggleActiveClass.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.hoverOverSong = this.hoverOverSong.bind(this);
+    this.leaveSong = this.leaveSong.bind(this);
   }
 
   play() {
@@ -23,6 +23,7 @@ class SongIndexItem extends React.Component {
   }
 
   handleClick(e) {
+    e.preventDefault();
     if (this.props.isSongPlaying) {
       this.pause();
     } else {
@@ -42,8 +43,12 @@ class SongIndexItem extends React.Component {
     }
   }
 
-  toggleActiveClass() {
-    this.setState({isHovered: !this.state.isHovered});
+  hoverOverSong() {
+    this.props.selectHoveredSongId(this.props.song.id);
+  }
+
+  leaveSong() {
+    this.props.selectHoveredSongId(-1);
   }
 
   render() {
@@ -63,24 +68,22 @@ class SongIndexItem extends React.Component {
         shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
         deleteSongFromPlaylist={this.props.deleteSongFromPlaylist} />;
     }
-
     let activeClass = '';
     let threeDots = '';
     let numOrPlayBtn = this.props.listNum + '.';
-    if (this.state.isHovered) {
+    if (this.props.selectedSongId === this.props.song.id) {
       activeClass = 'hovered-song';
       threeDots = <button
         className='three-dots'
         onClick={this.displayDropdownMenu}>Three dots</button>;
         numOrPlayBtn =
-        <i className="fa fa-play-circle-o playing-song-btn"
-          aria-hidden="true"
+        <i className="fa fa-play" aria-hidden="true"
           onClick={this.handleClick}></i>;
         }
         return (
           <div className={`song-item-container ${activeClass}`}
-            onMouseEnter={this.toggleActiveClass}
-            onMouseLeave={this.toggleActiveClass}>
+            onMouseEnter={this.hoverOverSong}
+            onMouseLeave={this.leaveSong}>
             <div className='song-item-content'>
               <li className='song-item'>
                 {numOrPlayBtn}

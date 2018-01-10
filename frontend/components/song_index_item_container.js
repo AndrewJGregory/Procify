@@ -6,6 +6,7 @@ import {
   toggleDropdownMenu,
   setDropdownMenuCoords,
   deleteSongFromPlaylist,
+  selectHoveredSongId
 } from '../actions/song_actions';
 
 import { toggleSongPlaying,
@@ -23,7 +24,8 @@ const mapStateToProps = (state, ownProps) => {
     isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,
     xPos,
     yPos,
-    audio: state.ui.audio
+    audio: state.ui.audio,
+    selectedSongId: state.ui.hoveredSongId
   };
 };
 
@@ -36,7 +38,8 @@ const mapDispatchToProps = dispatch => {
     swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
     toggleSongPlaying: () => dispatch(toggleSongPlaying()),
     setAudioSrc: audioSrc => dispatch(setAudioSrc(audioSrc)),
-    selectPlayingSong: song => dispatch(selectPlayingSong(song))
+    selectPlayingSong: song => dispatch(selectPlayingSong(song)),
+    selectHoveredSongId: id => dispatch(selectHoveredSongId(id))
   };
 };
 

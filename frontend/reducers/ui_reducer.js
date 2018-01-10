@@ -4,6 +4,7 @@ import {
   SELECT_SONG_ID,
   TOGGLE_DROPDOWN_MENU,
   SET_DROPDOWN_MENU_COORDS,
+  SELECT_HOVERED_SONG_ID
 } from '../actions/song_actions';
 
 import { TOGGLE_SONG_PLAYING,
@@ -21,7 +22,8 @@ const initialState = {
   dropdownMenuYpos: 0,
   audio,
   isSongPlaying: false,
-  playingSong: {}
+  playingSong: {},
+  hoveredSongId: -1,
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -74,6 +76,12 @@ const uiReducer = (state = initialState, action) => {
             {},
             state,
             {playingSong: action.song}
+          );
+          case SELECT_HOVERED_SONG_ID:
+          return Object.assign(
+            {},
+            state,
+            {hoveredSongId: action.id}
           );
           default:
           return state;

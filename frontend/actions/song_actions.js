@@ -5,6 +5,7 @@ export const SELECT_SONG_ID = 'SELECT_SONG_ID';
 export const RECEIVE_SONG = 'RECEIVE_SONG';
 export const SET_DROPDOWN_MENU_COORDS = 'SET_DROPDOWN_MENU_COORDS';
 export const TOGGLE_DROPDOWN_MENU = 'TOGGLE_DROPDOWN_MENU';
+export const SELECT_HOVERED_SONG_ID = 'SELECT_HOVERED_SONG_ID';
 
 export const setDropdownMenuCoords = (xPos, yPos) => {
   return {
@@ -58,4 +59,11 @@ export const deleteSongFromPlaylist = (userId, songId, playlistId) => dispatch =
     dispatch(receiveSong(song));
     return song;
   });
+};
+
+export const selectHoveredSongId = id => {
+  return {
+    type: SELECT_HOVERED_SONG_ID,
+    id
+  };
 };
