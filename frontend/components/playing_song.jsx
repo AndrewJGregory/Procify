@@ -8,6 +8,7 @@ class PlayingSong extends React.Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.intervalId = null;
   }
 
   handleClick(e) {
@@ -35,6 +36,7 @@ class PlayingSong extends React.Component {
 
   play() {
     this.props.audio.play().then(() => {
+      this.intervalId = window.setInterval(() => this.incrementTime(), 1000);
       const length = secToMin(this.props.audio.duration);
       this.setState({length});
     });
@@ -43,6 +45,7 @@ class PlayingSong extends React.Component {
 
   pause() {
     this.props.audio.pause();
+    window.clearInterval(this.intervalId);
     this.props.toggleSongPlaying();
   }
 
@@ -58,6 +61,7 @@ class PlayingSong extends React.Component {
         <i className="fa fa-play-circle-o" aria-hidden="true"
           onClick={this.handleClick}></i>
       );
+      const formattedTime = secToMin(this.state.currentSecs);
       return (
         <footer id="playing-song">
           <div className='playing-song-info'>
@@ -67,6 +71,7 @@ class PlayingSong extends React.Component {
             <i className="fa fa-step-backward playing-song-btn" aria-hidden="true"></i>
             {playPauseBtn}
             <i className="fa fa-step-forward playing-song-btn" aria-hidden="true"></i>
+            {formattedTime}
           </div>
           <div className='volume-container'>
             {this.state.length}
