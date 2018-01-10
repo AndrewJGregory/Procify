@@ -18,14 +18,17 @@
 .x-mark {
   background-image: image_url('transparent-x-mark.png');
   background-repeat: no-repeat;
+  background-position: center;
   font-size: 36px;
   height: 100px;
   width: 100px;
+  cursor: pointer;
 }
 
 .transparent-form-header {
   color: white;
   font-size: 36px;
+  font-family: 'Lato', sans-serif;
 }
 
 .playlist-form-btns {
@@ -36,7 +39,7 @@
 .playlist-input {
   width: 100vw;
   height: 150px;
-  padding-left: 75px;
+  padding-left: 50%;
   border: 0;
   background-color: #282828;
   caret-color: #2EBD54;
@@ -45,4 +48,27 @@
   letter-spacing: 2px;
   font-weight: 700;
   margin: 35px 0 45px 0;
+}
+
+.playlist-form-btns {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.playlist-form-btn {
+  color: white;
+  padding: 11px 44px;
+  border-radius: 50px;
+  background-color: #14BA5B;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+
+.cancel-form-btn {
+  border: 2px solid white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
 }

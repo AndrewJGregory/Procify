@@ -36,20 +36,21 @@ class NewPlaylistForm extends React.Component {
           <header className='transparent-form-header'>
             Create new playlist
           </header>
-            <input
-              value={this.state.playlistTitle}
-              onChange={this.updateInput('title')}
-              placeholder="Start typing..."
-              className='playlist-input'/>
-            <div className='playlist-form-btns'>
+          <input
+            value={this.state.playlistTitle}
+            onChange={this.updateInput('title')}
+            placeholder="Start typing..."
+            className='playlist-input'
+            autoFocus='true' />
+          <div className='playlist-form-btns'>
             <button
-              className='playlist-form-btn'
+              className='playlist-form-btn cancel-form-btn'
               onClick={() => this.props.swapPlaylistFormShow()}>
               cancel
             </button>
             <button
               onClick={this.createNewPlaylist}
-              className='session-link playlist-form-btn'>
+              className='playlist-form-btn'>
               create
             </button>
           </div>
