@@ -14,14 +14,13 @@ class DropdownMenu extends React.Component {
 
   displayForm() {
     this.props.swapAddSongFormShow();
-    this.props.selectSongId(this.props.song.id);
   }
 
   handleDeleteClick() {
     this.props.deleteSongFromPlaylist(
       this.props.song.id,
       this.props.typeId
-    );
+    ).then(() => this.props.toggleDropdownMenu());
   }
 
   render() {

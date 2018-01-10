@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { deletePlaylist } from '../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
+
   const playlistId = parseInt(ownProps.match.params.typeId);
   const songs = [];
   let duplicateCount = 0;

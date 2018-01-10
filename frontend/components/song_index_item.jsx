@@ -18,6 +18,7 @@ class SongIndexItem extends React.Component {
     const yPos = e.clientY;
     if (this.props.isDropdownMenuDisplayed) {
       this.props.setDropdownMenuCoords(xPos, yPos);
+      this.props.selectSongId(this.props.song.id);
     } else {
       this.props.setDropdownMenuCoords(xPos, yPos);
       this.props.toggleDropdownMenu();
@@ -42,10 +43,10 @@ class SongIndexItem extends React.Component {
            toggleDropdownMenu={this.props.toggleDropdownMenu}
            typeId={this.props.match.params.typeId}
            swapAddSongFormShow={this.props.swapAddSongFormShow}
-           selectSongId={this.props.selectSongId}
            menuPos={menuPos}
            song={this.props.song}
-           shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)} />;
+           shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
+           deleteSongFromPlaylist={this.props.deleteSongFromPlaylist} />;
       }
 
       return (
