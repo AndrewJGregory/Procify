@@ -1,6 +1,7 @@
 .song-item {
   color: white;
-  margin: 10px;
+  font-family: 'Lato';
+  margin: 10px 0;
 }
 
 .song-item-container {
@@ -10,4 +11,8 @@
 
 .three-dots {
   margin-right: 100px;
+}
+
+.hovered-song {
+  background-color: rgba(0, 0, 0, 0.5);
 }

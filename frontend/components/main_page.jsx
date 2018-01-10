@@ -7,7 +7,7 @@ import SearchContainer from './search_container';
 
 const MainPage = (props) => {
   let primaryComponent = null;
-  
+
   switch (props.match.params.category) {
     case 'browse':
     primaryComponent = <BrowseContainer />;

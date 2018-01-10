@@ -5,8 +5,10 @@ import DropdownMenu from './dropdown_menu';
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { isHovered: false };
     this.selectPlayingSong = this.selectPlayingSong.bind(this);
     this.displayDropdownMenu = this.displayDropdownMenu.bind(this);
+    this.toggleActiveClass = this.toggleActiveClass.bind(this);
   }
 
   selectPlayingSong() {
@@ -25,6 +27,10 @@ class SongIndexItem extends React.Component {
     }
   }
 
+  toggleActiveClass() {
+    this.setState({isHovered: !this.state.isHovered});
+  }
+
   render() {
     let deleteButton = null;
     if (this.props.shouldHaveDeleteButton) {
@@ -40,32 +46,46 @@ class SongIndexItem extends React.Component {
       let menu = null;
       if (this.props.isDropdownMenuDisplayed) {
         menu = <DropdownMenu
-           toggleDropdownMenu={this.props.toggleDropdownMenu}
-           typeId={this.props.match.params.typeId}
-           swapAddSongFormShow={this.props.swapAddSongFormShow}
-           menuPos={menuPos}
-           song={this.props.song}
-           shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
-           deleteSongFromPlaylist={this.props.deleteSongFromPlaylist} />;
+          toggleDropdownMenu={this.props.toggleDropdownMenu}
+          typeId={this.props.match.params.typeId}
+          swapAddSongFormShow={this.props.swapAddSongFormShow}
+          menuPos={menuPos}
+          song={this.props.song}
+          shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
+          deleteSongFromPlaylist={this.props.deleteSongFromPlaylist} />;
+      }
+      let activeClass = '';
+      let threeDots = '';
+      let numOrPlayBtn = this.props.listNum + '.';
+      if (this.state.isHovered) {
+        activeClass = 'hovered-song';
+        threeDots = <button
+          className='three-dots'
+          onClick={this.displayDropdownMenu}>Three dots</button>;
+          numOrPlayBtn =
+          <i className="fa fa-play-circle-o playing-song-btn"
+            aria-hidden="true"
+            onClick={this.selectPlayingSong}></i>;
+          }
+
+
+          return (
+            <div className={`song-item-container ${activeClass}`}
+              onMouseEnter={this.toggleActiveClass}
+              onMouseLeave={this.toggleActiveClass}>
+              <div className='song-item-content'>
+                <li className='song-item'>
+                  {numOrPlayBtn}
+                  {this.props.song.title}
+                </li>
+              </div>
+              <div className='menu-content'>
+                {threeDots}
+                {menu}
+              </div>
+            </div>
+          );
+        }
       }
 
-      return (
-        <div className='song-item-container'>
-          <div className='song-item-content'>
-            <li className='song-item'>
-              {this.props.song.title}
-            </li>
-          </div>
-          <div className='menu-content'>
-            <button
-              className='three-dots'
-              onClick={this.displayDropdownMenu}>Three dots</button>
-            {menu}
-            <button onClick={this.selectPlayingSong}>Play</button>
-          </div>
-        </div>
-      );
-    }
-  }
-
-  export default SongIndexItem;
+      export default SongIndexItem;

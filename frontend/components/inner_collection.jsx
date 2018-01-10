@@ -47,7 +47,7 @@ class InnerCollection extends React.Component {
       if (this.props.isAddSongFormDisplayed) {
         form = <AddSongFormContainer />;
       }
-      
+
       return (
         <section className='main-interior'>
           {form}

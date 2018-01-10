@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
     let activeSearchClass = '';
     let activeHomeClass = '';
 
-    if (this.props.match.params.category === 'collection') {
+    if (['collection', 'user'].includes(this.props.match.params.category)) {
       activeYourMusicClass = 'green-link';
     }
 
