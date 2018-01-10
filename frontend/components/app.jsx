@@ -9,10 +9,9 @@ import PlaylistShowContainer from './playlist_show_container';
 const App = () => (
   <main id='app'>
     <Switch>
-      <ProtectedRoute path='/collection/:type'
-        component={MainPage} />
+      <ProtectedRoute path='/:category/:type' component={MainPage} />
       <ProtectedRoute path='/settings/:type'
-        component={MainPage}/>
+        component={MainPage} />
       <ProtectedRoute path='/user/:userId/:type/:typeId'
         component={MainPage} />
       <AuthRoute path='/login' component={LoginFormContainer} />

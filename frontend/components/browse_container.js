@@ -1,12 +1,20 @@
 import { connect } from 'react-redux';
-import Sidebar from './sidebar';
+import Browse from './browse';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
-  return { username: state.session.currentUser.username };
+  return {
+
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+
+  };
 };
 
 export default withRouter(connect(
   mapStateToProps,
-  null
-)(Sidebar));
+  mapDispatchToProps
+)(Browse));

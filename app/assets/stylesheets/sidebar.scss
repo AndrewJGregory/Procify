@@ -14,6 +14,9 @@
   font-weight: 700;
 }
 
+div li a {
+  color: #9F9392;
+}
 .search-bar-container {
   display: flex;
   justify-content: space-between;
@@ -41,4 +44,8 @@
 .sidebar-music-link {
   border-bottom: 1px solid gray;
   padding-bottom: 20px;
+}
+
+.green-link {
+  color: green;
 }

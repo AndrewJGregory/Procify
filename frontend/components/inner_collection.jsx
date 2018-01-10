@@ -42,7 +42,7 @@ class InnerCollection extends React.Component {
         form = <AddSongFormContainer />;
       }
       return (
-        <section id="inner-collection">
+        <section className='main-interior'>
           {form}
           <NavBarContainer />
           {component}

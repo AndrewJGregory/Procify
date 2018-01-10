@@ -7,27 +7,60 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    let activeYourMusicClass = '';
+    let activeSearchClass = '';
+    let activeHomeClass = '';
+
+    if (this.props.match.params.category === 'collection') {
+      activeYourMusicClass = 'green-link';
+    }
+
+    if (this.props.match.params.category === 'browse') {
+      activeHomeClass = 'green-link';
+    }
+
+
+    if (this.props.match.params.category === 'search') {
+      activeSearchClass = 'green-link';
+    }
+
     return (
       <aside id="sidebar">
         <div className='sidebar-top-links-container'>
           <ul className='sidebar-top-links'>
             <li>Procify img</li>
             <div className='search-bar-container'>
-              <li className='search-bar clickable'>Search</li>
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            <li className='sidebar-link clickable'>Home</li>
-            <li className='sidebar-link sidebar-music-link clickable'>Your Music</li>
-          </ul>
-        </div>
-        <div className='bottom-sidebar'>
-          <Link to='/settings/account'>
-            {this.props.username}
-          </Link>
-        </div>
-      </aside>
-    );
+              <li className='search-bar'>
+                  <Link to='/search/results'
+                    className={`${activeSearchClass}`}>
+                    Search
+                  </Link>
+                </li>
+                <Link to='/search/results'>
+                  <i className={`fa fa-search ${activeSearchClass}`} aria-hidden="true"></i>
+                </Link>
+              </div>
+              <li className='sidebar-link'>
+                <Link to='/browse/featured' className={`${activeHomeClass}`}>
+                  Home
+                </Link>
+              </li>
+              <li className='sidebar-link
+                sidebar-music-link'>
+                <Link to='/collection/playlists' className={`${activeYourMusicClass}`}>
+                  Your Music
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className='bottom-sidebar'>
+            <Link to='/settings/account'>
+              {this.props.username}
+            </Link>
+          </div>
+        </aside>
+      );
+    }
   }
-}
 
-export default Sidebar;
+  export default Sidebar;
