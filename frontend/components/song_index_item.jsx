@@ -19,6 +19,7 @@ class SongIndexItem extends React.Component {
 
   pause() {
     this.props.audio.pause();
+    window.clearInterval(this.props.intervalId);
     this.props.toggleSongPlaying();
   }
 
