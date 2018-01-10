@@ -10,8 +10,6 @@ const App = () => (
   <main id='app'>
     <Switch>
       <ProtectedRoute path='/:category/:type' component={MainPage} />
-      <ProtectedRoute path='/settings/:type'
-        component={MainPage} />
       <ProtectedRoute path='/user/:userId/:type/:typeId'
         component={MainPage} />
       <AuthRoute path='/login' component={LoginFormContainer} />

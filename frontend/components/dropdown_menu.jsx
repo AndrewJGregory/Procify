@@ -25,12 +25,16 @@ class DropdownMenu extends React.Component {
   }
 
   render() {
+    let deleteLi = null;
+    if (this.props.shouldHaveDeleteOption) {
+      deleteLi = <li onClick={this.handleDeleteClick}>Delete from playlist</li>;
+    }
     return (
       <ul
         className='dropdown-menu'
         style={this.props.menuPos}>
         <li onClick={this.displayForm}>Add to playlist</li>
-        <li onClick={this.handleDeleteClick}>Delete from playlist</li>
+        {deleteLi}
       </ul>
     );
   }

@@ -29,6 +29,8 @@ class InnerCollection extends React.Component {
 
     render() {
       let component = null;
+      let navBar = <NavBarContainer />;
+
       if (this.props.component) {
         component = <this.props.component
           playlists={this.props.playlists}
@@ -37,14 +39,19 @@ class InnerCollection extends React.Component {
           />;
       }
 
+      if (this.props.match.params.category === 'settings') {
+        navBar = null;
+      }
+
       let form = null;
       if (this.props.isAddSongFormDisplayed) {
         form = <AddSongFormContainer />;
       }
+
       return (
         <section className='main-interior'>
           {form}
-          <NavBarContainer />
+          {navBar}
           {component}
         </section>
       );

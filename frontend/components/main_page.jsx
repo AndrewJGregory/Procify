@@ -12,6 +12,7 @@ const MainPage = (props) => {
     primaryComponent = <BrowseContainer />;
     break;
     case 'collection':
+    case 'settings':
     primaryComponent = <InnerCollectionContainer />;
     break;
     case 'search':
