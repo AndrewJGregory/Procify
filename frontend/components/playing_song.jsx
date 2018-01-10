@@ -4,38 +4,48 @@ import secToMin from 'sec-to-min';
 class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
-    const audio = document.createElement('audio');
-    this.state = { audio, playing: false };
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    if (this.props.isSongPlaying) {
+      this.pause();
+    } else {
+      this.play();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.playingSong !== this.props.playingSong) {
-      this.state.audio.setAttribute('src', nextProps.playingSong.url);
-      this.state.audio.load();
-      this.play();
-      this.setState({playing: true});
+      this.props.setAudioSrc(nextProps.playingSong.url);
+      this.props.audio.load();
+      if (this.props.isSongPlaying) {
+        this.props.audio.play();
+      } else {
+        this.play();
+      }
     }
   }
 
   play() {
-    this.state.audio.play();
-    this.setState({playing: true});
+    this.props.audio.play();
+    this.props.toggleSongPlaying();
   }
 
   pause() {
-    this.state.audio.pause();
-    this.setState({playing: false});
+    this.props.audio.pause();
+    this.props.toggleSongPlaying();
   }
 
   render() {
     const playPauseBtn = (
-      this.state.playing ?
+      this.props.isSongPlaying ?
       <i className="fa fa-pause-circle-o playing-song-btn" aria-hidden="true"
-        onClick={this.pause}></i> :
+        onClick={this.handleClick}></i> :
         <i className="fa fa-play-circle-o" aria-hidden="true"
-          onClick={this.play}></i>
+          onClick={this.handleClick}></i>
       );
       return (
         <footer id="playing-song">

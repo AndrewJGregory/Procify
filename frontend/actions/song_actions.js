@@ -3,7 +3,6 @@ export const RECEIVE_SONGS = 'RECEIVE_SONGS';
 export const SWAP_ADD_SONG_FORM_SHOW = 'SWAP_ADD_SONG_FORM_SHOW';
 export const SELECT_SONG_ID = 'SELECT_SONG_ID';
 export const RECEIVE_SONG = 'RECEIVE_SONG';
-export const SELECT_PLAYING_SONG = 'SELECT_PLAYING_SONG';
 export const SET_DROPDOWN_MENU_COORDS = 'SET_DROPDOWN_MENU_COORDS';
 export const TOGGLE_DROPDOWN_MENU = 'TOGGLE_DROPDOWN_MENU';
 
@@ -59,11 +58,4 @@ export const deleteSongFromPlaylist = (userId, songId, playlistId) => dispatch =
     dispatch(receiveSong(song));
     return song;
   });
-};
-
-export const selectPlayingSong = song => {
-  return {
-    type: SELECT_PLAYING_SONG,
-    song
-  };
 };
