@@ -84,37 +84,42 @@ class SongIndexItem extends React.Component {
 
         if (this.props.selectedSongId === this.props.song.id) {
           activeClass = 'hovered-song';
-          threeDots = <button
-            className='three-dots'
-            onClick={this.displayDropdownMenu}>Three dots</button>;
-            if (this.props.song.id === this.props.playingSongId) {
-              if (this.props.isSongPlaying) {
-                numOrPlayBtn = pauseBtn;
-              } else {
-                numOrPlayBtn = playBtn;
-              }
+          threeDots = <div
+            onClick={this.displayDropdownMenu}
+            className='three-dots'>
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <i class="fa fa-circle" aria-hidden="true"></i>
+          </div>;
+          if (this.props.song.id === this.props.playingSongId) {
+            if (this.props.isSongPlaying) {
+              numOrPlayBtn = pauseBtn;
             } else {
               numOrPlayBtn = playBtn;
             }
+          } else {
+            numOrPlayBtn = playBtn;
           }
+        }
 
-          return (
-            <div className={`song-item-container ${activeClass}`}
-              onMouseEnter={this.hoverOverSong}
-              onMouseLeave={this.leaveSong}>
-              <div className='song-item-content'>
-                <li className='song-item'>
-                  {numOrPlayBtn}
-                  {this.props.song.title}
-                </li>
-              </div>
-              <div className='menu-content'>
-                {threeDots}
-                {menu}
+
+        return (
+          <div className={`song-item-container ${activeClass}`}
+            onMouseEnter={this.hoverOverSong}
+            onMouseLeave={this.leaveSong}>
+            <div className='song-item-content'>
+              <div className='song-item'>
+                {numOrPlayBtn}
+                {this.props.song.title}
               </div>
             </div>
-          );
-        }
+            <div className='menu-content'>
+              {threeDots}
+              {menu}
+            </div>
+          </div>
+        );
       }
+    }
 
-      export default SongIndexItem;
+    export default SongIndexItem;

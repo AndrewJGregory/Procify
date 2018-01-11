@@ -10,7 +10,11 @@
 }
 
 .three-dots {
-  margin-right: 100px;
+  margin: 13px 100px 0 0;
+  width: 25px;
+  display: flex;
+  font-size: 6px;
+  justify-content: space-between;
 }
 
 .hovered-song {
