@@ -1,0 +1,21 @@
+.album-show-page {
+
+}
+
+.album-show-content {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 100px;
+}
+
+.album-show-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+.album-song-index {
+  width: 100%;
+  height: 75%;
+}

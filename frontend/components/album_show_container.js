@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
       return state.entities.songs[songId];
     });
   }
-  return { songs };
+  return { songs, album };
 };
 
 export default withRouter(connect(
