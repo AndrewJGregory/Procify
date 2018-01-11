@@ -8,7 +8,7 @@ class InnerCollection extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (innerCollectionUtil.shouldFetchInfo(this.props)) {
       const id = innerCollectionUtil.switchOnType(
         this.props, {}, {}, 'id'
@@ -36,6 +36,7 @@ class InnerCollection extends React.Component {
           songs={this.props.songs}
           currentUserId={this.props.currentUserId}
           albums={this.props.albums}
+          artists={this.props.artists}
           />;
       }
       if (this.props.match.params.category === 'settings') {

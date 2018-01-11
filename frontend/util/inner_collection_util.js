@@ -37,10 +37,19 @@ export const switchOnType = (props, components, actions, decision) => {
       result = {
         component: components.AlbumIndex,
         action: actions.fetchAlbums,
-        id: null
+        id: ''
       };
     }
     return result[decision];
+
+    case 'artists':
+    result = {
+      component: components.ArtistIndex,
+      action: actions.fetchArtists,
+      id: ''
+    };
+    return result[decision];
+
     case 'account':
     return components.AccountInfoContainer;
     default:
@@ -49,6 +58,5 @@ export const switchOnType = (props, components, actions, decision) => {
 };
 
 export const shouldFetchInfo = (props) => {
-  return (!props.location.pathname.includes('account')) &&
-    (!props.location.pathname.includes('artists'));
+  return !props.location.pathname.includes('account');
 };

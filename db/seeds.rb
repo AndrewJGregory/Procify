@@ -12,11 +12,19 @@ Playlist.destroy_all
 PlaylistSong.destroy_all
 Album.destroy_all
 AlbumSong.destroy_all
+Artist.destroy_all
 
 ### USERS ###
 user_one = User.create!(username: 'andrew', password: 'password', email: 'andrew@email.com', birthday: '11061993')
 user_two = User.create!(username: 'cheryl', password: 'password', email: 'cookies@gmail.com', birthday: '11221961')
 ### END USERS ###
+
+
+### ARTISTS ###
+artist_logic = Artist.create!(name: 'Logic', img_url: 'https://s3.amazonaws.com/procify-dev/logicArtistCover.jpeg')
+artist_meg_myers = Artist.create!(name: 'Meg Myers', img_url: 'https://s3.amazonaws.com/procify-dev/megMyersArtistCover.jpg')
+
+### END ARTISTS ###
 
 ### PLAYLISTS ###
 playlist_one = Playlist.create!(title: 'gym', user_id: user_one.id)
@@ -26,56 +34,55 @@ playlist_two = Playlist.create!(title: 'hangout', user_id: user_two.id)
 ### SONGS ###
 song_one = Song.create!(title: 'Pest Control', artist_id: 5, url: 'https://s3.amazonaws.com/procify-dev/The+Game+-+Pest+Control.mp3', playlist_id: playlist_one.id)
 
-song_two = Song.create!(title: 'The Come Up', artist_id: 6, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
+song_two = Song.create!(title: 'The Come Up', artist_id: artist_logic.id, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
 
 song_three = Song.create!(title: 'Black Out Days', artist_id: 100, url: 'https://s3.amazonaws.com/procify-dev/Phantogram+-+Black+Out+Days.mp3', playlist_id: playlist_two.id)
 
 song_four = Song.create!(
   title: '30,000',
-  artist_id: 100,
+  artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+30%2C000.mp3',
   playlist_id: playlist_two.id)
 
 song_five = Song.create!(
   title: 'Man of the Year',
-  artist_id: 100,
+  artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Man+of+the+Year.mp3',
   playlist_id: playlist_two.id)
 
 song_six = Song.create!(
   title: 'Roll Call',
-  artist_id: 100,
+  artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Roll+Call.mp3',
   playlist_id: playlist_two.id)
 
 song_seven = Song.create!(
   title: 'Welcome to Forever',
-  artist_id: 100,
+  artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Welcome+to+Forever+ft.+Jon+Bellion.mp3',
   playlist_id: playlist_one.id
 )
 
 song_eight = Song.create!(
   title: 'Coffins',
-  artist_id: 100,
+  artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/MisterWives+-+Coffins.mp3',
   playlist_id: playlist_one.id
 )
 
 song_nine = Song.create!(
   title: 'Vagabond',
-  artist_id: 100,
+  artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/MisterWives+-+Vagabond.mp3',
   playlist_id: playlist_two.id
 )
 
 song_ten = Song.create!(
   title: 'Riptide',
-  artist_id: 100,
+  artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/Misterwives+-+Riptide.mp3',
   playlist_id: playlist_two.id
 )
-
 
 ### END SONGS ###
 
@@ -87,9 +94,9 @@ playlist_two_song_one = PlaylistSong.create!(song_id: song_three.id, playlist_id
 ### END PLAYLIST SONGS ###
 
 ### ALBUMS ###
-album_one = Album.create!(title: 'Young Sinatra', img_url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/YoungSinatraAlbumCover.jpg')
+album_one = Album.create!(title: 'Young Sinatra', img_url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/YoungSinatraAlbumCover.jpg', artist_id: artist_logic.id)
 
-album_two = Album.create(title: 'Reflections', img_url: 'https://s3.amazonaws.com/procify-dev/Reflections/ReflectionsAlbumCover.jpg')
+album_two = Album.create(title: 'Reflections', img_url: 'https://s3.amazonaws.com/procify-dev/Reflections/ReflectionsAlbumCover.jpg', artist_id: artist_meg_myers.id)
 ### END ALBUMS ###
 
 
