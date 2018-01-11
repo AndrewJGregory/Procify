@@ -71,38 +71,50 @@ class SongIndexItem extends React.Component {
     }
     let activeClass = '';
     let threeDots = '';
-    let numOrPlayBtn = this.props.listNum + '.';
-    if (this.props.selectedSongId === this.props.song.id) {
-      activeClass = 'hovered-song';
-      threeDots = <button
-        className='three-dots'
-        onClick={this.displayDropdownMenu}>Three dots</button>;
-        if (this.props.song.id === this.props.playingSongId) {
-          numOrPlayBtn = <i className="fa fa-pause-circle-o playing-song-btn" aria-hidden="true"
-            onClick={this.handleClick}></i>;
-          } else {
-            numOrPlayBtn = <i className="fa fa-play" aria-hidden="true"
-              onClick={this.handleClick}></i>;
+    const playBtn =  <i
+      className="fa fa-play"
+      aria-hidden="true"
+      onClick={this.handleClick}></i>;
+
+      const pauseBtn = <i
+        className="fa fa-pause-circle-o" aria-hidden="true"
+        onClick={this.handleClick}></i>;
+
+        let numOrPlayBtn = this.props.listNum + '.';
+
+        if (this.props.selectedSongId === this.props.song.id) {
+          activeClass = 'hovered-song';
+          threeDots = <button
+            className='three-dots'
+            onClick={this.displayDropdownMenu}>Three dots</button>;
+            if (this.props.song.id === this.props.playingSongId) {
+              if (this.props.isSongPlaying) {
+                numOrPlayBtn = pauseBtn;
+              } else {
+                numOrPlayBtn = playBtn;
+              }
+            } else {
+              numOrPlayBtn = playBtn;
+            }
           }
+
+          return (
+            <div className={`song-item-container ${activeClass}`}
+              onMouseEnter={this.hoverOverSong}
+              onMouseLeave={this.leaveSong}>
+              <div className='song-item-content'>
+                <li className='song-item'>
+                  {numOrPlayBtn}
+                  {this.props.song.title}
+                </li>
+              </div>
+              <div className='menu-content'>
+                {threeDots}
+                {menu}
+              </div>
+            </div>
+          );
         }
-
-        return (
-          <div className={`song-item-container ${activeClass}`}
-            onMouseEnter={this.hoverOverSong}
-            onMouseLeave={this.leaveSong}>
-            <div className='song-item-content'>
-              <li className='song-item'>
-                {numOrPlayBtn}
-                {this.props.song.title}
-              </li>
-            </div>
-            <div className='menu-content'>
-              {threeDots}
-              {menu}
-            </div>
-          </div>
-        );
       }
-    }
 
-    export default SongIndexItem;
+      export default SongIndexItem;
