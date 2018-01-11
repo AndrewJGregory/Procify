@@ -87,9 +87,9 @@ class SongIndexItem extends React.Component {
           threeDots = <div
             onClick={this.displayDropdownMenu}
             className='three-dots'>
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <i class="fa fa-circle" aria-hidden="true"></i>
+            <i className="fa fa-circle" aria-hidden="true"></i>
+            <i className="fa fa-circle" aria-hidden="true"></i>
+            <i className="fa fa-circle" aria-hidden="true"></i>
           </div>;
           if (this.props.song.id === this.props.playingSongId) {
             if (this.props.isSongPlaying) {

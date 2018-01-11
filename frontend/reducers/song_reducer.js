@@ -9,6 +9,7 @@ const songReducer = (state = {}, action) => {
     case RECEIVE_SONG:
     return Object.assign({}, state, {[action.song.id]: action.song});
     case RECEIVE_NEW_PLAYLIST:
+    return Object.assign({}, state, action.payload.songs);
     case RECEIVE_ALBUM:
     return Object.assign({}, state, action.payload.songs);
     default:

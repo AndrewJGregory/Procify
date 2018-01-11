@@ -10,6 +10,7 @@ import * as innerCollectionUtil from '../util/inner_collection_util';
 import AccountInfoContainer from './account_info_container';
 import { fetchAlbum, fetchAlbums } from '../actions/album_actions';
 import AlbumIndex from './album_index';
+import AlbumShowContainer from './album_show_container';
 
 const mapStateToProps = (state, ownProps) => {
   const components = {
@@ -17,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
     PlaylistShowContainer,
     PlaylistIndexContainer,
     AccountInfoContainer,
-    AlbumIndex
+    AlbumIndex,
+    AlbumShowContainer
   };
 
   const component = innerCollectionUtil.switchOnType(

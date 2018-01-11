@@ -27,11 +27,19 @@ export const switchOnType = (props, components, actions, decision) => {
     }
 
     case 'albums':
-    result = {
-      component: components.AlbumIndex,
-      action: actions.fetchAlbums,
-      id: null
-    };
+    if (props.match.params.typeId) {
+      result = {
+        component: components.AlbumShowContainer,
+        action: actions.fetchAlbum,
+        id: props.match.params.typeId
+      };
+    } else {
+      result = {
+        component: components.AlbumIndex,
+        action: actions.fetchAlbums,
+        id: null
+      };
+    }
     return result[decision];
     case 'account':
     return components.AccountInfoContainer;

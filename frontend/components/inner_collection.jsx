@@ -26,7 +26,6 @@ class InnerCollection extends React.Component {
         nextProps.fetchAction(id);
       }
     }
-
     render() {
       let component = null;
       let navBar = <NavBarContainer />;
@@ -39,7 +38,6 @@ class InnerCollection extends React.Component {
           albums={this.props.albums}
           />;
       }
-
       if (this.props.match.params.category === 'settings') {
         navBar = null;
       }

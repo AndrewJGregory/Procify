@@ -25,4 +25,10 @@ class Song < ApplicationRecord
   has_many :playlists,
     through: :playlist_songs,
     source: :playlist
+
+  has_many :album_songs
+
+  has_many :albums,
+    through: :album_songs,
+    source: :album
 end

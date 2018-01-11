@@ -4,14 +4,14 @@ import GreetingContainer from './greeting_container';
 import {LoginFormContainer, SignupFormContainer} from './session_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MainPage from './main_page';
-import PlaylistShowContainer from './playlist_show_container';
 
 const App = () => (
   <main id='app'>
     <Switch>
       <ProtectedRoute path='/:category/:userId/:type/:typeId'
         component={MainPage} />
-      <ProtectedRoute path='/:category/:type' component={MainPage} />
+      <ProtectedRoute path='/:category/:type/:typeId' component={MainPage} />
+      <ProtectedRoute path='/:category/:type/' component={MainPage} />
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <AuthRoute path='/' component={GreetingContainer} />
