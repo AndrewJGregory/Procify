@@ -5,10 +5,12 @@ import AlbumIndex from './album_index';
 const ArtistShow = (props) => {
   return (
     <section className='artist-show'>
-      <h1>Songs</h1>
-      <SongIndex songs={props.storeSongs} />
-      <h1>Albums</h1>
-      <AlbumIndex albums={props.storeAlbums} />
+      <div className='artist-show-content'>
+        <h1 className='artist-text'>Songs</h1>
+        <SongIndex songs={props.storeSongs} />
+        <h1 className='artist-text'>Albums</h1>
+        <AlbumIndex albums={props.storeAlbums} />
+      </div>
     </section>
   );
 };
