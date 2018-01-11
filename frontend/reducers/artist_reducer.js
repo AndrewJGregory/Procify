@@ -1,6 +1,6 @@
 import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
 import { RECEIVE_SONGS } from '../actions/song_actions';
-import { RECEIVE_ALBUMS } from '../actions/album_actions';
+import { RECEIVE_ALBUMS, RECEIVE_ALBUM } from '../actions/album_actions';
 
 const artistReducer = (state = {}, action) => {
   switch (action.type) {
@@ -27,6 +27,13 @@ const artistReducer = (state = {}, action) => {
       {},
       state,
       action.payload.artists
+    );
+    case RECEIVE_ALBUM:
+    
+    return Object.assign(
+      {},
+      state,
+      action.payload.artist
     );
     default:
     return state;

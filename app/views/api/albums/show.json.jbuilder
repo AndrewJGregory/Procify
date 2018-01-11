@@ -16,3 +16,9 @@ json.songs do
     end
   end
 end
+
+json.artist do
+  json.set! @album.artist.id do
+    json.extract! @album.artist, :id, :name
+  end
+end
