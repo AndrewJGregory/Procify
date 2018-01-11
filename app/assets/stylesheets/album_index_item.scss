@@ -1,0 +1,27 @@
+.album-index-content  ul {
+  display: flex;
+  flex-direction: row;
+  margin: 35px 110px;
+}
+
+.album-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  img {
+    padding: 10px;
+  }
+}
+
+
+.album-info {
+  color: #A9A19F;
+  margin: 5px 0;
+}
+
+.album-title {
+  color: white;
+}

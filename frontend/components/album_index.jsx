@@ -11,7 +11,7 @@ class AlbumIndex extends React.Component {
       return <AlbumIndexItemContainer key={album.id} album={album} />;
     });
     return (
-      <section className='album-index'>
+      <section className='album-index-content'>
         <ul>
           {albums}
         </ul>

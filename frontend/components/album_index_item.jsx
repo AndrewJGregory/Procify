@@ -15,8 +15,12 @@ class AlbumIndexItem extends React.Component {
       <li className='album-item'
         onClick={this.handleClick}>
         <img src={`${this.props.album.img_url}`}/>
-        {this.props.album.title}
-        {this.props.artistName}
+        <h4 className='album-info album-title'>
+          {this.props.album.title}
+        </h4>
+        <h4 className='album-info'>
+          {this.props.artistName}
+        </h4>
       </li>
     );
   }
