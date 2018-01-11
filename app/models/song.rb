@@ -31,4 +31,6 @@ class Song < ApplicationRecord
   has_many :albums,
     through: :album_songs,
     source: :album
+
+  belongs_to :artist
 end

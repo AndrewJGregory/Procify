@@ -28,16 +28,16 @@ export const receiveSong = song => {
   };
 };
 
-export const receiveSongs = songs => {
+export const receiveSongs = payload => {
   return {
     type: RECEIVE_SONGS,
-    songs
+    payload
   };
 };
 
 export const fetchSongs = () => dispatch => {
-  return SongUtil.fetchSongs().then(songs => {
-    return dispatch(receiveSongs(songs));
+  return SongUtil.fetchSongs().then(payload => {
+    return dispatch(receiveSongs(payload));
   });
 };
 

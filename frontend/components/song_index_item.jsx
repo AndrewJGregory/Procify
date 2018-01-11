@@ -1,6 +1,7 @@
 import React from 'react';
 import AddSongFormContainer from './add_song_form_container';
 import DropdownMenu from './dropdown_menu';
+import { Link } from 'react-router-dom';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -112,6 +113,9 @@ class SongIndexItem extends React.Component {
               <div className='song-item'>
                 {numOrPlayBtn}
                 {this.props.song.title}
+                <Link to={`/collection/artists/${this.props.song.artist_id}`}>
+                  {this.props.artist.name}
+                </Link>
               </div>
             </div>
             <div className='menu-content'>

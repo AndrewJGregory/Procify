@@ -6,7 +6,7 @@ import { RECEIVE_ARTIST } from '../actions/artist_actions';
 const songReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SONGS:
-    return Object.assign({}, state, action.songs);
+    return Object.assign({}, state, action.payload.songs);
     case RECEIVE_SONG:
     return Object.assign({}, state, {[action.song.id]: action.song});
     case RECEIVE_NEW_PLAYLIST:

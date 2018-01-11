@@ -19,6 +19,10 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   const xPos = state.ui.dropdownMenuXpos;
   const yPos = state.ui.dropdownMenuYpos;
+  const songId = ownProps.song.id;
+  const artistId = state.entities.songs[songId].artist_id;
+  
+  const artist = state.entities.artists[artistId];
   return {
     isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
     isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,
@@ -28,7 +32,8 @@ const mapStateToProps = (state, ownProps) => {
     selectedSongId: state.ui.hoveredSongId,
     isSongPlaying: state.ui.isSongPlaying,
     playingSongId: state.ui.playingSong.id,
-    intervalId: state.ui.intervalId
+    intervalId: state.ui.intervalId,
+    artist,
   };
 };
 

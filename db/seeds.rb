@@ -32,11 +32,7 @@ playlist_two = Playlist.create!(title: 'hangout', user_id: user_two.id)
 ### END PLAYLISTS ###
 
 ### SONGS ###
-song_one = Song.create!(title: 'Pest Control', artist_id: 5, url: 'https://s3.amazonaws.com/procify-dev/The+Game+-+Pest+Control.mp3', playlist_id: playlist_one.id)
-
 song_two = Song.create!(title: 'The Come Up', artist_id: artist_logic.id, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
-
-song_three = Song.create!(title: 'Black Out Days', artist_id: 100, url: 'https://s3.amazonaws.com/procify-dev/Phantogram+-+Black+Out+Days.mp3', playlist_id: playlist_two.id)
 
 song_four = Song.create!(
   title: '30,000',
@@ -87,10 +83,9 @@ song_ten = Song.create!(
 ### END SONGS ###
 
 ### PLAYLIST SONGS ###
-playlist_one_song_one = PlaylistSong.create!(song_id: song_one.id, playlist_id: playlist_one.id)
-playlist_one_song_two = PlaylistSong.create!(song_id: song_two.id, playlist_id: playlist_one.id)
-
-playlist_two_song_one = PlaylistSong.create!(song_id: song_three.id, playlist_id: playlist_two.id)
+PlaylistSong.create!(song_id: song_four.id, playlist_id: playlist_one.id)
+PlaylistSong.create!(song_id: song_two.id, playlist_id: playlist_one.id)
+PlaylistSong.create!(song_id: song_five.id, playlist_id: playlist_two.id)
 ### END PLAYLIST SONGS ###
 
 ### ALBUMS ###
