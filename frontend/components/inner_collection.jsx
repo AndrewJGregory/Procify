@@ -36,6 +36,7 @@ class InnerCollection extends React.Component {
           playlists={this.props.playlists}
           songs={this.props.songs}
           currentUserId={this.props.currentUserId}
+          albums={this.props.albums}
           />;
       }
 

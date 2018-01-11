@@ -89,7 +89,7 @@ playlist_two_song_one = PlaylistSong.create!(song_id: song_three.id, playlist_id
 ### ALBUMS ###
 album_one = Album.create!(title: 'Young Sinatra', img_url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/YoungSinatraAlbumCover.jpg')
 
-album_two = Album.create(title: 'Reflections', img_url: 'https://en.wikipedia.org/wiki/File:Misterwives_-_Reflections_album_cover.jpg')
+album_two = Album.create(title: 'Reflections', img_url: 'https://s3.amazonaws.com/procify-dev/Reflections/ReflectionsAlbumCover.jpg')
 ### END ALBUMS ###
 
 

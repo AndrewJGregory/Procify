@@ -1,6 +1,6 @@
-json.playlist do
-  json.set! @playlist.id do
-    json.extract! @playlist, :id, :title, :user_id
+json.album do
+  json.set! @album.id do
+    json.extract! @album, :title, :img_url
   end
 end
 

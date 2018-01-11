@@ -8,14 +8,18 @@ import { fetchCurrentUsersPlaylists, fetchPlaylist } from '../actions/playlist_a
 import PlaylistShowContainer from './playlist_show_container';
 import * as innerCollectionUtil from '../util/inner_collection_util';
 import AccountInfoContainer from './account_info_container';
+import { fetchAlbum, fetchAlbums } from '../actions/album_actions';
+import AlbumIndex from './album_index';
 
 const mapStateToProps = (state, ownProps) => {
   const components = {
     SongIndex,
     PlaylistShowContainer,
     PlaylistIndexContainer,
-    AccountInfoContainer
+    AccountInfoContainer,
+    AlbumIndex
   };
+
   const component = innerCollectionUtil.switchOnType(
     ownProps, components, {}, 'component'
   );
@@ -24,6 +28,7 @@ const mapStateToProps = (state, ownProps) => {
     component,
     songs: Object.values(state.entities.songs),
     playlists: Object.values(state.entities.playlists),
+    albums: Object.values(state.entities.albums),
     currentUserId: state.session.currentUser.id,
     isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed
   };
@@ -34,6 +39,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchSongs,
     fetchPlaylist,
     fetchCurrentUsersPlaylists,
+    fetchAlbum,
+    fetchAlbums
   };
 
   const fetchAction = innerCollectionUtil.switchOnType(
