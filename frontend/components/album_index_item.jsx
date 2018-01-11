@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 class AlbumIndexItem extends React.Component {
   constructor(props) {
@@ -17,8 +16,10 @@ class AlbumIndexItem extends React.Component {
         onClick={this.handleClick}>
         <img src={`${this.props.album.img_url}`}/>
         {this.props.album.title}
+        {this.props.artistName}
       </li>
     );
   }
 }
-export default withRouter(AlbumIndexItem);
+
+export default AlbumIndexItem;

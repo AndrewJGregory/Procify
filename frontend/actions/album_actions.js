@@ -9,10 +9,10 @@ export const receiveAlbum = payload => {
   };
 };
 
-export const receiveAlbums = albums => {
+export const receiveAlbums = payload => {
   return {
     type: RECEIVE_ALBUMS,
-    albums
+    payload
   };
 };
 
@@ -24,8 +24,8 @@ export const fetchAlbum = id => dispatch => {
 };
 
 export const fetchAlbums = () => dispatch => {
-  return albumUtil.fetchAlbums().then(albums => {
-    dispatch(receiveAlbums(albums));
-    return albums;
+  return albumUtil.fetchAlbums().then(payload => {
+    dispatch(receiveAlbums(payload));
+    return payload;
   });
 };

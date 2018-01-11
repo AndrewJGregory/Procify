@@ -2,6 +2,8 @@
   color: white;
   font-family: 'Lato';
   margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .song-item-container {
@@ -19,4 +21,9 @@
 
 .hovered-song {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.song-item-info {
+  display: flex;
+  flex-direction: column;
 }

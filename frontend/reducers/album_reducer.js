@@ -13,7 +13,7 @@ const albumReducer = (state = {}, action) => {
     return Object.assign(
       {},
       state,
-      action.albums
+      action.payload.albums
     );
     case RECEIVE_ARTIST:
     return Object.assign(
