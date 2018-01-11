@@ -1,14 +1,15 @@
-.album-index-content  ul {
+.artist-index  ul {
   display: flex;
   flex-direction: row;
   margin: 35px 110px;
 }
 
-.album-item {
+.artist-index-item {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   text-align: center;
+  color: white;
   justify-content: space-between;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
@@ -16,15 +17,6 @@
     padding: 10px;
     height: 300px;
     width: 300px;
+    border-radius: 50%;
   }
-}
-
-
-.album-info {
-  color: #A9A19F;
-  margin: 5px 0;
-}
-
-.album-title {
-  color: white;
 }
