@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :playlists, except: [:destroy, :show]
     end
+    resources :albums, only: [:index, :show]
     resources :playlists, only: [:destroy, :show]
   end
 

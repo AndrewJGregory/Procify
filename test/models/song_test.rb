@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  title                  :string           not null
 #  playlist_id            :integer
-#  album_id               :integer          not null
 #  artist_id              :integer          not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
