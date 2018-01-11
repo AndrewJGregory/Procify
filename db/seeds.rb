@@ -26,7 +26,7 @@ playlist_two = Playlist.create!(title: 'hangout', user_id: user_two.id)
 ### SONGS ###
 song_one = Song.create!(title: 'Pest Control', artist_id: 5, url: 'https://s3.amazonaws.com/procify-dev/The+Game+-+Pest+Control.mp3', playlist_id: playlist_one.id)
 
-song_two = Song.create!(title: 'The Come Up', artist_id: 6, url: 'https://s3.amazonaws.com/procify-dev/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
+song_two = Song.create!(title: 'The Come Up', artist_id: 6, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
 
 song_three = Song.create!(title: 'Black Out Days', artist_id: 100, url: 'https://s3.amazonaws.com/procify-dev/Phantogram+-+Black+Out+Days.mp3', playlist_id: playlist_two.id)
 
