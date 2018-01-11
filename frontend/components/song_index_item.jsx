@@ -67,7 +67,8 @@ class SongIndexItem extends React.Component {
         menuPos={menuPos}
         song={this.props.song}
         shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
-        deleteSongFromPlaylist={this.props.deleteSongFromPlaylist} />;
+        deleteSongFromPlaylist={this.props.deleteSongFromPlaylist}
+        selectSongId={this.props.selectSongId} />;
     }
     let activeClass = '';
     let threeDots = '';

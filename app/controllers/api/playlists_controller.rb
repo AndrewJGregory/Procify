@@ -36,6 +36,7 @@ class Api::PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
+
     PlaylistSong.create(
       song_id: params[:songId],
       playlist_id: params[:id]
