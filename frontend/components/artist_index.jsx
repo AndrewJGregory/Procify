@@ -1,4 +1,5 @@
 import React from 'react';
+import ArtistIndexItem from './artist_index_item';
 
 class ArtistIndex extends React.Component {
   constructor(props) {
@@ -7,10 +8,7 @@ class ArtistIndex extends React.Component {
 
   render() {
     const artists = this.props.artists.map(artist => {
-      return <li>
-        <img src={`${artist.img_url}`}/>
-        {artist.name}
-      </li>;
+      return <ArtistIndexItem artist={artist} key={artist.id} />;
     });
 
     return (
