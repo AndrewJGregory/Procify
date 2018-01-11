@@ -5,6 +5,6 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id]).includes(:albums, :songs)
+    @artist = Artist.find(params[:id])
   end
 end

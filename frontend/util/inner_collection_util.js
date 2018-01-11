@@ -43,11 +43,19 @@ export const switchOnType = (props, components, actions, decision) => {
     return result[decision];
 
     case 'artists':
-    result = {
-      component: components.ArtistIndex,
-      action: actions.fetchArtists,
-      id: ''
-    };
+    if (props.match.params.typeId) {
+      result = {
+        component: components.ArtistShowContainer,
+        action: actions.fetchArtist,
+        id: props.match.params.typeId
+      };
+    } else {
+      result = {
+        component: components.ArtistIndex,
+        action: actions.fetchArtists,
+        id: ''
+      };
+    }
     return result[decision];
 
     case 'account':

@@ -16,6 +16,7 @@ json.albums do
   @artist.albums.each do |album|
     json.set! album.id do
       json.extract! album, :title, :img_url, :id
+      json.artist_id album.artist.id
     end
   end
 end
