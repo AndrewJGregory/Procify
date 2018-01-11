@@ -3,7 +3,11 @@ import AlbumIndexItem from './album_index_item';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  const artistName = state.entities.artists[ownProps.album.artist_id].name;
+  let artistName = '';
+  const artist = state.entities.artists[ownProps.album.artist_id];
+  if (artist) {
+    artistName = artist.name;
+  }
   return { artistName };
 };
 

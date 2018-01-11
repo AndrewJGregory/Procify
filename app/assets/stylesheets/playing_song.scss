@@ -5,18 +5,63 @@
   height: 110px;
   color: white;
   position: fixed;
+}
+
+.playing-song-content {
   display: flex;
   justify-content: space-between;
+  height: inherit;
+  align-items: center;
 }
 
 .song-controls {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 200px;
+  justify-content: center;
+  padding-bottom: 15px;
 }
 
 i {
   font-size: 40px;
   color: gray;
   line-height: 100px;
+}
+
+.song-btns {
+  display: flex;
+  justify-content: space-between;
+  font-size: 36px;
+}
+
+.song-times {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-song-info {
+  display: flex;
+}
+
+.small-img {
+  height: 56px;
+  width: 56px;
+  padding: 0 15px;
+}
+
+.left-song-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  h5 a {
+    margin: 2px 0;
+    color: white;
+  }
+}
+
+#artist-name-playing {
+  color: #A1A28B;
+  font-size: 12px;
 }

@@ -8,12 +8,21 @@ import {
 } from '../actions/playing_song_actions';
 
 const mapStateToProps = state => {
+  const artist = state.entities.artists[state.ui.playingSong.artist_id];
+  let playingSongAlbum;
+  Object.values(state.entities.albums).forEach(album => {
+    if (album.song_ids && album.song_ids.includes(state.ui.playingSong.id)) {
+      playingSongAlbum = album;
+    }
+  });
   return {
     playingSong: state.ui.playingSong,
     audio: state.ui.audio,
     audioSrc: state.ui.audioSrc,
     isSongPlaying: state.ui.isSongPlaying,
-    intervalId: state.ui.intervalId
+    intervalId: state.ui.intervalId,
+    artist,
+    playingSongAlbum
   };
 };
 
