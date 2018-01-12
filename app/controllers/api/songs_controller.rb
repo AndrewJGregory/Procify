@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = Song.all.includes(:playlists)
+    @songs = Song.all.includes(:playlists, :albums, :artist)
   end
 
   def destroy
