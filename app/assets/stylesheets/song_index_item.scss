@@ -1,3 +1,7 @@
+.song-index {
+  margin: 0 100px;
+}
+
 .song-item {
   color: white;
   font-family: 'Lato';
@@ -12,11 +16,12 @@
 }
 
 .three-dots {
-  margin: 13px 100px 0 0;
+  margin: 25px 100px 0 0;
   width: 25px;
   display: flex;
   font-size: 6px;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .hovered-song {
@@ -26,4 +31,12 @@
 .song-item-info {
   display: flex;
   flex-direction: column;
+  a {
+    color: #9EA4B7;
+    margin: 5px 0;
+  }
+}
+
+.song-btn-container {
+  margin: 0 10px;
 }

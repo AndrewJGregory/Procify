@@ -111,7 +111,9 @@ class SongIndexItem extends React.Component {
             onMouseLeave={this.leaveSong}>
             <div className='song-item-content'>
               <div className='song-item'>
-                {numOrPlayBtn}
+                <div className='song-btn-container'>
+                  {numOrPlayBtn}
+                </div>
                 <div className='song-item-info'>
 
                   {this.props.song.title}
