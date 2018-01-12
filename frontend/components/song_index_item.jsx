@@ -60,7 +60,7 @@ class SongIndexItem extends React.Component {
     };
 
     let menu = null;
-    if (this.props.isDropdownMenuDisplayed) {
+    if (this.props.isDropdownMenuDisplayed && this.props.song.id === this.props.selectedSongId) {
       menu = <DropdownMenu
         toggleDropdownMenu={this.props.toggleDropdownMenu}
         typeId={this.props.match.params.typeId}
