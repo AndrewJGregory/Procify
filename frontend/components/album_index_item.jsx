@@ -12,7 +12,7 @@ class AlbumIndexItem extends React.Component {
 
   render() {
     return (
-      <li className='album-item'
+      <li className='square-item'
         onClick={this.handleClick}>
         <img src={`${this.props.album.img_url}`}/>
         <h4 className='album-info album-title'>

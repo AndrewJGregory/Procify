@@ -10,8 +10,8 @@ const PlaylistIndex = (props) => {
   });
 
   return (
-    <section className='playlist-index'>
-      <ul className='playlist-list'>
+    <section className='square-index-content'>
+      <ul>
         {playlists}
       </ul>
     </section>

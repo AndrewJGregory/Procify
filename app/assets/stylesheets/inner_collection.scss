@@ -5,3 +5,24 @@
   width: calc(100vw - 220px);
   overflow: scroll;
 }
+
+.square-index-content ul {
+  display: flex;
+  flex-direction: row;
+  margin: 35px 110px;
+}
+
+.square-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  img {
+    padding: 10px;
+    height: 300px;
+    width: 300px;
+  }
+}

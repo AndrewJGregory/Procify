@@ -26,8 +26,13 @@ class PlaylistIndexItem extends React.Component {
     let successMsg = null;
 
     return (
-      <li className='playlist-item'>
-        <a onClick={this.handleClick}>{this.props.playlist.title}</a>
+      <li className='square-item'
+        onClick={this.handleClick}>
+        <div className='music-note-container'>
+          <i className="fa fa-music fa-5x" aria-hidden="true"></i>
+        </div>
+        <div className='playlist-title'></div>
+        <a >{this.props.playlist.title}</a>
       </li>
     );
   }
