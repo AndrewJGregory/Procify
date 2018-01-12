@@ -1,4 +1,6 @@
-import { SWAP_PLAYLIST_FORM_SHOW } from '../actions/playlist_actions';
+import { SWAP_PLAYLIST_FORM_SHOW,
+  TOGGLE_SUCCESS_MSG } from '../actions/playlist_actions';
+
 import {
   SWAP_ADD_SONG_FORM_SHOW,
   SELECT_SONG_ID,
@@ -26,6 +28,8 @@ const initialState = {
   playingSong: {},
   hoveredSongId: -1,
   intervalId: -1,
+  isSuccessMsgDisplayed: false,
+  successMsgClass: 'fadeOutUp'
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -90,6 +94,14 @@ const uiReducer = (state = initialState, action) => {
             {},
             state,
             {intervalId: action.id}
+          );
+          case TOGGLE_SUCCESS_MSG:
+          const successMsgClass = (state.successMsgClass === 'slideInDown' ? 'fadeOutUp' : 'slideInDown');
+          return Object.assign(
+            {},
+            state,
+            {isSuccessMsgDisplayed: !state.isSuccessMsgDisplayed,
+            successMsgClass}
           );
           default:
           return state;

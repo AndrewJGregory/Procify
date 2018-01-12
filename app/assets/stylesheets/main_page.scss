@@ -40,3 +40,22 @@
   #101010, black
   );
 }
+
+.add-song-success-msg {
+  top: 0;
+  position: fixed;
+  background-color: green;
+  width: 100%;
+  color: white;
+  height: 50px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  z-index: 1;
+  i {
+    color: white;
+    padding: 0 5px;
+  }
+  * {
+    margin: 15px 0;
+  }
+}

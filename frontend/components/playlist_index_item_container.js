@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PlaylistIndexItem from './playlist_index_item';
 import { withRouter } from 'react-router-dom';
-import { addSongToPlaylist } from '../actions/playlist_actions';
+import { addSongToPlaylist, toggleSuccessMsg } from '../actions/playlist_actions';
 import { swapAddSongFormShow } from '../actions/song_actions';
 
 const mapStateToProps = state => {
@@ -14,9 +14,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addSongToPlaylist: (userId, songId, playlistId) => dispatch(addSongToPlaylist(userId, songId, playlistId)),
-    swapAddSongFormShow: () => dispatch(swapAddSongFormShow())
+    swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
+    toggleSuccessMsg: () => dispatch(toggleSuccessMsg())
   };
 };
+
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps

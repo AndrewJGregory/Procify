@@ -13,13 +13,18 @@ class PlaylistIndexItem extends React.Component {
         this.props.currentUserId,
         this.props.selectedSongId,
         this.props.playlist.id
-      ).then(() => this.props.swapAddSongFormShow());
+      ).then(() => {
+        this.props.swapAddSongFormShow();
+        this.props.toggleSuccessMsg();
+      });
     } else {
       this.props.history.push(`/user/${this.props.currentUserId}/playlists/${this.props.playlist.id}`);
     }
   }
 
   render() {
+    let successMsg = null;
+
     return (
       <li className='playlist-item'>
         <a onClick={this.handleClick}>{this.props.playlist.title}</a>
