@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddSongForm from './add_song_form';
-import { swapAddSongFormShow } from '../actions/song_actions';
+import { swapAddSongFormShow, toggleDropdownMenu } from '../actions/song_actions';
 import { fetchCurrentUsersPlaylists } from '../actions/playlist_actions';
 
 const mapStateToProps = state => {
@@ -16,7 +16,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     swapAddSongFormShow: () => dispatch(swapAddSongFormShow()),
-    fetchCurrentUsersPlaylists: userId => dispatch(fetchCurrentUsersPlaylists(userId))
+    fetchCurrentUsersPlaylists: userId => dispatch(fetchCurrentUsersPlaylists(userId)),
+    toggleDropdownMenu: () => dispatch(toggleDropdownMenu())
   };
 };
 

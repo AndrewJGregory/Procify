@@ -8,6 +8,7 @@ class AddSongForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchCurrentUsersPlaylists(this.props.currentUserId);
+    this.props.toggleDropdownMenu();
   }
 
   render() {
