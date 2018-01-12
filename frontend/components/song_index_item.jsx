@@ -67,7 +67,7 @@ class SongIndexItem extends React.Component {
         swapAddSongFormShow={this.props.swapAddSongFormShow}
         menuPos={menuPos}
         song={this.props.song}
-        shouldHaveDeleteOption={Boolean(this.props.match.params.typeId)}
+        shouldHaveDeleteOption={this.props.match.params.type === 'playlists'}
         deleteSongFromPlaylist={this.props.deleteSongFromPlaylist}
         selectSongId={this.props.selectSongId} />;
     }
