@@ -14,3 +14,11 @@ json.songs do
     end
   end
 end
+
+json.artists do
+  @songs.each do |song|
+    json.set! song.artist.id do
+      json.extract! song.artist, :name, :id
+    end
+  end
+end

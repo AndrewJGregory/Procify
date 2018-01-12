@@ -21,8 +21,8 @@ const mapStateToProps = (state, ownProps) => {
   const yPos = state.ui.dropdownMenuYpos;
   const songId = ownProps.song.id;
   const artistId = state.entities.songs[songId].artist_id;
-  
-  const artist = state.entities.artists[artistId];
+
+  const artist = state.entities.artists[artistId] || {};
   return {
     isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
     isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,
