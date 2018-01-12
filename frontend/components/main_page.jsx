@@ -15,7 +15,7 @@ class MainPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isSuccessMsgDisplayed) {
       this.setState({displayed: true});
-    } 
+    }
   }
 
   render() {
@@ -45,7 +45,7 @@ class MainPage extends React.Component {
       if (this.props.successMsgClass === 'slideInDown' && this.props.isSuccessMsgDisplayed) {
         window.setTimeout(() => {
           this.props.toggleSuccessMsg();
-        }, 1000);
+        }, 3000);
       }
     }
 
