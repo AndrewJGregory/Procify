@@ -3,7 +3,7 @@ export const switchOnType = (props, components, actions, decision) => {
   switch (props.match.params.type) {
     case 'tracks':
     result = {
-      component: components.SongIndex,
+      component: components.SongIndexContainer,
       action: actions.fetchSongs,
       id: null
     };
@@ -35,7 +35,7 @@ export const switchOnType = (props, components, actions, decision) => {
       };
     } else {
       result = {
-        component: components.AlbumIndex,
+        component: components.AlbumIndexContainer,
         action: actions.fetchAlbums,
         id: ''
       };
@@ -51,7 +51,7 @@ export const switchOnType = (props, components, actions, decision) => {
       };
     } else {
       result = {
-        component: components.ArtistIndex,
+        component: components.ArtistIndexContainer,
         action: actions.fetchArtists,
         id: ''
       };

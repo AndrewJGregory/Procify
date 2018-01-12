@@ -8,7 +8,7 @@ class InnerCollection extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (innerCollectionUtil.shouldFetchInfo(this.props)) {
       const id = innerCollectionUtil.switchOnType(
         this.props, {}, {}, 'id'
@@ -26,19 +26,10 @@ class InnerCollection extends React.Component {
         nextProps.fetchAction(id);
       }
     }
+    
     render() {
-      let component = null;
       let navBar = <NavBarContainer />;
 
-      if (this.props.component) {
-        component = <this.props.component
-          playlists={this.props.playlists}
-          songs={this.props.songs}
-          currentUserId={this.props.currentUserId}
-          albums={this.props.albums}
-          artists={this.props.artists}
-          />;
-      }
       if (this.props.match.params.category === 'settings') {
         navBar = null;
       }
@@ -52,7 +43,7 @@ class InnerCollection extends React.Component {
         <section className='main-interior'>
           {form}
           {navBar}
-          {component}
+          <this.props.component />
         </section>
       );
     }
