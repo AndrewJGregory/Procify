@@ -68,3 +68,11 @@ export const switchOnType = (props, components, actions, decision) => {
 export const shouldFetchInfo = (props) => {
   return !props.location.pathname.includes('account');
 };
+
+export const isNavbarDisplayed = params => {
+  return !(
+    (params.type === 'albums' || params.type === 'artists') && (params.typeId) &&
+    (params.type !== 'playlists') ||
+    (params.category === 'settings')
+  );
+};

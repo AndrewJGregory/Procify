@@ -26,13 +26,11 @@ class InnerCollection extends React.Component {
         nextProps.fetchAction(id);
       }
     }
-    
-    render() {
-      let navBar = <NavBarContainer />;
 
-      if (this.props.match.params.category === 'settings') {
-        navBar = null;
-      }
+    render() {
+      let navBar = innerCollectionUtil.isNavbarDisplayed(this.props.match.params) ?
+      <NavBarContainer /> :
+      null;
 
       let form = null;
       if (this.props.isAddSongFormDisplayed) {
