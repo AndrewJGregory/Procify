@@ -6,11 +6,13 @@ const mapStateToProps = (state, ownProps) => {
   const albumId = parseInt(ownProps.match.params.typeId);
   let album = state.entities.albums[albumId];
   let songs = [];
-  if (album && album.song_ids) {
+
+  if (album) {
     songs = album.song_ids.map(songId => {
-      return state.entities.songs[songId];
+      return (state.entities.songs[songId] || {});
     });
   }
+
   return { songs, album };
 };
 

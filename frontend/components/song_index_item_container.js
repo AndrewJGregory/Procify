@@ -5,13 +5,13 @@ import {
   selectSongId,
   toggleDropdownMenu,
   setDropdownMenuCoords,
-  deleteSongFromPlaylist,
   selectHoveredSongId
-} from '../actions/song_actions';
+} from '../actions/ui_actions';
+import { deleteSongFromPlaylist } from '../actions/song_actions';
 
 import { toggleSongPlaying,
-setAudioSrc,
-selectPlayingSong,
+  setAudioSrc,
+  selectPlayingSong,
 } from '../actions/playing_song_actions';
 
 import { withRouter } from 'react-router-dom';
@@ -20,9 +20,13 @@ const mapStateToProps = (state, ownProps) => {
   const xPos = state.ui.dropdownMenuXpos;
   const yPos = state.ui.dropdownMenuYpos;
   const songId = ownProps.song.id;
-  const artistId = state.entities.songs[songId].artist_id;
+  const song = state.entities.songs[songId];
+  let artist = {};
+  if (song) {
+    let artistId = state.entities.songs[song.id].artist_id;
+    artist = state.entities.artists[artistId];
+  }
 
-  const artist = state.entities.artists[artistId] || {};
   return {
     isAddSongFormDisplayed: state.ui.isAddSongFormDisplayed,
     isDropdownMenuDisplayed: state.ui.isDropdownMenuDisplayed,

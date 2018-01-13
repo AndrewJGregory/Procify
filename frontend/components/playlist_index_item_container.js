@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import PlaylistIndexItem from './playlist_index_item';
 import { withRouter } from 'react-router-dom';
-import { addSongToPlaylist, toggleSuccessMsg } from '../actions/playlist_actions';
-import { swapAddSongFormShow } from '../actions/song_actions';
+import { addSongToPlaylist } from '../actions/playlist_actions';
+import { toggleSuccessMsg, swapAddSongFormShow } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   const currentUserId = state.session.currentUser.id;

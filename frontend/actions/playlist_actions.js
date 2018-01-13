@@ -1,27 +1,13 @@
-export const SWAP_PLAYLIST_FORM_SHOW = 'SWAP_PLAYLIST_FORM_SHOW';
 export const RECEIVE_NEW_PLAYLIST = 'RECEIVE_NEW_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
-export const TOGGLE_SUCCESS_MSG = 'TOGGLE_SUCCESS_MSG';
 
 import * as PlaylistUtil from '../util/playlist_util';
-
-export const toggleSuccessMsg = () => {
-  return {
-    type: TOGGLE_SUCCESS_MSG
-  };
-};
 
 export const removePlaylist = playlist => {
   return {
     type: REMOVE_PLAYLIST,
     playlistId: Object.keys(playlist)[0]
-  };
-};
-
-export const swapPlaylistFormShow = () => {
-  return {
-    type: SWAP_PLAYLIST_FORM_SHOW
   };
 };
 

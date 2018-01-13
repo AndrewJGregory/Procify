@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddSongForm from './add_song_form';
-import { swapAddSongFormShow, toggleDropdownMenu } from '../actions/song_actions';
+import { swapAddSongFormShow, toggleDropdownMenu } from '../actions/ui_actions';
 import { fetchCurrentUsersPlaylists } from '../actions/playlist_actions';
 
 const mapStateToProps = state => {

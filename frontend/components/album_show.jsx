@@ -7,6 +7,7 @@ const AlbumShow = (props) => {
   if (props.album) {
     album = <AlbumIndexItemContainer album={props.album} />;
   }
+  
   return (
     <section className='album-show-page'>
       <div className='album-show-content'>

@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import Navbar from './navbar';
 import NewPlaylistForm from './new_playlist_form';
-import { swapPlaylistFormShow, createNewPlaylist } from '../actions/playlist_actions';
+import { createNewPlaylist } from '../actions/playlist_actions';
 import { withRouter } from 'react-router-dom';
+import { swapPlaylistFormShow } from '../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

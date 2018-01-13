@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
-import { toggleSuccessMsg } from '../actions/playlist_actions';
+import { toggleSuccessMsg } from '../actions/ui_actions';
 
 const mapStateToProps = state => {
   return {

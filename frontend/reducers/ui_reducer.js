@@ -1,13 +1,11 @@
 import { SWAP_PLAYLIST_FORM_SHOW,
-  TOGGLE_SUCCESS_MSG } from '../actions/playlist_actions';
-
-import {
+  TOGGLE_SUCCESS_MSG,
   SWAP_ADD_SONG_FORM_SHOW,
   SELECT_SONG_ID,
   TOGGLE_DROPDOWN_MENU,
   SET_DROPDOWN_MENU_COORDS,
-  SELECT_HOVERED_SONG_ID
-} from '../actions/song_actions';
+  SELECT_HOVERED_SONG_ID,
+} from '../actions/ui_actions';
 
 import { TOGGLE_SONG_PLAYING,
 SET_AUDIO_SRC,
