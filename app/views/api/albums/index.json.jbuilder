@@ -1,17 +1,9 @@
 @albums.each do |album|
   json.albums do
-    json.set! album.id do
-      json.extract! album, :title, :img_url, :id
-      json.artist_id album.artist.id
-      json.song_ids do
-        json.array! album.songs.map(&:id)
-      end
-    end
+    json.partial! 'api/albums/show', album: album
   end
 
   json.artists do
-    json.set! album.artist_id do
-      json.extract! album.artist, :id, :name
-    end
+    json.partial! 'api/artists/show', artist: album.artist
   end
 end
