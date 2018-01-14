@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
     if (this.state.birthdayMonth === 'Month') {
       month = '';
     }
-    return `${this.state.birthdayYear}-${this.state.birthdayDay}-${month}`;
+    return `${this.state.birthdayYear}${this.state.birthdayDay}${month}`;
   }
 
   _formatUserObject() {

@@ -1,24 +1,3 @@
-# README
+# [Procify](procify.herokuapp.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Procify is a web application that allows users to listen to existing songs and create playlists. It is built with Ruby on Rails as the backend and React/Redux as the frontend. 
