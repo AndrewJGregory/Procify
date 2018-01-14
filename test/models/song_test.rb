@@ -2,17 +2,13 @@
 #
 # Table name: songs
 #
-#  id                     :integer          not null, primary key
-#  title                  :string           not null
-#  playlist_id            :integer
-#  artist_id              :integer          not null
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  musicfile_file_name    :string
-#  musicfile_content_type :string
-#  musicfile_file_size    :integer
-#  musicfile_updated_at   :datetime
-#  url                    :string
+#  id          :integer          not null, primary key
+#  title       :string           not null
+#  playlist_id :integer
+#  artist_id   :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  url         :string
 #
 
 require 'test_helper'
