@@ -19,10 +19,12 @@
     "redux-thunk": "^2.2.0",
     "sec-to-min": "^1.0.1",
     "shortid": "^2.2.8",
+    "uglify-js": "^3.3.7",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "uglifyjs-webpack-plugin": "^1.1.6"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
