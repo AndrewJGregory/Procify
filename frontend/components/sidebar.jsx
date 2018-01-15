@@ -15,11 +15,6 @@ class Sidebar extends React.Component {
       activeYourMusicClass = 'green-link';
     }
 
-    if (this.props.match.params.category === 'browse') {
-      activeHomeClass = 'green-link';
-    }
-
-
     if (this.props.match.params.category === 'search') {
       activeSearchClass = 'green-link';
     }
@@ -40,11 +35,6 @@ class Sidebar extends React.Component {
                   <i className={`fa fa-search ${activeSearchClass}`} aria-hidden="true"></i>
                 </Link>
               </div>
-              <li className='sidebar-link'>
-                <Link to='/browse/featured' className={`${activeHomeClass}`}>
-                  Home
-                </Link>
-              </li>
               <li className='sidebar-link
                 sidebar-music-link'>
                 <Link to='/collection/playlists' className={`${activeYourMusicClass}`}>

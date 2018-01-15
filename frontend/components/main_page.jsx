@@ -2,7 +2,6 @@ import React from 'react';
 import InnerCollectionContainer from './inner_collection_container';
 import SidebarContainer from './sidebar_container';
 import PlayingSongContainer from './playing_song_container';
-import BrowseContainer from './browse_container';
 import SearchContainer from './search_container';
 
 class MainPage extends React.Component {
@@ -22,9 +21,6 @@ class MainPage extends React.Component {
     let primaryComponent = null;
 
     switch (this.props.match.params.category) {
-      case 'browse':
-      primaryComponent = <BrowseContainer />;
-      break;
       case 'collection':
       case 'settings':
       case 'user':
