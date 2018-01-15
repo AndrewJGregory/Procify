@@ -1,6 +1,6 @@
-const path = require('path');
+var path = require('path');
 
-const webpack = require("webpack");
+var webpack = require("webpack");
 
 var plugins = []; // if using any plugins for both dev and production
 var devPlugins = []; // if using any plugins for development
@@ -32,7 +32,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
-  plugins,
+  plugins: plugins,
   module: {
     loaders: [
       {
