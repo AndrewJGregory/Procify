@@ -13,7 +13,6 @@
 
 class Song < ApplicationRecord
   validates :title, :artist_id, presence: true
-  has_attached_file :musicfile, default_url: "missing.png"
 
   has_many :playlist_songs
 
