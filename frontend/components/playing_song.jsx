@@ -1,53 +1,23 @@
 import React from 'react';
 import secToMin from 'sec-to-min';
 import { Link } from 'react-router-dom';
+import { pause } from '../util/playing_song_util';
+import * as PlayingSongUtil from '../util/playing_song_util';
 
 class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { length: '0:00', currentSecs: 0 };
-    this.play = this.play.bind(this);
-    this.pause = this.pause.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
     if (this.props.playingSong.title) {
       if (this.props.isSongPlaying) {
-        this.pause();
+        PlayingSongUtil.pause(this.props);
       } else {
-        this.play();
+        PlayingSongUtil.rePlay(this.props);
       }
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.playingSong !== this.props.playingSong) {
-      this.props.setAudioSrc(nextProps.playingSong.url);
-      this.props.audio.load();
-      this.setState({currentSecs: 0});
-      this.play();
-    }
-  }
-
-  play() {
-    this.props.audio.play().then(() => {
-      const intervalId = window.setInterval(() => this.incrementTime(), 1000);
-      this.props.setIntervalId(intervalId);
-      const length = secToMin(this.props.audio.duration);
-      this.setState({length});
-    });
-    this.props.toggleSongPlaying();
-  }
-
-  pause() {
-    this.props.audio.pause();
-    window.clearInterval(this.props.intervalId);
-    this.props.toggleSongPlaying();
-  }
-
-  incrementTime() {
-    this.setState({currentSecs: this.state.currentSecs + 1});
   }
 
   render() {
@@ -71,7 +41,6 @@ class PlayingSong extends React.Component {
         const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
 
         const artistId = (this.props.artist ? this.props.artist.id : -1);
-        const formattedTime = secToMin(this.state.currentSecs);
         return (
           <footer id="playing-song">
             <section className='playing-song-content'>
@@ -98,14 +67,6 @@ class PlayingSong extends React.Component {
                   <div className='song-btns'>
                     {playPauseBtn}
                   </div>
-                </div>
-                <div className='song-times'>
-                  <span className='song-time'>
-                    {formattedTime}
-                  </span>
-                  <span className='song-time'>
-                    {this.state.length}
-                  </span>
                 </div>
               </div>
               <div className='right-song-info'>

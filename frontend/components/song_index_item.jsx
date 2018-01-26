@@ -2,34 +2,29 @@ import React from 'react';
 import AddSongFormContainer from './add_song_form_container';
 import DropdownMenu from './dropdown_menu';
 import { Link } from 'react-router-dom';
+import * as PlayingSongUtil from '../util/playing_song_util';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.displayDropdownMenu = this.displayDropdownMenu.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.play = this.play.bind(this);
-    this.pause = this.pause.bind(this);
     this.hoverOverSong = this.hoverOverSong.bind(this);
     this.leaveSong = this.leaveSong.bind(this);
-  }
-
-  play() {
-    this.props.selectPlayingSong(this.props.song);
-  }
-
-  pause() {
-    this.props.audio.pause();
-    window.clearInterval(this.props.intervalId);
-    this.props.toggleSongPlaying();
   }
 
   handleClick(e) {
     e.preventDefault();
     if (this.props.isSongPlaying) {
-      this.pause();
+      PlayingSongUtil.pause(this.props);
     } else {
-      this.play();
+      if (this.props.playingSongId) {
+        PlayingSongUtil.rePlay(this.props);
+      } else {
+        this.props.selectPlayingSong(this.props.song);
+        PlayingSongUtil.loadNewSong(this.props, this.props.song);
+        PlayingSongUtil.rePlay(this.props);
+      }
     }
   }
 

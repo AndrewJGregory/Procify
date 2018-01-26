@@ -38,6 +38,7 @@ const mapStateToProps = (state, ownProps) => {
     playingSongId: state.ui.playingSong.id,
     intervalId: state.ui.intervalId,
     artist,
+    song
   };
 };
 
