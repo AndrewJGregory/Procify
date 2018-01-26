@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class NewPlaylistForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: '', userId: this.props.currentUserId };
+    this.state = { title: '' };
     this.updateInput = this.updateInput.bind(this);
     this.createNewPlaylist = this.createNewPlaylist.bind(this);
   }

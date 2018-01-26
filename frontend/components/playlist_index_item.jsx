@@ -23,8 +23,6 @@ class PlaylistIndexItem extends React.Component {
   }
 
   render() {
-    let successMsg = null;
-
     return (
       <li className='square-item'
         onClick={this.handleClick}>

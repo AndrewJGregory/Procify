@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavBarContainer} from './playlist_form_container';
+import NavBar from './navbar';
 import * as innerCollectionUtil from '../util/inner_collection_util';
 import AddSongFormContainer from './add_song_form_container';
 
@@ -29,7 +29,7 @@ class InnerCollection extends React.Component {
 
     render() {
       let navBar = innerCollectionUtil.isNavbarDisplayed(this.props.match.params) ?
-      <NavBarContainer /> :
+      <NavBar /> :
       null;
 
       let form = null;
