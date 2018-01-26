@@ -12,18 +12,11 @@ class NewPlaylistFormBtn extends React.Component {
   }
 
   render() {
-    const form = (
-      this.props.isPlaylistFormDisplayed ? <NewPlaylistFormContainer /> : null
-    );
-
     return (
-      <div className='new-playlist-btn-container'>
-        {form}
-        <button className='session-link new-playlist-link'
-          onClick={this.displayForm}>
-          new playlist
-        </button>
-      </div>
+      <button className='session-link new-playlist-link'
+        onClick={this.displayForm}>
+        new playlist
+      </button>
     );
   }
 }

@@ -12,8 +12,10 @@ const NavBar = (props) => {
 
   return (
     <section className='nav-bar'>
-      <NewPlaylistFormBtnContainer />
-      <div className='nav-bar-ul-container'>
+        <div className='nav-bar-ul-container'>
+          <div className='new-playlist-btn-container'>
+          <NewPlaylistFormBtnContainer />
+        </div>
         <ul id="nav-bar-ul">
           {lis}
         </ul>

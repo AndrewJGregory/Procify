@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaylistIndexItemContainer from './playlist_index_item_container';
+import NewPlaylistFormBtnContainer from './new_playlist_form_btn_container';
 
 const PlaylistIndex = (props) => {
   let playlists = props.playlists.map(playlist => {
@@ -12,7 +13,8 @@ const PlaylistIndex = (props) => {
   if (playlists.length === 0) {
     playlists = <li>
       <h3>
-        Looks like you don't have any playlists! Create a <button className='session-link new-playlist-link'>New Playlist</button> or check out the songs.
+        Looks like you don't have any playlists! Create a
+        <NewPlaylistFormBtnContainer />or check out the songs.
       </h3>
     </li>;
   }
