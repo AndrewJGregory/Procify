@@ -5,7 +5,7 @@ const AccountInfo = ({ username, logout }) => {
     <section className='account-info-page'>
       <div className='account-info-container'>
         <h3>Hello, {username}</h3>
-        <button className='logout-btn' onClick={() => logout()}>Logout</button>
+        <button className='red-btn' onClick={() => logout()}>Logout</button>
       </div>
     </section>
   );
