@@ -12,9 +12,10 @@ const PlaylistIndex = (props) => {
 
   if (playlists.length === 0) {
     playlists = <li>
-      <h3>
+      <h3 className='gray-text'>
         Looks like you don't have any playlists! Create a
-        <NewPlaylistFormBtnContainer />or check out the songs.
+        <NewPlaylistFormBtnContainer />
+        or check out the songs.
       </h3>
     </li>;
   }
