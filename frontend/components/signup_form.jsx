@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
     if (isSameEmail) {
       const user = this._formatUserObject();
       this.props.submitForm(user).then(() => {
-        this.props.history.push('/collection/playlists');
+        this.props.history.push('/collection/tracks');
       });
     }
   }

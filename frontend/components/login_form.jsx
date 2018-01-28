@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state).then(() => {
-      this.props.history.push('/collection/playlists');
+      this.props.history.push('/collection/tracks');
     });
   }
 
