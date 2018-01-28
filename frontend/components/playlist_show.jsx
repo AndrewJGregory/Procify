@@ -19,7 +19,7 @@ class PlaylistShow extends React.Component {
         <SongIndex songs={this.props.songs} />
         <button
           onClick={this.handleDeleteClick}
-          className='red-btn'>
+          className={`red-btn delete-playlist-btn`}>
           Delete playlist
         </button>
       </section>
