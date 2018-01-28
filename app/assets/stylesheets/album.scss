@@ -1,11 +1,6 @@
-.album-show-page {
-
-}
-
 .album-show-content {
   display: flex;
   justify-content: space-between;
-
   margin: 100px;
 }
 
@@ -18,4 +13,13 @@
 .album-song-index {
   width: 100%;
   height: 75%;
+}
+
+.album-info {
+  color: #A9A19F;
+  margin: 5px 0;
+}
+
+.album-title {
+  color: white;
 }
