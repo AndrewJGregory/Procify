@@ -23,7 +23,7 @@ class Sidebar extends React.Component {
       <aside id="sidebar">
         <div className='sidebar-top-links-container'>
           <ul className='sidebar-top-links'>
-            <li>Procify img</li>
+            <li className='procify-font'>procify</li>
             <li className='sidebar-link
               sidebar-music-link'>
               <Link to='/collection/playlists' className={`${activeYourMusicClass}`}>

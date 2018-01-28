@@ -27,3 +27,17 @@ html, #root, body, #app {
 .clickable {
   cursor: pointer;
 }
+
+.procify-font {
+  text-transform: uppercase;
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+
+.procify-font-large {
+  text-transform: uppercase;
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 1px;
+  font-size: 36px;
+}

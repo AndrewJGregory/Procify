@@ -18,7 +18,7 @@ class Greeting extends React.Component {
       <main className='greeting-page'>
         <div className='greeting-content'>
           <section className='greeting-side'>
-            <div className='logo'>LOGO Procify</div>
+            <div className='logo procify-font-large green'>procify</div>
             <Link className='session-link'
               to='/signup'>
               sign up

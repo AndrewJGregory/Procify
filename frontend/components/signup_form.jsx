@@ -90,8 +90,8 @@ class SignupForm extends React.Component {
       }
       return (
         <main className='session-page'>
-          <header className='logo-header'>
-            Procify img
+          <header className='logo-header procify-font-large'>
+            procify
           </header>
           <form className='session-form' onSubmit={this.handleSubmit}>
             <section className='session-form-contents'>
