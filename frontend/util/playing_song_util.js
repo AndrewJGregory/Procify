@@ -9,7 +9,13 @@ export const loadNewSong = (props, song) => {
   props.audio.load();
 };
 
-export const rePlay = (props) => {
+export const rePlay = props => {
   props.audio.play();
   props.toggleSongPlaying();
+};
+
+export const playNewSong = props => {
+  props.selectPlayingSong(props.song);
+  loadNewSong(props, props.song);
+  rePlay(props);
 };

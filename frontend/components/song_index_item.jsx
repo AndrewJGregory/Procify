@@ -15,14 +15,17 @@ class SongIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    if (this.props.isSongPlaying) {
-      PlayingSongUtil.pause(this.props);
-    } else {
-      if (this.props.playingSongId) {
-        PlayingSongUtil.rePlay(this.props);
+    if (this.props.playingSongId !== this.props.song.id) {
+      if (this.props.isSongPlaying) {
+        this.props.toggleSongPlaying();
+        PlayingSongUtil.playNewSong(this.props);
       } else {
-        this.props.selectPlayingSong(this.props.song);
-        PlayingSongUtil.loadNewSong(this.props, this.props.song);
+        PlayingSongUtil.playNewSong(this.props);
+      }
+    } else {
+      if (this.props.isSongPlaying) {
+        PlayingSongUtil.pause(this.props);
+      } else {
         PlayingSongUtil.rePlay(this.props);
       }
     }
@@ -69,12 +72,12 @@ class SongIndexItem extends React.Component {
     let activeClass = '';
     let threeDots = '';
     const playBtn =  <i
-      className="fa fa-play"
+      className="fa fa-play clickable"
       aria-hidden="true"
       onClick={this.handleClick}></i>;
 
       const pauseBtn = <i
-        className="fa fa-pause-circle-o" aria-hidden="true"
+        className="fa fa-pause-circle-o clickable" aria-hidden="true"
         onClick={this.handleClick}></i>;
 
         let numOrPlayBtn = this.props.listNum + '.';
