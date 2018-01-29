@@ -23,7 +23,6 @@ user_two = User.create!(username: 'cheryl', password: 'password', email: 'cookie
 ### ARTISTS ###
 artist_logic = Artist.create!(name: 'Logic', img_url: 'https://s3.amazonaws.com/procify-dev/logicArtistCover.jpeg')
 artist_meg_myers = Artist.create!(name: 'Meg Myers', img_url: 'https://s3.amazonaws.com/procify-dev/megMyersArtistCover.jpg')
-
 ### END ARTISTS ###
 
 ### PLAYLISTS ###
@@ -96,6 +95,7 @@ album_two = Album.create(title: 'Reflections', img_url: 'https://s3.amazonaws.co
 
 
 ### ALBUM SONGS ###
+AlbumSong.create!(album_id: album_one.id, song_id: song_two.id)
 AlbumSong.create!(album_id: album_one.id, song_id: song_four.id)
 AlbumSong.create!(album_id: album_one.id, song_id: song_five.id)
 AlbumSong.create!(album_id: album_one.id, song_id: song_six.id)
