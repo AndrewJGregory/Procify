@@ -20,9 +20,9 @@ const mapStateToProps = (state, ownProps) => {
   const xPos = state.ui.dropdownMenuXpos;
   const yPos = state.ui.dropdownMenuYpos;
   const songId = ownProps.song.id;
-  const song = state.entities.songs[songId];
+  const song = state.entities.songs[songId] || ownProps.song;
   let artist = {};
-  if (song) {
+  if (song && Object.is({}, song)) {
     let artistId = state.entities.songs[song.id].artist_id;
     artist = state.entities.artists[artistId];
   }

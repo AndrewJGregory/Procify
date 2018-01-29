@@ -10,6 +10,7 @@ class AlbumIndex extends React.Component {
     const albums = this.props.albums.map(album => {
       return <AlbumIndexItemContainer key={album.id} album={album} />;
     });
+
     return (
       <section className='square-index-content'>
         <ul>
