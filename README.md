@@ -101,8 +101,31 @@ Just with that, the `PlaylistIndex` would be properly displayed and the proper d
 
 ### Dropdown Menu Positioning
 
+Each song displays three dots when hovered. When this three dots are clicked, a dropdown menu is displayed at the **exact** location that is clicked. In action this looks like:
+
+![Dropdown Menu gif example](./app/assets/images/dropdown_menu_positioning_demo.gif)
+
+The three dots have an event listener listening for `click`. The positions of the cursor is easily extracted, where `e` is the event:
+
+```
+const xPos = e.clientX;
+const yPos = e.clientY;
+```
+
+These positions are stored in the Redux store and formatted as CSS style as such:
+
+```
+const menuPos = {
+  top: this.props.yPos,
+  left: this.props.xPos
+};
+```
+
+Now this can be passed down as inline style to the `DropdownMenu` component itself to correctly position the component at the exact spot that is clicked.
+
 ### Coming Soon
 
 - Simultaneous search of all playlists, songs, artists, and albums.
 - Volume control of a playing song.
 - Seeking a playing song.
+- Queue for playing songs
