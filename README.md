@@ -1,4 +1,4 @@
-# [Procify](procify.herokuapp.com)
+# [Procify](http://procify.herokuapp.com)
 
 Procify is a web application that allows users to listen to existing songs and create playlists. It is built with Ruby on Rails as the backend, PostgreSQL as the database system, and React/Redux as the frontend.
 
