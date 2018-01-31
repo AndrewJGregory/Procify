@@ -15,14 +15,6 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def new
-
-  end
-
-  def edit
-
-  end
-
   def show
     @playlist = Playlist.find(params[:id])
     @songs = @playlist.songs
