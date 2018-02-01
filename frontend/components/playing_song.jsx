@@ -1,5 +1,4 @@
 import React from 'react';
-import secToMin from 'sec-to-min';
 import { Link } from 'react-router-dom';
 import { pause } from '../util/playing_song_util';
 import * as PlayingSongUtil from '../util/playing_song_util';
@@ -41,6 +40,7 @@ class PlayingSong extends React.Component {
         const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
 
         const artistId = (this.props.artist ? this.props.artist.id : -1);
+        
         return (
           <footer id="playing-song">
             <section className='playing-song-content'>
@@ -64,9 +64,17 @@ class PlayingSong extends React.Component {
               </div>
               <div className='middle-song-info'>
                 <div className='song-controls'>
-                  <div className='song-btns'>
+                  <div className='song-btns clickable'>
                     {playPauseBtn}
                   </div>
+                </div>
+                <div className='song-times'>
+                  <span className='song-time'>
+                    {this.props.currentTime}
+                  </span>
+                  <span className='song-time'>
+                    {this.props.duration}
+                  </span>
                 </div>
               </div>
               <div className='right-song-info'>

@@ -17,5 +17,8 @@ export const rePlay = props => {
 export const playNewSong = props => {
   props.selectPlayingSong(props.song);
   loadNewSong(props, props.song);
+  let intervalId = window.setInterval(() => {
+    props.setTime(props.audio.currentTime);
+  }, 1000);
   rePlay(props);
 };

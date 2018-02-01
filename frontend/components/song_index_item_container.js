@@ -12,6 +12,7 @@ import { deleteSongFromPlaylist } from '../actions/song_actions';
 import { toggleSongPlaying,
   setAudioSrc,
   selectPlayingSong,
+  setTime
 } from '../actions/playing_song_actions';
 
 import { withRouter } from 'react-router-dom';
@@ -52,7 +53,8 @@ const mapDispatchToProps = dispatch => {
     toggleSongPlaying: () => dispatch(toggleSongPlaying()),
     setAudioSrc: audioSrc => dispatch(setAudioSrc(audioSrc)),
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
-    selectHoveredSongId: id => dispatch(selectHoveredSongId(id))
+    selectHoveredSongId: id => dispatch(selectHoveredSongId(id)),
+    setTime: time => dispatch(setTime(time)),
   };
 };
 

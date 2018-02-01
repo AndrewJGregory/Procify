@@ -10,10 +10,14 @@ import { SWAP_PLAYLIST_FORM_SHOW,
 import { TOGGLE_SONG_PLAYING,
 SET_AUDIO_SRC,
 SELECT_PLAYING_SONG,
-SET_INTERVAL_ID
+SET_INTERVAL_ID,
+SET_TIME
 } from '../actions/playing_song_actions';
 
+import secToMin from 'sec-to-min';
+
 const audio = document.createElement('audio');
+
 const initialState = {
   isPlaylistFormDisplayed: false,
   isAddSongFormDisplayed: false,
@@ -27,7 +31,8 @@ const initialState = {
   hoveredSongId: -1,
   intervalId: -1,
   isSuccessMsgDisplayed: false,
-  successMsgClass: 'fadeOutUp'
+  successMsgClass: 'fadeOutUp',
+  currentTime: '0:00'
 };
 
 const uiReducer = (state = initialState, action) => {
@@ -100,6 +105,12 @@ const uiReducer = (state = initialState, action) => {
             state,
             {isSuccessMsgDisplayed: !state.isSuccessMsgDisplayed,
             successMsgClass}
+          );
+          case SET_TIME:
+          return Object.assign(
+            {},
+            state,
+            {currentTime: secToMin(action.time)}
           );
           default:
           return state;
