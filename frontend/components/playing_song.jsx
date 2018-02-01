@@ -1,4 +1,5 @@
 import React from 'react';
+import secToMin from 'sec-to-min';
 import { Link } from 'react-router-dom';
 import { pause } from '../util/playing_song_util';
 import * as PlayingSongUtil from '../util/playing_song_util';
@@ -7,6 +8,21 @@ class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    const duration = this.findDuration(props);
+    this.state = {
+      currentTime: secToMin(this.props.audio.currentTime),
+      duration
+    };
+  }
+
+  findDuration(props) {
+    let duration;
+    if (props.audio.duration) {
+      duration = secToMin(props.audio.duration);
+    } else {
+      duration = '0:00';
+    }
+    return duration;
   }
 
   handleClick(e) {
@@ -14,9 +30,18 @@ class PlayingSong extends React.Component {
       if (this.props.isSongPlaying) {
         PlayingSongUtil.pause(this.props);
       } else {
-        PlayingSongUtil.rePlay(this.props);
+        PlayingSongUtil.rePlay(this.props, this);
       }
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    nextProps.audio.addEventListener('loadedmetadata', () => {
+      this.setState({ duration: this.findDuration(nextProps) });
+    });
+    window.setInterval(() => {
+      this.setState({ currentTime: secToMin(nextProps.audio.currentTime) });
+    }, 1000);
   }
 
   render() {
@@ -40,7 +65,7 @@ class PlayingSong extends React.Component {
         const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
 
         const artistId = (this.props.artist ? this.props.artist.id : -1);
-        
+
         return (
           <footer id="playing-song">
             <section className='playing-song-content'>
@@ -70,10 +95,10 @@ class PlayingSong extends React.Component {
                 </div>
                 <div className='song-times'>
                   <span className='song-time'>
-                    {this.props.currentTime}
+                    {this.state.currentTime}
                   </span>
                   <span className='song-time'>
-                    {this.props.duration}
+                    {this.state.duration}
                   </span>
                 </div>
               </div>

@@ -7,7 +7,6 @@ import {
   setIntervalId,
   setTime
 } from '../actions/playing_song_actions';
-import secToMin from 'sec-to-min';
 
 const mapStateToProps = state => {
   const artist = state.entities.artists[state.ui.playingSong.artist_id];
@@ -18,13 +17,6 @@ const mapStateToProps = state => {
     }
   });
 
-  let duration;
-  if (state.ui.audio.duration) {
-    duration = secToMin(state.ui.audio.duration);
-  } else {
-    duration = '0:00';
-  }
-
   return {
     playingSong: state.ui.playingSong,
     audio: state.ui.audio,
@@ -33,8 +25,6 @@ const mapStateToProps = state => {
     intervalId: state.ui.intervalId,
     artist,
     playingSongAlbum,
-    currentTime: state.ui.currentTime,
-    duration
   };
 };
 
