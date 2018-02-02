@@ -47,9 +47,9 @@ class PlayingSong extends React.Component {
   render() {
     const playPauseBtn = (
       this.props.isSongPlaying ?
-      <i className="fa fa-pause-circle-o playing-song-btn" aria-hidden="true"
+      <i className="fa fa-pause-circle-o playing-song-btn clickable" aria-hidden="true"
         onClick={this.handleClick}></i> :
-        <i className="fa fa-play-circle-o" aria-hidden="true"
+        <i className="fa fa-play-circle-o clickable" aria-hidden="true"
           onClick={this.handleClick}></i>
       );
       const artistName = (
@@ -89,7 +89,7 @@ class PlayingSong extends React.Component {
               </div>
               <div className='middle-song-info'>
                 <div className='song-controls'>
-                  <div className='song-btns clickable'>
+                  <div className='song-btns'>
                     {playPauseBtn}
                   </div>
                 </div>

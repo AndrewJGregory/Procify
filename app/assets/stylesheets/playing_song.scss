@@ -12,12 +12,13 @@
   justify-content: space-between;
   height: inherit;
   align-items: center;
+  position: relative;
 }
 
 .song-controls {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 600px;
   justify-content: center;
   padding-bottom: 15px;
 }
@@ -64,4 +65,9 @@ i {
 #artist-name-playing {
   color: #A1A28B;
   font-size: 12px;
+}
+
+.middle-song-info {
+  position: absolute;
+  left: calc(50% - 300px);
 }
