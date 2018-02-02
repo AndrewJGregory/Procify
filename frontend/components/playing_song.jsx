@@ -11,8 +11,10 @@ class PlayingSong extends React.Component {
     const duration = this.findDuration(props);
     this.state = {
       currentTime: secToMin(this.props.audio.currentTime),
-      duration
+      duration,
+      volume: '0.5'
     };
+    this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
   findDuration(props) {
@@ -48,6 +50,12 @@ class PlayingSong extends React.Component {
     window.setInterval(() => {
       this.setState({ currentTime: secToMin(nextProps.audio.currentTime) });
     }, 1000);
+  }
+
+  handleVolumeChange(e) {
+    e.preventDefault();
+    const volumeLevel = e.target.value;
+    this.props.audio.volume = volumeLevel;
   }
 
   render() {
@@ -111,6 +119,10 @@ class PlayingSong extends React.Component {
               <div className='right-song-info'>
 
                 <div className='volume-container'>
+                  <input type='range' min='0.0' max='1.0'
+                    step='any'
+                    defaultValue={this.state.volume}
+                    onChange={this.handleVolumeChange}></input>
                 </div>
               </div>
             </section>
