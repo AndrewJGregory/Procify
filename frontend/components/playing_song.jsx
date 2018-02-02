@@ -37,6 +37,8 @@ class PlayingSong extends React.Component {
 
   componentWillUnmount() {
     PlayingSongUtil.pause(this.props);
+    this.props.selectPlayingSong({});
+    this.props.setAudioSrc('');
   }
 
   componentWillReceiveProps(nextProps) {

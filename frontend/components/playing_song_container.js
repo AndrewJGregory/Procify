@@ -4,7 +4,6 @@ import {
   toggleSongPlaying,
   setAudioSrc,
   selectPlayingSong,
-  setIntervalId,
   setTime
 } from '../actions/playing_song_actions';
 
@@ -33,7 +32,6 @@ export const mapDispatchToProps = dispatch => {
     toggleSongPlaying: () => dispatch(toggleSongPlaying()),
     setAudioSrc: audioSrc => dispatch(setAudioSrc(audioSrc)),
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
-    setIntervalId: id => dispatch(setIntervalId(id)),
     setTime: time => dispatch(setTime(time)),
   };
 };
