@@ -1,6 +1,5 @@
 export const pause = props => {
   props.audio.pause();
-  window.clearInterval(props.intervalId);
   props.toggleSongPlaying();
 };
 

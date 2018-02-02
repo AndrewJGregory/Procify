@@ -35,6 +35,10 @@ class PlayingSong extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    PlayingSongUtil.pause(this.props);
+  }
+
   componentWillReceiveProps(nextProps) {
     nextProps.audio.addEventListener('loadedmetadata', () => {
       this.setState({ duration: this.findDuration(nextProps) });

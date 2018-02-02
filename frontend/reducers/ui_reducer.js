@@ -13,8 +13,6 @@ SELECT_PLAYING_SONG,
 SET_INTERVAL_ID,
 } from '../actions/playing_song_actions';
 
-import secToMin from 'sec-to-min';
-
 const audio = document.createElement('audio');
 
 const initialState = {
