@@ -40,7 +40,7 @@ i {
   justify-content: space-between;
 }
 
-.left-song-info {
+.left-song-info, .right-song-info {
   display: flex;
 }
 
@@ -70,4 +70,21 @@ i {
 .middle-song-info {
   position: absolute;
   left: calc(50% - 300px);
+}
+
+.volume-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 2px;
+  height: 4px;
+  width: 82px;
+  background-color: #404040;
 }
