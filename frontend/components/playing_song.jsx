@@ -7,15 +7,15 @@ import * as PlayingSongUtil from '../util/playing_song_util';
 class PlayingSong extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     const duration = this.findDuration(props);
     this.state = {
       currentTime: secToMin(this.props.audio.currentTime),
       duration,
       volume: '0.5',
       volumeIcon: <i className="fa fa-volume-down fa-2x"></i>,
-
+      progress: '0'
     };
+    this.handleClick = this.handleClick.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
@@ -50,8 +50,14 @@ class PlayingSong extends React.Component {
       this.setState({ duration: this.findDuration(nextProps) });
     });
     window.setInterval(() => {
-      this.setState({ currentTime: secToMin(nextProps.audio.currentTime) });
+      const currentTime = secToMin(nextProps.audio.currentTime);
+      const progress = this.findProgress(nextProps.audio);
+      this.setState({ currentTime, progress });
     }, 1000);
+  }
+
+  findProgress(audio) {
+    return `${(audio.currentTime)/(audio.duration) * 100}%`;
   }
 
   handleVolumeChange(e) {
@@ -125,6 +131,11 @@ class PlayingSong extends React.Component {
                         <span className='song-time'>
                           {this.state.currentTime}
                         </span>
+                        <div className='track-bar'>
+                          <div className='progress-bar'
+                            style={{width: this.state.progress}}>
+                          </div>
+                        </div>
                         <span className='song-time'>
                           {this.state.duration}
                         </span>

@@ -38,6 +38,7 @@ i {
 .song-times {
   display: flex;
   justify-content: space-between;
+
 }
 
 .left-song-info, .right-song-info {
@@ -87,4 +88,19 @@ i {
   height: 4px;
   width: 82px;
   background-color: #404040;
+}
+
+.track-bar {
+  margin: 5px;
+}
+
+.track-bar, .progress-bar {
+  background-color: #404040;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  background-color: #A0A0A0;
 }
