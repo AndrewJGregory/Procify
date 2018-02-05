@@ -71,90 +71,96 @@ class PlayingSong extends React.Component {
   getVolumeIcon(volumeLevel) {
     if (volumeLevel == 0) {
       return <i className="fa fa-2x fa-volume-off"></i>;
-      } else if (volumeLevel > 0.5) {
-        return <i className="fa fa-2x fa-volume-up"></i>;
-        } else if (volumeLevel <= 0.5) {
-          return <i className="fa fa-2x fa-volume-down"></i>;
-          }
-        }
+    } else if (volumeLevel > 0.5) {
+      return <i className="fa fa-2x fa-volume-up"></i>;
+    } else if (volumeLevel <= 0.5) {
+      return <i className="fa fa-2x fa-volume-down"></i>;
+    }
+  }
 
-        render() {
-          const playPauseBtn = (
-            this.props.isSongPlaying ?
-            <i className="fa fa-pause-circle-o playing-song-btn clickable" aria-hidden="true"
-              onClick={this.handleClick}></i> :
-              <i className="fa fa-play-circle-o clickable" aria-hidden="true"
-                onClick={this.handleClick}></i>
-            );
-            const artistName = (
-              this.props.artist ? this.props.artist.name : ''
-            );
-            let albumImg;
-            if (this.props.playingSongAlbum) {
-              albumImg = <img src={`${this.props.playingSongAlbum.img_url}`} className='small-img'/>;
-            } else {
-              albumImg = <div className='small-img'></div>;
-              }
+  findPlayOrPauseBtn() {
+    const action = (this.props.isSongPlaying ? 'pause' : 'play');
+    return <i
+      className={`fa fa-${action}-circle-o playing-song-btn clickable`}
+      aria-hidden="true"
+      onClick={this.handleClick}></i>;
+  }
 
-              const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
+  findAlbumImg() {
+    let albumImg = <div className='small-img'></div>;
+    if (this.props.playingSongAlbum) {
+      albumImg = <img src={this.props.playingSongAlbum.img_url}
+        className='small-img'></img>;
+    }
+    return albumImg;
+  }
 
-              const artistId = (this.props.artist ? this.props.artist.id : -1);
 
-              return (
-                <footer id="playing-song">
-                  <section className='playing-song-content'>
-                    <div className='left-song-info'>
-                      <div className='playing-song-img'>
-                        {albumImg}
-                      </div>
-                      <div className='left-song-text'>
-                        <h5>
-                          <Link to={`/collection/albums/${albumId}`}>
-                            {this.props.playingSong.title}
-                          </Link>
-                        </h5>
-                        <h5>
-                          <Link to={`/collection/artists/${artistId}`}
-                            id='artist-name-playing'>
-                            {artistName}
-                          </Link>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className='middle-song-info'>
-                      <div className='song-controls'>
-                        <div className='song-btns'>
-                          {playPauseBtn}
-                        </div>
-                      </div>
-                      <div className='song-times'>
-                        <span className='song-time'>
-                          {this.state.currentTime}
-                        </span>
-                        <div className='track-bar'>
-                          <div className='progress-bar'
-                            style={{width: this.state.progress}}>
-                          </div>
-                        </div>
-                        <span className='song-time'>
-                          {this.state.duration}
-                        </span>
-                      </div>
-                    </div>
-                    <div className='right-song-info'>
-                      {this.state.volumeIcon}
-                      <div className='volume-container'>
-                        <input className='volume-slider'
-                          type='range' min='0.0' max='1.0'
-                          step='any'
-                          defaultValue={this.state.volume}
-                          onChange={this.handleVolumeChange}></input>
-                      </div>
-                    </div>
-                  </section>
-                </footer>
-              );
-            }
-          }
+  render() {
+    const playPauseBtn = this.findPlayOrPauseBtn();
+    const albumImg = this.findAlbumImg();
+    const artistName = (
+      this.props.artist ? this.props.artist.name : ''
+    );
+    const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
 
-          export default PlayingSong;
+    const artistId = (this.props.artist ? this.props.artist.id : -1);
+
+    return (
+      <footer id="playing-song">
+        <section className='playing-song-content'>
+          <div className='left-song-info'>
+            <div className='playing-song-img'>
+              {albumImg}
+            </div>
+            <div className='left-song-text'>
+              <h5>
+                <Link to={`/collection/albums/${albumId}`}>
+                  {this.props.playingSong.title}
+                </Link>
+              </h5>
+              <h5>
+                <Link to={`/collection/artists/${artistId}`}
+                  id='artist-name-playing'>
+                  {artistName}
+                </Link>
+              </h5>
+            </div>
+          </div>
+          <div className='middle-song-info'>
+            <div className='song-controls'>
+              <div className='song-btns'>
+                {playPauseBtn}
+              </div>
+            </div>
+            <div className='song-times'>
+              <span className='song-time'>
+                {this.state.currentTime}
+              </span>
+              <div className='track-bar'>
+                <div className='progress-bar'
+                  style={{width: this.state.progress}}>
+                </div>
+              </div>
+              <span className='song-time'>
+                {this.state.duration}
+              </span>
+            </div>
+          </div>
+          <div className='right-song-info'>
+            {this.state.volumeIcon}
+            <div className='volume-container'>
+              <input className='volume-slider'
+                type='range' min='0.0' max='1.0'
+                step='any'
+                defaultValue={this.state.volume}
+                onChange={this.handleVolumeChange}></input>
+            </div>
+          </div>
+        </section>
+      </footer>
+    );
+  }
+}
+
+export default PlayingSong;
