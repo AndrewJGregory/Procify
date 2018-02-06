@@ -18,7 +18,8 @@ class PlayingSong extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
-    this.seekTrack = this.seekTrack.bind(this);
+    this.seekTrackForward = this.seekTrackForward.bind(this);
+    this.seekTrackBackward = this.seekTrackBackward.bind(this);
   }
 
   findDuration(props) {
@@ -75,120 +76,144 @@ class PlayingSong extends React.Component {
   getVolumeIcon(volumeLevel) {
     if (volumeLevel == 0) {
       return <i className="fa fa-2x fa-volume-off"></i>;
-    } else if (volumeLevel > 0.5) {
-      return <i className="fa fa-2x fa-volume-up"></i>;
-    } else if (volumeLevel <= 0.5) {
-      return <i className="fa fa-2x fa-volume-down"></i>;
-    }
-  }
+      } else if (volumeLevel > 0.5) {
+        return <i className="fa fa-2x fa-volume-up"></i>;
+        } else if (volumeLevel <= 0.5) {
+          return <i className="fa fa-2x fa-volume-down"></i>;
+          }
+        }
 
-  findPlayOrPauseBtn() {
-    const action = (this.props.isSongPlaying ? 'pause' : 'play');
-    return <i
-      className={`fa fa-${action}-circle-o playing-song-btn clickable`}
-      aria-hidden="true"
-      onClick={this.handleClick}></i>;
-  }
+        findPlayOrPauseBtn() {
+          const action = (this.props.isSongPlaying ? 'pause' : 'play');
+          return <i
+            className={`fa fa-${action}-circle-o playing-song-btn clickable`}
+            aria-hidden="true"
+            onClick={this.handleClick}></i>;
+          }
 
-  findAlbumImg() {
-    let albumImg = <div className='small-img'></div>;
-    if (this.props.playingSongAlbum) {
-      albumImg = <img src={this.props.playingSongAlbum.img_url}
-        className='small-img'></img>;
-    }
-    return albumImg;
-  }
+          findAlbumImg() {
+            let albumImg = <div className='small-img'></div>;
+              if (this.props.playingSongAlbum) {
+                albumImg = <img src={this.props.playingSongAlbum.img_url}
+                  className='small-img'></img>;
+                }
+                return albumImg;
+              }
 
-  seekTrack(e) {
-    e.preventDefault();
-    const clickedPercentage = parseFloat(e.currentTarget.value);
-    let progress = (this.props.audio.duration * clickedPercentage);
-    let currentTime, pixels;
-    if (progress) {
-      currentTime = secToMin(progress);
-      pixels = clickedPercentage * this.state.width;
-    } else {
-      pixels = 0;
-      currentTime = '0:00';
-      progress = 0;
-    }
-    this.setState({ progress: `${pixels}px`, currentTime }, () => {
-      this.props.audio.currentTime = progress;
-    });
-  }
+              seekTrackForward(e) {
+                e.preventDefault();
+                const clickedPercentage = parseFloat(e.currentTarget.value);
+                let timeInSeconds = (this.props.audio.duration * clickedPercentage);
+                let currentTime, pixels;
+                if (timeInSeconds) {
+                  currentTime = secToMin(timeInSeconds);
+                  pixels = clickedPercentage * this.state.width;
+                } else {
+                  pixels = 0;
+                  currentTime = '0:00';
+                  timeInSeconds = 0;
+                }
+                this.setState({ progress: `${pixels}px`, currentTime }, () => {
+                  this.props.audio.currentTime = timeInSeconds;
+                });
+              }
 
-  render() {
-    const playPauseBtn = this.findPlayOrPauseBtn();
-    const albumImg = this.findAlbumImg();
-    const artistName = (
-      this.props.artist ? this.props.artist.name : ''
-    );
-    const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
+              seekTrackBackward(e) {
+                e.preventDefault();
+                const clickedPercentage = parseFloat(e.currentTarget.value);
+                let timeInSeconds = (clickedPercentage *
+                  parseFloat(this.state.progress)/520 *
+                  this.props.audio.duration);
+                  let currentTime, pixels;
+                  if (timeInSeconds) {
+                    currentTime = secToMin(timeInSeconds);
+                    pixels = parseFloat(this.state.progress) * clickedPercentage;
+                  } else {
+                    currentTime = '0:00';
+                    timeInSeconds = 0;
+                  }
+                  this.setState({ progress: `${pixels}px`, currentTime }, () => {
+                    this.props.audio.currentTime = timeInSeconds;
+                  });
+                }
 
-    const artistId = (this.props.artist ? this.props.artist.id : -1);
+                render() {
+                  const playPauseBtn = this.findPlayOrPauseBtn();
+                  const albumImg = this.findAlbumImg();
+                  const artistName = (
+                    this.props.artist ? this.props.artist.name : ''
+                  );
+                  const albumId = (this.props.playingSongAlbum ? this.props.playingSongAlbum.id : -1);
 
-    return (
-      <footer id="playing-song">
-        <section className='playing-song-content'>
-          <div className='left-song-info'>
-            <div className='playing-song-img'>
-              {albumImg}
-            </div>
-            <div className='left-song-text'>
-              <h5>
-                <Link to={`/collection/albums/${albumId}`}>
-                  {this.props.playingSong.title}
-                </Link>
-              </h5>
-              <h5>
-                <Link to={`/collection/artists/${artistId}`}
-                  id='artist-name-playing'>
-                  {artistName}
-                </Link>
-              </h5>
-            </div>
-          </div>
-          <div className='middle-song-info'>
-            <div className='song-controls'>
-              <div className='song-btns'>
-                {playPauseBtn}
-              </div>
-            </div>
-            <div className='song-times'>
-              <span className='song-time'>
-                {this.state.currentTime}
-              </span>
-              <span className='track-bar-container'>
-                <input className='track-bar clickable'
-                  type='range'
-                  min='0.0' max='1.0'
-                  step='any'
-                  defaultValue='0.0'
-                  onClick={this.seekTrack}>
-                </input>
-                <span className='progress-bar'
-                  style={{width: this.state.progress}}>
-                </span>
-              </span>
-              <span className='song-time'>
-                {this.state.duration}
-              </span>
-            </div>
-          </div>
-          <div className='right-song-info'>
-            {this.state.volumeIcon}
-            <div className='volume-container'>
-              <input className='volume-slider'
-                type='range' min='0.0' max='1.0'
-                step='any'
-                defaultValue={this.state.volume}
-                onChange={this.handleVolumeChange}></input>
-            </div>
-          </div>
-        </section>
-      </footer>
-    );
-  }
-}
+                  const artistId = (this.props.artist ? this.props.artist.id : -1);
 
-export default PlayingSong;
+                  return (
+                    <footer id="playing-song">
+                      <section className='playing-song-content'>
+                        <div className='left-song-info'>
+                          <div className='playing-song-img'>
+                            {albumImg}
+                          </div>
+                          <div className='left-song-text'>
+                            <h5>
+                              <Link to={`/collection/albums/${albumId}`}>
+                                {this.props.playingSong.title}
+                              </Link>
+                            </h5>
+                            <h5>
+                              <Link to={`/collection/artists/${artistId}`}
+                                id='artist-name-playing'>
+                                {artistName}
+                              </Link>
+                            </h5>
+                          </div>
+                        </div>
+                        <div className='middle-song-info'>
+                          <div className='song-controls'>
+                            <div className='song-btns'>
+                              {playPauseBtn}
+                            </div>
+                          </div>
+                          <div className='song-times'>
+                            <span className='song-time'>
+                              {this.state.currentTime}
+                            </span>
+                            <span className='track-bar-container'>
+                              <input className='track-bar clickable'
+                                type='range'
+                                min='0.0' max='1.0'
+                                step='any'
+                                defaultValue='0.0'
+                                onClick={this.seekTrackForward}>
+                              </input>
+                              <input className='progress-bar clickable'
+                                type='range'
+                                min='0.0' max = '1.0'
+                                step='any'
+                                defaultValue='0.0'
+                                style={{width: this.state.progress}}
+                                onClick={this.seekTrackBackward}>
+                              </input>
+                            </span>
+                            <span className='song-time'>
+                              {this.state.duration}
+                            </span>
+                          </div>
+                        </div>
+                        <div className='right-song-info'>
+                          {this.state.volumeIcon}
+                          <div className='volume-container'>
+                            <input className='volume-slider'
+                              type='range' min='0.0' max='1.0'
+                              step='any'
+                              defaultValue={this.state.volume}
+                              onChange={this.handleVolumeChange}></input>
+                          </div>
+                        </div>
+                      </section>
+                    </footer>
+                  );
+                }
+              }
+
+              export default PlayingSong;

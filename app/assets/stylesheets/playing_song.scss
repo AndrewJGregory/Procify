@@ -89,7 +89,7 @@ i {
   background-color: #404040;
 }
 
-.track-bar::-webkit-slider-thumb {
+.track-bar::-webkit-slider-thumb, .progress-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 0;
@@ -118,6 +118,6 @@ i {
 .progress-bar {
   background-color: #A0A0A0;
   position: absolute;
-  top: 57px;
-  left: 34px;
+  top: 54px;
+  left: 32px;
 }
