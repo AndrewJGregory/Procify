@@ -102,9 +102,16 @@ class PlayingSong extends React.Component {
   seekTrack(e) {
     e.preventDefault();
     const clickedPercentage = parseFloat(e.currentTarget.value);
-    const progress = (this.props.audio.duration * clickedPercentage);
-    const currentTime = secToMin(progress);
-    const pixels = clickedPercentage * this.state.width;
+    let progress = (this.props.audio.duration * clickedPercentage);
+    let currentTime, pixels;
+    if (progress) {
+      currentTime = secToMin(progress);
+      pixels = clickedPercentage * this.state.width;
+    } else {
+      pixels = 0;
+      currentTime = '0:00';
+      progress = 0;
+    }
     this.setState({ progress: `${pixels}px`, currentTime }, () => {
       this.props.audio.currentTime = progress;
     });
