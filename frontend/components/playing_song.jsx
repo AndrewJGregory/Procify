@@ -13,10 +13,12 @@ class PlayingSong extends React.Component {
       duration,
       volume: '0.5',
       volumeIcon: <i className="fa fa-volume-down fa-2x"></i>,
-      progress: '0'
+      progress: '0',
+      width: 520
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.seekTrack = this.seekTrack.bind(this);
   }
 
   findDuration(props) {
@@ -57,7 +59,9 @@ class PlayingSong extends React.Component {
   }
 
   findProgress(audio) {
-    return `${(audio.currentTime)/(audio.duration) * 100}%`;
+    let progress = (audio.currentTime)/(audio.duration);
+    progress *= this.state.width;
+    return `${progress}px`;
   }
 
   handleVolumeChange(e) {
@@ -95,6 +99,16 @@ class PlayingSong extends React.Component {
     return albumImg;
   }
 
+  seekTrack(e) {
+    e.preventDefault();
+    const clickedPercentage = parseFloat(e.currentTarget.value);
+    const progress = (this.props.audio.duration * clickedPercentage);
+    const currentTime = secToMin(progress);
+    const pixels = clickedPercentage * this.state.width;
+    this.setState({ progress: `${pixels}px`, currentTime }, () => {
+      this.props.audio.currentTime = progress;
+    });
+  }
 
   render() {
     const playPauseBtn = this.findPlayOrPauseBtn();
@@ -137,11 +151,18 @@ class PlayingSong extends React.Component {
               <span className='song-time'>
                 {this.state.currentTime}
               </span>
-              <div className='track-bar'>
-                <div className='progress-bar'
+              <span className='track-bar-container'>
+                <input className='track-bar clickable'
+                  type='range'
+                  min='0.0' max='1.0'
+                  step='any'
+                  defaultValue='0.0'
+                  onClick={this.seekTrack}>
+                </input>
+                <span className='progress-bar'
                   style={{width: this.state.progress}}>
-                </div>
-              </div>
+                </span>
+              </span>
               <span className='song-time'>
                 {this.state.duration}
               </span>

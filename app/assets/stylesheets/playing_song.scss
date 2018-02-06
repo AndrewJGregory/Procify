@@ -18,7 +18,6 @@
 .song-controls {
   display: flex;
   flex-direction: column;
-  width: 600px;
   justify-content: center;
   padding-bottom: 15px;
 }
@@ -74,14 +73,14 @@ i {
 }
 
 .volume-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
 }
 
-.volume-slider {
+.volume-slider, .track-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 2px;
@@ -90,8 +89,19 @@ i {
   background-color: #404040;
 }
 
-.track-bar {
-  margin: 5px;
+.track-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.track-bar-container {
+  width: 520px;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;;
 }
 
 .track-bar, .progress-bar {
@@ -101,6 +111,13 @@ i {
   border-radius: 2px;
 }
 
+.track-bar {
+  margin: 0;
+}
+
 .progress-bar {
   background-color: #A0A0A0;
+  position: absolute;
+  top: 57px;
+  left: 34px;
 }
