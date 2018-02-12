@@ -12,10 +12,16 @@
 #  birthday        :string           not null
 #
 
-require 'test_helper'
+require 'rails_helper'
 
-class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe User, type: :model do
+  describe 'validation tests:' do
+    describe 'username' do
+      it { should validate_presence_of(:username).with_message("Please enter your Procify username.") }
+
+      subject { build(:user) }
+      it { should validate_uniqueness_of(:username).with_message("Username has already been taken. Try another username.")}
+    end
+
+  end
 end
