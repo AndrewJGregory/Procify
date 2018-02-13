@@ -21,3 +21,10 @@ FactoryBot.define do
     song_id 1
   end
 end
+
+FactoryBot.define do
+  factory :album do
+    title 'best album ever'
+    img_url 'www.imgurl.com'
+  end
+end
