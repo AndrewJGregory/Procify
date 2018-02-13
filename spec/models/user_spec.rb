@@ -16,6 +16,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject { build(:user) }
+  let(:valid_user) { User.first }
+
   describe 'validation tests:' do
     it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:session_token) }
@@ -30,4 +32,77 @@ RSpec.describe User, type: :model do
     }
   end
 
+  describe 'instance methods:' do
+
+    describe '#generate_session_token' do
+      it 'generates a string' do
+        session_token = subject.generate_session_token
+        expect(session_token).to be_a String
+      end
+    end
+
+  end
+
+  describe '#reset_session_token' do
+    it 'saves the user to the database' do
+      expect(subject).to receive(:save!)
+      subject.reset_session_token
+    end
+
+    it 'changes the user\'s session token' do
+      old_token = subject.session_token
+      subject.reset_session_token
+      new_token = subject.session_token
+      expect(old_token).not_to eql(new_token)
+    end
+  end
+
+  describe '#is_password?' do
+    it 'returns true when passed the correct password' do
+      expect(subject.is_password?('password')).to be_truthy
+    end
+
+    it 'returns false when passed an incorrect password' do
+      expect(subject.is_password?('notmypassword')).to be_falsy
+    end
+  end
+
+  describe '::find_by_credentials' do
+    it 'returns the correct user when passed valid credentials' do
+      subject.save!
+      user = User.find_by_credentials('andrew', 'password')
+      expect(user).to eq(subject)
+    end
+
+    it 'returns nil when passed invalid credentials' do
+      user = User.find_by_credentials('notauser', 'badpassword')
+      expect(user).to be_nil
+    end
+  end
+
+  describe '#password=' do
+    it 'sets the password digest' do
+      subject.password = 'anewpassword'
+      expect(subject.password_digest).to be_a String
+    end
+  end
+
+  describe '#ensure_session_token' do
+    it 'sets the session token' do
+      subject.ensure_session_token
+      expect(subject.session_token).to be_a String
+    end
+
+    it 'does not reset session token when the user already has one' do
+      subject.ensure_session_token
+      old_token = subject.session_token
+      subject.ensure_session_token
+      new_token = subject.session_token
+      expect(old_token).to eq(new_token)
+    end
+  end
+
+  describe 'associations:' do
+      it { should have_many(:playlists) }
+  end
 end
