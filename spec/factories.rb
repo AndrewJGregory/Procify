@@ -7,3 +7,10 @@ FactoryBot.define do
     birthday '11061993'
   end
 end
+
+FactoryBot.define do
+  factory :artist do
+    name 'artist_one'
+    img_url 'www.imgurl.com'
+  end
+end

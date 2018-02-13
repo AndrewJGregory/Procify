@@ -10,7 +10,7 @@
 #
 
 class Artist < ApplicationRecord
-  validates :name, :img_url, null: false
+  validates :name, :img_url, presence: true
 
   has_many :albums
 
