@@ -43,3 +43,11 @@ FactoryBot.define do
     song_id 1
   end
 end
+
+FactoryBot.define do
+  factory :song do
+    title 'coolest song ever'
+    playlist_id 1
+    artist_id 1
+  end
+end
