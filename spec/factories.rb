@@ -14,3 +14,10 @@ FactoryBot.define do
     img_url 'www.imgurl.com'
   end
 end
+
+FactoryBot.define do
+  factory :album_song do
+    album_id 1
+    song_id 1
+  end
+end

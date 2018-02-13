@@ -9,3 +9,18 @@
 #  updated_at :datetime         not null
 #
 
+require 'rails_helper'
+
+RSpec.describe AlbumSong, type: :model do
+  subject { build(:album_song) }
+
+  describe 'validations' do
+    it { should validate_presence_of(:album_id) }
+    it { should validate_presence_of(:song_id) }
+  end
+
+  describe 'associations' do
+    it { should belong_to(:song) }
+    it { should belong_to(:album) }
+  end
+end
