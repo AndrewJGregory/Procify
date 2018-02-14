@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   subject { build(:user) }
   let(:valid_user) { User.first }
 
-  describe 'validation tests:' do
+  describe 'validations' do
     it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:session_token) }
     it { should validate_presence_of(:birthday).with_message('When were you born?') }
@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     }
   end
 
-  describe 'instance methods:' do
+  describe 'instance methods' do
 
     describe '#generate_session_token' do
       it 'generates a string' do
@@ -67,19 +67,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '::find_by_credentials' do
-    it 'returns the correct user when passed valid credentials' do
-      subject.save!
-      user = User.find_by_credentials('andrew', 'password')
-      expect(user).to eq(subject)
-    end
-
-    it 'returns nil when passed invalid credentials' do
-      user = User.find_by_credentials('notauser', 'badpassword')
-      expect(user).to be_nil
-    end
-  end
-
   describe '#password=' do
     it 'sets the password digest' do
       subject.password = 'anewpassword'
@@ -102,6 +89,20 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'class methods' do
+    describe '::find_by_credentials' do
+      it 'returns the correct user when passed valid credentials' do
+        subject.save!
+        user = User.find_by_credentials('andrew', 'password')
+        expect(user).to eq(subject)
+      end
+
+      it 'returns nil when passed invalid credentials' do
+        user = User.find_by_credentials('notauser', 'badpassword')
+        expect(user).to be_nil
+      end
+    end
+  end
   describe 'associations:' do
       it { should have_many(:playlists) }
   end
