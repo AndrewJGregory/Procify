@@ -52,7 +52,7 @@ class InnerCollection extends React.Component {
               {addSongForm}
               {newPlaylistForm}
               {navBar}
-              <this.props.component />
+              <this.props.component shouldBtnBeDisplayed={true}/>
             </section>
           );
         }

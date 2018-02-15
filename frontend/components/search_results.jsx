@@ -10,7 +10,7 @@ const SearchResults = ({ artists, albums, songs, playlists }) => {
       <ArtistIndex artists={artists} />
       <AlbumIndex albums={albums} />
       <SongIndex songs={songs} />
-      <PlaylistIndex playlists={playlists} />
+      <PlaylistIndex playlists={playlists} shouldBtnBeDisplayed={false} />
     </section>
   );
 };
