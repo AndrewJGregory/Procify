@@ -1,23 +1,14 @@
 import { connect } from 'react-redux';
 import Search from './search';
-
-const mapStateToProps = state => {
-  const { albums, artists, songs, playlists } = state.search;
-  return {
-    albums,
-    artists,
-    songs,
-    playlists
-  };
-};
+import { fetchSearchResults } from '../actions/search_actions';
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    search: query => dispatch(fetchSearchResults(query))
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Search);

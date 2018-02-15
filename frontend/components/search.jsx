@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResultsContainer from './search_results_container';
 
 class Search extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class Search extends React.Component {
 
   updateInput(type) {
     return e => {
-      this.setState({[type]: e.target.value});
+      this.setState({[type]: e.target.value}, () => {
+        if (this.state.query) this.props.search(this.state.query);
+      });
     };
   }
 
@@ -17,7 +20,6 @@ class Search extends React.Component {
     return (
       <main className='main-interior'>
         <div className='search-input'>
-
           <input
             value={this.state.query}
             onChange={this.updateInput('query')}
@@ -25,9 +27,7 @@ class Search extends React.Component {
             className='playlist-input search-input'
             autoFocus='true' />
         </div>
-        <section className='search-results'>
-
-        </section>
+        <SearchResultsContainer />
       </main>
     );
   }
