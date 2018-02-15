@@ -1,10 +1,10 @@
 class Api::SearchesController < ApplicationController
   def create
     query = search_params['query'].downcase
-    @albums = Album.where('title LIKE ?', "#{query}%")
-    @artists = Artist.where('name LIKE ?', "#{query}%")
-    @songs = Song.where('title LIKE ?', "#{query}%")
-    @playlists = Playlist.where('title LIKE ?', "#{query}%")
+    @albums = Album.where('lower(title) LIKE ?', "#{query}%")
+    @artists = Artist.where('lower(name) LIKE ?', "#{query}%")
+    @songs = Song.where('lower(title) LIKE ?', "#{query}%")
+    @playlists = Playlist.where('lower(title) LIKE ?', "#{query}%")
   end
 
   private
