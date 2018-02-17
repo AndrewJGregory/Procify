@@ -1,4 +1,4 @@
-import * as searchUtil from "../util/search_util";
+import * as searchUtil from "../util/search_util.jsx";
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 
 export const receiveSearchResults = results => {

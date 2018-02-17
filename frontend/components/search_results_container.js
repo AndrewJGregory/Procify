@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import SearchResults from './search_results';
+import { connect } from "react-redux";
+import SearchResults from "./search_results";
 
 const mapStateToProps = state => {
   let { albums, artists, songs, playlists } = state.search;
@@ -15,7 +15,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(SearchResults);
+export default connect(mapStateToProps, null)(SearchResults);
