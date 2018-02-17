@@ -23,14 +23,19 @@ class Search extends React.Component {
   render() {
     return (
       <main className="main-interior">
-        <div className="search-input">
-          <input
-            value={this.state.query}
-            onChange={this.updateInput("query")}
-            placeholder="Start typing..."
-            className="playlist-input search-input"
-            autoFocus="true"
-          />
+        <div className="search-container">
+          <div className="search-info-input-container">
+            <p className="search-info-text">
+              Search for an Artist, Song, Album or Playlist
+            </p>
+            <input
+              value={this.state.query}
+              onChange={this.updateInput("query")}
+              placeholder="Start typing..."
+              className="search-input-field"
+              autoFocus="true"
+            />
+          </div>
         </div>
         <SearchResultsContainer />
       </main>
