@@ -26,7 +26,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <main className="main-interior">
+      <section className="main-interior">
         <div className="search-container">
           <div className="search-info-input-container">
             <p className="search-info-text">
@@ -41,8 +41,8 @@ class Search extends React.Component {
             />
           </div>
         </div>
-        <SearchResultsContainer />
-      </main>
+        <SearchResultsContainer type={this.props.match.params.type} />
+      </section>
     );
   }
 }

@@ -1,18 +1,21 @@
 import { connect } from "react-redux";
 import SearchResults from "./search_results";
+import { withRouter } from "react-router-dom";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   let { albums, artists, songs, playlists } = state.search;
   albums = Object.values(albums);
   artists = Object.values(artists);
   songs = Object.values(songs);
   playlists = Object.values(playlists);
+
   return {
     albums,
     artists,
     songs,
-    playlists
+    playlists,
+    params: ownProps.match.params
   };
 };
 
-export default connect(mapStateToProps, null)(SearchResults);
+export default withRouter(connect(mapStateToProps, null)(SearchResults));

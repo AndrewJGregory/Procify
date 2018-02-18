@@ -4,6 +4,7 @@ import {
   fetchSearchResults,
   clearSearchResults
 } from "../actions/search_actions";
+import { withRouter } from "react-router-dom";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -12,4 +13,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Search);
+export default withRouter(connect(null, mapDispatchToProps)(Search));
