@@ -1,22 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-export const generateLi = (type, navbarWord, key) => {
-  let activeClass = '';
+export const generateLi = (type, category, navbarWord, key) => {
+  let activeClass = "";
   if (type === navbarWord) {
-    activeClass = 'active-nav-link';
+    activeClass = "active-nav-link";
   }
-  if (navbarWord === 'tracks') {
-    return (
-      <li className={`nav-link ${activeClass}`} key={key}>
-        <Link to={`/collection/${navbarWord}`}>songs</Link>
-      </li>
-    );
-  } else {
-    return (
-      <li className={`nav-link ${activeClass}`} key={key}>
-        <Link to={`/collection/${navbarWord}`}>{`${navbarWord}`}</Link>
-      </li>
-    );
-  }
+
+  return navbarWord === "all results" && type === "results" ? (
+    <li className={`nav-link active-nav-link`} key={key}>
+      <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
+    </li>
+  ) : navbarWord === "tracks" ? (
+    <li className={`nav-link ${activeClass}`} key={key}>
+      <Link to={`/${category}/${navbarWord}`}>songs</Link>
+    </li>
+  ) : navbarWord === "all results" ? (
+    <li className={`nav-link`} key={key}>
+      <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
+    </li>
+  ) : (
+    <li className={`nav-link ${activeClass}`} key={key}>
+      <Link to={`/${category}/${navbarWord}`}>{`${navbarWord}`}</Link>
+    </li>
+  );
 };

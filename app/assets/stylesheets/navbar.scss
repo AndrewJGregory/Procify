@@ -4,25 +4,23 @@
   margin-bottom: 30px;
 }
 
-#nav-bar-ul {
+.nav-bar-ul {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 33%;
 }
 
 .nav-link {
   padding: 20px;
   padding-bottom: 0px;
   a {
-    color: #949CB3;
+    color: #949cb3;
     font-family: sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: .16em;
   }
 }
 

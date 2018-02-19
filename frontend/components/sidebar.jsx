@@ -24,6 +24,17 @@ class Sidebar extends React.Component {
         <div className='sidebar-top-links-container'>
           <ul className='sidebar-top-links'>
             <li className='procify-font'>procify</li>
+            <div className='search-bar-container'>
+              <li className='search-bar'>
+                <Link to='/search/results'
+                  className={`${activeSearchClass}`}>
+                  Search
+                </Link>
+              </li>
+              <Link to='/search/results'>
+                <i className={`fa fa-search ${activeSearchClass}`} aria-hidden="true"></i>
+              </Link>
+            </div>
             <li className='sidebar-link
               sidebar-music-link'>
               <Link to='/collection/playlists' className={`${activeYourMusicClass}`}>
@@ -38,8 +49,11 @@ class Sidebar extends React.Component {
           </Link>
         </div>
       </aside>
+
     );
   }
+
+
 }
 
 export default Sidebar;
