@@ -7,33 +7,21 @@ export const generateLi = (type, category, navbarWord, key) => {
     activeClass = "active-nav-link";
   }
 
-  if (navbarWord === "all results" && type === "results") {
-    return (
-      <li className={`nav-link active-nav-link`} key={key}>
-        <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
-      </li>
-    );
-  }
-
-  if (navbarWord === "tracks") {
-    return (
-      <li className={`nav-link ${activeClass}`} key={key}>
-        <Link to={`/${category}/${navbarWord}`}>songs</Link>
-      </li>
-    );
-  } else {
-    if (navbarWord === "all results") {
-      return (
-        <li className={`nav-link`} key={key}>
-          <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
-        </li>
-      );
-    } else {
-      return (
-        <li className={`nav-link ${activeClass}`} key={key}>
-          <Link to={`/${category}/${navbarWord}`}>{`${navbarWord}`}</Link>
-        </li>
-      );
-    }
-  }
+  return navbarWord === "all results" && type === "results" ? (
+    <li className={`nav-link active-nav-link`} key={key}>
+      <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
+    </li>
+  ) : navbarWord === "tracks" ? (
+    <li className={`nav-link ${activeClass}`} key={key}>
+      <Link to={`/${category}/${navbarWord}`}>songs</Link>
+    </li>
+  ) : navbarWord === "all results" ? (
+    <li className={`nav-link`} key={key}>
+      <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
+    </li>
+  ) : (
+    <li className={`nav-link ${activeClass}`} key={key}>
+      <Link to={`/${category}/${navbarWord}`}>{`${navbarWord}`}</Link>
+    </li>
+  );
 };
