@@ -30,17 +30,17 @@ i {
 
 .song-btns {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 36px;
 }
 
 .song-times {
   display: flex;
   justify-content: space-between;
-
 }
 
-.left-song-info, .right-song-info {
+.left-song-info,
+.right-song-info {
   display: flex;
 }
 
@@ -55,7 +55,7 @@ i {
   flex-direction: column;
   justify-content: center;
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   h5 a {
     margin: 2px 0;
     color: white;
@@ -63,7 +63,7 @@ i {
 }
 
 #artist-name-playing {
-  color: #A1A28B;
+  color: #a1a28b;
   font-size: 12px;
 }
 
@@ -80,7 +80,8 @@ i {
   padding: 0 16px;
 }
 
-.volume-slider, .track-bar {
+.volume-slider,
+.track-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 2px;
@@ -89,7 +90,8 @@ i {
   background-color: #404040;
 }
 
-.track-bar::-webkit-slider-thumb, .progress-bar::-webkit-slider-thumb {
+.track-bar::-webkit-slider-thumb,
+.progress-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 0;
@@ -101,10 +103,11 @@ i {
   margin: 0 5px;
   display: flex;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
 }
 
-.track-bar, .progress-bar {
+.track-bar,
+.progress-bar {
   background-color: #404040;
   height: 4px;
   width: 100%;
@@ -116,7 +119,7 @@ i {
 }
 
 .progress-bar {
-  background-color: #A0A0A0;
+  background-color: #a0a0a0;
   position: absolute;
   top: 54px;
   left: 32px;

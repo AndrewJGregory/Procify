@@ -176,7 +176,11 @@ class PlayingSong extends React.Component {
           </div>
           <div className="middle-song-info">
             <div className="song-controls">
-              <div className="song-btns">{playPauseBtn}</div>
+              <div className="song-btns">
+                <i className="fa fa-step-backward clickable" />
+                {playPauseBtn}
+                <i className="fa fa-step-forward clickable" />
+              </div>
             </div>
             <div className="song-times">
               <span className="song-time">{this.state.currentTime}</span>
