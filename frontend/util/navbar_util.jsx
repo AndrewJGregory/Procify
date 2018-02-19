@@ -13,11 +13,19 @@ export const generateLi = (type, category, navbarWord, key) => {
         <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
       </li>
     );
+  }
+
+  if (navbarWord === "tracks") {
+    return (
+      <li className={`nav-link ${activeClass}`} key={key}>
+        <Link to={`/${category}/${navbarWord}`}>songs</Link>
+      </li>
+    );
   } else {
-    if (navbarWord === "tracks") {
+    if (navbarWord === "all results") {
       return (
-        <li className={`nav-link ${activeClass}`} key={key}>
-          <Link to={`/${category}/${navbarWord}`}>songs</Link>
+        <li className={`nav-link`} key={key}>
+          <Link to={`/${category}/results`}>{`${navbarWord}`}</Link>
         </li>
       );
     } else {
