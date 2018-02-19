@@ -1,14 +1,10 @@
 import React from "react";
-import Navbar from "./navbar";
+import NavbarWithNewPlaylistBtn from "./navbar_with_new_playlist_btn";
 import * as innerCollectionUtil from "../util/inner_collection_util";
 import AddSongFormContainer from "./add_song_form_container";
 import NewPlaylistFormContainer from "./new_playlist_form_container";
 
 class InnerCollection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     if (innerCollectionUtil.shouldFetchInfo(this.props)) {
       const id = innerCollectionUtil.switchOnType(this.props, {}, {}, "id");
@@ -27,10 +23,10 @@ class InnerCollection extends React.Component {
   }
 
   render() {
-    let navBar = innerCollectionUtil.isNavbarDisplayed(
+    let navbarWithNewPlaylistBtn = innerCollectionUtil.isNavbarDisplayed(
       this.props.match.params
     ) ? (
-      <Navbar />
+      <NavbarWithNewPlaylistBtn />
     ) : null;
 
     const addSongForm = this.props.isAddSongFormDisplayed ? (
@@ -45,7 +41,7 @@ class InnerCollection extends React.Component {
       <section className="main-interior">
         {addSongForm}
         {newPlaylistForm}
-        {navBar}
+        {navbarWithNewPlaylistBtn}
         <this.props.component shouldBtnBeDisplayed={true} />
       </section>
     );

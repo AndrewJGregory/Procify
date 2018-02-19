@@ -1,31 +1,13 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import * as navbarUtil from "../util/navbar_util.jsx";
 import shortid from "shortid";
-import NewPlaylistFormBtnContainer from "./new_playlist_form_btn_container";
 
-class NavBar extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.match.params.type !== nextProps.match.params.type;
-  }
+const Navbar = ({ category, type, navbarWords }) => {
+  const lis = navbarWords.map(navbarWord =>
+    navbarUtil.generateLi(type, category, navbarWord, shortid.generate())
+  );
 
-  render() {
-    const { category, type } = this.props.match.params;
-    const lis = ["playlists", "tracks", "albums", "artists"].map(navbarWord =>
-      navbarUtil.generateLi(type, category, navbarWord, shortid.generate())
-    );
+  return <ul className="nav-bar-ul">{lis}</ul>;
+};
 
-    return (
-      <section className="nav-bar">
-        <div className="nav-bar-ul-container">
-          <div className="new-playlist-btn-container">
-            <NewPlaylistFormBtnContainer />
-          </div>
-          <ul className="nav-bar-ul">{lis}</ul>
-        </div>
-      </section>
-    );
-  }
-}
-
-export default withRouter(NavBar);
+export default Navbar;

@@ -3,9 +3,8 @@ import ArtistIndex from "./artist_index";
 import AlbumIndex from "./album_index";
 import SongIndex from "./song_index";
 import PlaylistIndex from "./playlist_index";
-import shortid from "shortid";
 import * as searchUtil from "../util/search_util.jsx";
-import * as navbarUtil from "../util/navbar_util.jsx";
+import Navbar from "./navbar";
 
 const SearchResults = props => {
   const {
@@ -21,15 +20,13 @@ const SearchResults = props => {
   );
 
   const { category } = props.params;
-  const lis = ["all results", "artists", "tracks", "albums", "playlists"].map(
-    navbarWord =>
-      navbarUtil.generateLi(
-        props.type,
-        category,
-        navbarWord,
-        shortid.generate()
-      )
-  );
+  const navbarWords = [
+    "all results",
+    "artists",
+    "tracks",
+    "albums",
+    "playlists"
+  ];
 
   const possibleContent = {
     artists: (
@@ -80,7 +77,7 @@ const SearchResults = props => {
   const content = possibleContent[props.type];
   return (
     <section className="search-results">
-      <ul className="nav-bar-ul">{lis}</ul>
+      <Navbar type={props.type} category={category} navbarWords={navbarWords} />
       {content}
     </section>
   );
