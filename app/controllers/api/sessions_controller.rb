@@ -7,18 +7,18 @@ class Api::SessionsController < ApplicationController
 
     errors = {}
     if params[:user][:username].empty?
-      errors[:username] = "Please enter your Procify username."
+      errors[:username] = 'Please enter your Procify username.'
     end
 
     if params[:user][:password].empty?
-      errors[:password] = "Please enter your password."
+      errors[:password] = 'Please enter your password.'
     end
 
     if @user
       login(@user)
       render 'api/users/show'
     else
-      errors[:credentials] = "Incorrect username or password."
+      errors[:credentials] = 'Incorrect username or password.'
       render json: errors, status: 422
     end
   end

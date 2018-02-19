@@ -17,14 +17,14 @@ class Song < ApplicationRecord
   has_many :playlist_songs
 
   has_many :playlists,
-    through: :playlist_songs,
-    source: :playlist
+           through: :playlist_songs,
+           source: :playlist
 
   has_many :album_songs
 
   has_many :albums,
-    through: :album_songs,
-    source: :album
+           through: :album_songs,
+           source: :album
 
   belongs_to :artist
 end

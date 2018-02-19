@@ -24,23 +24,21 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:birthday).with_message('When were you born?') }
     it { should validate_presence_of(:email).with_message('Please enter your email.') }
     it { should validate_presence_of(:username).with_message('Please enter your Procify username.') }
-    it { should validate_uniqueness_of(:username).with_message('Username has already been taken. Try another username.')}
+    it { should validate_uniqueness_of(:username).with_message('Username has already been taken. Try another username.') }
     it {
-      should validate_length_of(:password).
-      is_at_least(6).
-      with_message('Your password is too short. Minimum is 6 characters.')
+      should validate_length_of(:password)
+        .is_at_least(6)
+        .with_message('Your password is too short. Minimum is 6 characters.')
     }
   end
 
   describe 'instance methods' do
-
     describe '#generate_session_token' do
       it 'generates a string' do
         session_token = subject.generate_session_token
         expect(session_token).to be_a String
       end
     end
-
   end
 
   describe '#reset_session_token' do
@@ -104,6 +102,6 @@ RSpec.describe User, type: :model do
     end
   end
   describe 'associations:' do
-      it { should have_many(:playlists) }
+    it { should have_many(:playlists) }
   end
 end

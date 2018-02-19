@@ -22,6 +22,5 @@ RSpec.describe Artist, type: :model do
   describe 'associations' do
     it { should have_many(:albums) }
     it { should have_many(:songs).through(:albums) }
-
   end
 end

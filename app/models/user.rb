@@ -14,10 +14,10 @@
 
 class User < ApplicationRecord
   validates :password_digest, :session_token, presence: true
-  validates :email, presence: { message: "Please enter your email." }
-  validates :birthday, presence: { message: "When were you born?" }
-  validates :username, presence: { message: "Please enter your Procify username." }, uniqueness: { message: "Username has already been taken. Try another username."}
-  validates :password, length: { minimum: 6, allow_nil: true, message: "Your password is too short. Minimum is 6 characters." }
+  validates :email, presence: { message: 'Please enter your email.' }
+  validates :birthday, presence: { message: 'When were you born?' }
+  validates :username, presence: { message: 'Please enter your Procify username.' }, uniqueness: { message: 'Username has already been taken. Try another username.' }
+  validates :password, length: { minimum: 6, allow_nil: true, message: 'Your password is too short. Minimum is 6 characters.' }
 
   attr_reader :password
   after_initialize :ensure_session_token
@@ -35,12 +35,12 @@ class User < ApplicationRecord
 
   def reset_session_token
     self.session_token = generate_session_token
-    self.save!
-    self.session_token
+    save!
+    session_token
   end
 
   def is_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
+    BCrypt::Password.new(password_digest).is_password?(password)
   end
 
   def password=(password)

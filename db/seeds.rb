@@ -19,7 +19,6 @@ user_one = User.create!(username: 'andrew', password: 'password', email: 'andrew
 user_two = User.create!(username: 'cheryl', password: 'password', email: 'cookies@gmail.com', birthday: '11221961')
 ### END USERS ###
 
-
 ### ARTISTS ###
 artist_logic = Artist.create!(name: 'Logic', img_url: 'https://s3.amazonaws.com/procify-dev/logicArtistCover.jpeg')
 artist_meg_myers = Artist.create!(name: 'Meg Myers', img_url: 'https://s3.amazonaws.com/procify-dev/megMyersArtistCover.jpg')
@@ -37,19 +36,22 @@ song_four = Song.create!(
   title: '30,000',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+30%2C000.mp3',
-  playlist_id: playlist_two.id)
+  playlist_id: playlist_two.id
+)
 
 song_five = Song.create!(
   title: 'Man of the Year',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Man+of+the+Year.mp3',
-  playlist_id: playlist_two.id)
+  playlist_id: playlist_two.id
+)
 
 song_six = Song.create!(
   title: 'Roll Call',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Roll+Call.mp3',
-  playlist_id: playlist_two.id)
+  playlist_id: playlist_two.id
+)
 
 song_seven = Song.create!(
   title: 'Welcome to Forever',
@@ -92,7 +94,6 @@ album_one = Album.create!(title: 'Young Sinatra', img_url: 'https://s3.amazonaws
 
 album_two = Album.create(title: 'Reflections', img_url: 'https://s3.amazonaws.com/procify-dev/Reflections/ReflectionsAlbumCover.jpg', artist_id: artist_meg_myers.id)
 ### END ALBUMS ###
-
 
 ### ALBUM SONGS ###
 AlbumSong.create!(album_id: album_one.id, song_id: song_two.id)

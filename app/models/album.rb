@@ -16,6 +16,6 @@ class Album < ApplicationRecord
   has_many :album_songs
   belongs_to :artist
   has_many :songs,
-  through: :album_songs,
-  source: :song
+           through: :album_songs,
+           source: :song
 end
