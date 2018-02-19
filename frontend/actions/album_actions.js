@@ -1,6 +1,6 @@
-import * as albumUtil from '../util/album_util';
-export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
-export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
+import * as albumUtil from "../util/album_util";
+export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
+export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 
 export const receiveAlbum = payload => {
   return {

@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import LoginForm from './login_form';
-import SignupForm from './signup_form';
-import { login, signup } from '../actions/session_actions';
-import { receiveErrors } from '../actions/session_actions';
+import { connect } from "react-redux";
+import LoginForm from "./login_form";
+import SignupForm from "./signup_form";
+import { login, signup } from "../actions/session_actions";
+import { receiveErrors } from "../actions/session_actions";
 
 const mapStateToProps = state => {
   return { errors: state.errors.session };
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   let submitForm = login;
-  if (ownProps.match.path.includes('signup')) {
+  if (ownProps.match.path.includes("signup")) {
     submitForm = signup;
   }
 
@@ -20,14 +20,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export const LoginFormContainer =
-connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginForm);
+export const LoginFormContainer = connect(mapStateToProps, mapDispatchToProps)(
+  LoginForm
+);
 
-export const SignupFormContainer =
-connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignupForm);
+export const SignupFormContainer = connect(mapStateToProps, mapDispatchToProps)(
+  SignupForm
+);

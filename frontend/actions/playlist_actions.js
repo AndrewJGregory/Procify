@@ -1,8 +1,8 @@
-export const RECEIVE_NEW_PLAYLIST = 'RECEIVE_NEW_PLAYLIST';
-export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
-export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
+export const RECEIVE_NEW_PLAYLIST = "RECEIVE_NEW_PLAYLIST";
+export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
+export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST";
 
-import * as PlaylistUtil from '../util/playlist_util';
+import * as PlaylistUtil from "../util/playlist_util";
 
 export const removePlaylist = playlist => {
   return {
@@ -40,17 +40,21 @@ export const fetchPlaylist = playlistId => dispatch => {
 };
 
 export const fetchCurrentUsersPlaylists = currentUserId => dispatch => {
-  return PlaylistUtil.fetchCurrentUsersPlaylists(currentUserId).then(playlists => {
-    dispatch(receivePlaylists(playlists));
-    return playlists;
-  });
+  return PlaylistUtil.fetchCurrentUsersPlaylists(currentUserId).then(
+    playlists => {
+      dispatch(receivePlaylists(playlists));
+      return playlists;
+    }
+  );
 };
 
 export const addSongToPlaylist = (userId, songId, playlistId) => dispatch => {
-  return PlaylistUtil.addSongToPlaylist(userId, songId, playlistId).then(payload => {
-    dispatch(receiveNewPlaylist(payload));
-    return payload;
-  });
+  return PlaylistUtil.addSongToPlaylist(userId, songId, playlistId).then(
+    payload => {
+      dispatch(receiveNewPlaylist(payload));
+      return payload;
+    }
+  );
 };
 
 export const deletePlaylist = playlistId => dispatch => {

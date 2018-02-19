@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class DropdownMenu extends React.Component {
   constructor(props) {
@@ -13,27 +13,27 @@ class DropdownMenu extends React.Component {
   }
 
   handleDeleteClick() {
-    this.props.deleteSongFromPlaylist(
-      this.props.song.id,
-      this.props.typeId
-    ).then(() => this.props.toggleDropdownMenu());
+    this.props
+      .deleteSongFromPlaylist(this.props.song.id, this.props.typeId)
+      .then(() => this.props.toggleDropdownMenu());
   }
 
   render() {
     let deleteLi = null;
     if (this.props.shouldHaveDeleteOption) {
       deleteLi = <li onClick={this.handleDeleteClick}>Delete from playlist</li>;
-      }
-      return (
-        <ul
-          className='dropdown-menu'
-          style={this.props.menuPos}
-          onMouseLeave={() => this.props.toggleDropdownMenu()}>
-          <li onClick={this.displayForm}>Add to playlist</li>
-          {deleteLi}
-        </ul>
-      );
     }
+    return (
+      <ul
+        className="dropdown-menu"
+        style={this.props.menuPos}
+        onMouseLeave={() => this.props.toggleDropdownMenu()}
+      >
+        <li onClick={this.displayForm}>Add to playlist</li>
+        {deleteLi}
+      </ul>
+    );
   }
+}
 
-  export default DropdownMenu;
+export default DropdownMenu;

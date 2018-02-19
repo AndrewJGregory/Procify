@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
-import ArtistIndex from './artist_index';
+import { connect } from "react-redux";
+import ArtistIndex from "./artist_index";
 
 const mapStateToProps = state => {
   return {
@@ -7,7 +7,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(ArtistIndex);
+export default connect(mapStateToProps, null)(ArtistIndex);

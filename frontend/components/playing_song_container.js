@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
-import PlayingSong from './playing_song';
+import { connect } from "react-redux";
+import PlayingSong from "./playing_song";
 import {
   toggleSongPlaying,
   setAudioSrc,
   selectPlayingSong,
   setTime
-} from '../actions/playing_song_actions';
+} from "../actions/playing_song_actions";
 
 const mapStateToProps = state => {
   const artist = state.entities.artists[state.ui.playingSong.artist_id];
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
     isSongPlaying: state.ui.isSongPlaying,
     intervalId: state.ui.intervalId,
     artist,
-    playingSongAlbum,
+    playingSongAlbum
   };
 };
 
@@ -32,11 +32,8 @@ export const mapDispatchToProps = dispatch => {
     toggleSongPlaying: () => dispatch(toggleSongPlaying()),
     setAudioSrc: audioSrc => dispatch(setAudioSrc(audioSrc)),
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
-    setTime: time => dispatch(setTime(time)),
+    setTime: time => dispatch(setTime(time))
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PlayingSong);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayingSong);

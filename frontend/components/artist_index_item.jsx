@@ -1,5 +1,5 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class ArtistIndexItem extends React.Component {
   constructor(props) {
@@ -13,9 +13,8 @@ class ArtistIndexItem extends React.Component {
 
   render() {
     return (
-      <li className='artist-index-item'
-        onClick={this.handleClick}>
-        <img src={`${this.props.artist.img_url}`}/>
+      <li className="artist-index-item" onClick={this.handleClick}>
+        <img src={`${this.props.artist.img_url}`} />
         <h4>{this.props.artist.name}</h4>
       </li>
     );

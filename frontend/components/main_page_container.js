@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import MainPage from './main_page';
-import { toggleSuccessMsg } from '../actions/ui_actions';
+import { connect } from "react-redux";
+import MainPage from "./main_page";
+import { toggleSuccessMsg } from "../actions/ui_actions";
 
 const mapStateToProps = state => {
   return {
@@ -15,7 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

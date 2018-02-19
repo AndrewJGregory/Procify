@@ -1,17 +1,17 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class NewPlaylistForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: '' };
+    this.state = { title: "" };
     this.updateInput = this.updateInput.bind(this);
     this.createNewPlaylist = this.createNewPlaylist.bind(this);
   }
 
   updateInput(type) {
     return e => {
-      this.setState({[type]: e.target.value});
+      this.setState({ [type]: e.target.value });
     };
   }
 
@@ -21,36 +21,41 @@ class NewPlaylistForm extends React.Component {
       this.props.swapPlaylistFormShow();
       const playlistId = Object.keys(playlist)[0];
 
-      this.props.history.push(`/user/${this.props.currentUserId}/playlists/${playlistId}`);
+      this.props.history.push(
+        `/user/${this.props.currentUserId}/playlists/${playlistId}`
+      );
     });
   }
 
   render() {
     return (
-      <main className='transparent-form-page'>
-        <section className='transparent-form-content'>
+      <main className="transparent-form-page">
+        <section className="transparent-form-content">
           <div
-            className='x-mark'
-            onClick={() => this.props.swapPlaylistFormShow()}>
-          </div>
-          <header className='transparent-form-header'>
+            className="x-mark"
+            onClick={() => this.props.swapPlaylistFormShow()}
+          />
+          <header className="transparent-form-header">
             Create new playlist
           </header>
           <input
             value={this.state.playlistTitle}
-            onChange={this.updateInput('title')}
+            onChange={this.updateInput("title")}
             placeholder="Start typing..."
-            className='playlist-input'
-            autoFocus='true' />
-          <div className='playlist-form-btns'>
+            className="playlist-input"
+            autoFocus="true"
+          />
+          <div className="playlist-form-btns">
             <button
-              className='playlist-form-btn cancel-form-btn'
-              onClick={() => this.props.swapPlaylistFormShow()}>
+              className="playlist-form-btn cancel-form-btn"
+              onClick={() => this.props.swapPlaylistFormShow()}
+            >
               cancel
             </button>
             <button
               onClick={this.createNewPlaylist}
-              className='playlist-form-btn'>
+              className="playlist-form-btn"
+            >
               create
             </button>
           </div>

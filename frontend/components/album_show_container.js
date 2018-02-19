@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import AlbumShow from './album_show';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import AlbumShow from "./album_show";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
   const albumId = parseInt(ownProps.match.params.typeId);
@@ -9,14 +9,11 @@ const mapStateToProps = (state, ownProps) => {
 
   if (album) {
     songs = album.song_ids.map(songId => {
-      return (state.entities.songs[songId] || {});
+      return state.entities.songs[songId] || {};
     });
   }
 
   return { songs, album };
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  null
-)(AlbumShow));
+export default withRouter(connect(mapStateToProps, null)(AlbumShow));

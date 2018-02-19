@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import ArtistShow from './artist_show';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import ArtistShow from "./artist_show";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
   const artistId = parseInt(ownProps.match.params.typeId);
@@ -11,11 +11,9 @@ const mapStateToProps = (state, ownProps) => {
     return album.artist_id === artistId;
   });
   return {
-    storeSongs, storeAlbums
+    storeSongs,
+    storeAlbums
   };
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  null
-)(ArtistShow));
+export default withRouter(connect(mapStateToProps, null)(ArtistShow));

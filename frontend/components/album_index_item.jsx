@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class AlbumIndexItem extends React.Component {
   constructor(props) {
@@ -12,15 +12,10 @@ class AlbumIndexItem extends React.Component {
 
   render() {
     return (
-      <li className='square-item'
-        onClick={this.handleClick}>
-        <img src={`${this.props.album.img_url}`}/>
-        <h4 className='album-info album-title'>
-          {this.props.album.title}
-        </h4>
-        <h4 className='album-info'>
-          {this.props.artistName}
-        </h4>
+      <li className="square-item" onClick={this.handleClick}>
+        <img src={`${this.props.album.img_url}`} />
+        <h4 className="album-info album-title">{this.props.album.title}</h4>
+        <h4 className="album-info">{this.props.artistName}</h4>
       </li>
     );
   }
