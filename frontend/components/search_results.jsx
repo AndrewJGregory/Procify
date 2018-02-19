@@ -30,17 +30,58 @@ const SearchResults = props => {
         shortid.generate()
       )
   );
+
+  const possibleContent = {
+    artists: (
+      <div>
+        {artistsHeader}
+        <ArtistIndex artists={props.artists} />
+      </div>
+    ),
+    tracks: (
+      <div>
+        {songsHeader}
+        <SongIndex songs={props.songs} />
+      </div>
+    ),
+    albums: (
+      <div>
+        {albumsHeader}
+        <AlbumIndex albums={props.albums} />
+      </div>
+    ),
+    playlists: (
+      <div>
+        {playlistsHeader}
+        <PlaylistIndex
+          playlists={props.playlists}
+          shouldBtnBeDisplayed={false}
+        />
+      </div>
+    ),
+
+    results: (
+      <div>
+        {artistsHeader}
+        <ArtistIndex artists={props.artists} />
+        {albumsHeader}
+        <AlbumIndex albums={props.albums} />
+        {songsHeader}
+        <SongIndex songs={props.songs} />
+        {playlistsHeader}
+        <PlaylistIndex
+          playlists={props.playlists}
+          shouldBtnBeDisplayed={false}
+        />
+      </div>
+    )
+  };
+
+  const content = possibleContent[props.type];
   return (
     <section className="search-results">
       <ul className="nav-bar-ul">{lis}</ul>
-      {artistsHeader}
-      <ArtistIndex artists={props.artists} />
-      {albumsHeader}
-      <AlbumIndex albums={props.albums} />
-      {songsHeader}
-      <SongIndex songs={props.songs} />
-      {playlistsHeader}
-      <PlaylistIndex playlists={props.playlists} shouldBtnBeDisplayed={false} />
+      {content}
     </section>
   );
 };
