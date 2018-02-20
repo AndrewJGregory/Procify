@@ -146,24 +146,28 @@ class PlayingSong extends React.Component {
 
   gotoPreviousSong(e) {
     e.preventDefault();
-    this.props.gotoPreviousSong();
     const nextQueuePosition = this.props.queuePosition - 1;
-    const nextSong = this.props.queue[nextQueuePosition];
-    PlayingSongUtil.pause(this.props);
-    this.props.selectPlayingSong(nextSong);
-    PlayingSongUtil.loadNewSong(this.props, nextSong);
-    PlayingSongUtil.rePlay(this.props);
+    if (nextQueuePosition >= 0) {
+      this.props.gotoPreviousSong();
+      const nextSong = this.props.queue[nextQueuePosition];
+      PlayingSongUtil.pause(this.props);
+      this.props.selectPlayingSong(nextSong);
+      PlayingSongUtil.loadNewSong(this.props, nextSong);
+      PlayingSongUtil.rePlay(this.props);
+    }
   }
 
   gotoNextSong(e) {
     e.preventDefault();
-    this.props.gotoNextSong();
     const nextQueuePosition = this.props.queuePosition + 1;
-    const nextSong = this.props.queue[nextQueuePosition];
-    PlayingSongUtil.pause(this.props);
-    this.props.selectPlayingSong(nextSong);
-    PlayingSongUtil.loadNewSong(this.props, nextSong);
-    PlayingSongUtil.rePlay(this.props);
+    if (nextQueuePosition < this.props.queue.length) {
+      this.props.gotoNextSong();
+      const nextSong = this.props.queue[nextQueuePosition];
+      PlayingSongUtil.pause(this.props);
+      this.props.selectPlayingSong(nextSong);
+      PlayingSongUtil.loadNewSong(this.props, nextSong);
+      PlayingSongUtil.rePlay(this.props);
+    }
   }
 
   render() {
