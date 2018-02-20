@@ -12,7 +12,10 @@ import {
   TOGGLE_SONG_PLAYING,
   SET_AUDIO_SRC,
   SELECT_PLAYING_SONG,
-  SET_INTERVAL_ID
+  SET_INTERVAL_ID,
+  GOTO_NEXT_SONG,
+  GOTO_PREVIOUS_SONG,
+  SET_QUEUE
 } from "../actions/playing_song_actions";
 
 const audio = document.createElement("audio");
@@ -30,10 +33,13 @@ const initialState = {
   hoveredSongId: -1,
   intervalId: -1,
   isSuccessMsgDisplayed: false,
-  successMsgClass: "fadeOutUp"
+  successMsgClass: "fadeOutUp",
+  queue: [],
+  queuePosition: 0
 };
 
 const uiReducer = (state = initialState, action) => {
+  let queuePosition;
   switch (action.type) {
     case SWAP_PLAYLIST_FORM_SHOW:
       return Object.assign({}, state, {
@@ -73,6 +79,14 @@ const uiReducer = (state = initialState, action) => {
         isSuccessMsgDisplayed: !state.isSuccessMsgDisplayed,
         successMsgClass
       });
+    case SET_QUEUE:
+      return Object.assign({}, state, { queue: action.songs });
+    case GOTO_NEXT_SONG:
+      queuePosition = state.queuePosition + 1;
+      return Object.assign({}, state, { queuePosition });
+    case GOTO_PREVIOUS_SONG:
+      queuePosition = state.queuePosition - 1;
+      return Object.assign({}, state, { queuePosition });
     default:
       return state;
   }

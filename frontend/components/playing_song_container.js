@@ -4,7 +4,9 @@ import {
   toggleSongPlaying,
   setAudioSrc,
   selectPlayingSong,
-  setTime
+  setTime,
+  gotoNextSong,
+  gotoPreviousSong
 } from "../actions/playing_song_actions";
 
 const mapStateToProps = state => {
@@ -16,14 +18,26 @@ const mapStateToProps = state => {
     }
   });
 
+  const {
+    playingSong,
+    audio,
+    audioSrc,
+    isSongPlaying,
+    intervalId,
+    queue,
+    queuePosition
+  } = state.ui;
+
   return {
-    playingSong: state.ui.playingSong,
-    audio: state.ui.audio,
-    audioSrc: state.ui.audioSrc,
-    isSongPlaying: state.ui.isSongPlaying,
-    intervalId: state.ui.intervalId,
+    playingSong,
+    audio,
+    audioSrc,
+    isSongPlaying,
+    intervalId,
     artist,
-    playingSongAlbum
+    playingSongAlbum,
+    queue,
+    queuePosition
   };
 };
 
@@ -32,7 +46,9 @@ export const mapDispatchToProps = dispatch => {
     toggleSongPlaying: () => dispatch(toggleSongPlaying()),
     setAudioSrc: audioSrc => dispatch(setAudioSrc(audioSrc)),
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
-    setTime: time => dispatch(setTime(time))
+    setTime: time => dispatch(setTime(time)),
+    gotoNextSong: () => dispatch(gotoNextSong()),
+    gotoPreviousSong: () => dispatch(gotoPreviousSong())
   };
 };
 

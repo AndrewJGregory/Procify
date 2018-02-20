@@ -1,7 +1,6 @@
 import React from "react";
 import secToMin from "sec-to-min";
 import { Link } from "react-router-dom";
-import { pause } from "../util/playing_song_util";
 import * as PlayingSongUtil from "../util/playing_song_util";
 
 class PlayingSong extends React.Component {
@@ -20,6 +19,8 @@ class PlayingSong extends React.Component {
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
     this.seekTrackForward = this.seekTrackForward.bind(this);
     this.seekTrackBackward = this.seekTrackBackward.bind(this);
+    this.gotoNextSong = this.gotoNextSong.bind(this);
+    this.gotoPreviousSong = this.gotoPreviousSong.bind(this);
   }
 
   findDuration(props) {
@@ -143,6 +144,28 @@ class PlayingSong extends React.Component {
     });
   }
 
+  gotoPreviousSong(e) {
+    e.preventDefault();
+    this.props.gotoPreviousSong();
+    const nextQueuePosition = this.props.queuePosition - 1;
+    const nextSong = this.props.queue[nextQueuePosition];
+    PlayingSongUtil.pause(this.props);
+    this.props.selectPlayingSong(nextSong);
+    PlayingSongUtil.loadNewSong(this.props, nextSong);
+    PlayingSongUtil.rePlay(this.props);
+  }
+
+  gotoNextSong(e) {
+    e.preventDefault();
+    this.props.gotoNextSong();
+    const nextQueuePosition = this.props.queuePosition + 1;
+    const nextSong = this.props.queue[nextQueuePosition];
+    PlayingSongUtil.pause(this.props);
+    this.props.selectPlayingSong(nextSong);
+    PlayingSongUtil.loadNewSong(this.props, nextSong);
+    PlayingSongUtil.rePlay(this.props);
+  }
+
   render() {
     const playPauseBtn = this.findPlayOrPauseBtn();
     const albumImg = this.findAlbumImg();
@@ -177,9 +200,15 @@ class PlayingSong extends React.Component {
           <div className="middle-song-info">
             <div className="song-controls">
               <div className="song-btns">
-                <i className="fa fa-step-backward clickable" />
+                <i
+                  className="fa fa-step-backward clickable"
+                  onClick={this.gotoPreviousSong}
+                />
                 {playPauseBtn}
-                <i className="fa fa-step-forward clickable" />
+                <i
+                  className="fa fa-step-forward clickable"
+                  onClick={this.gotoNextSong}
+                />
               </div>
             </div>
             <div className="song-times">

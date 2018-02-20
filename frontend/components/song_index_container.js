@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import SongIndex from "./song_index";
+import { setQueue } from "../actions/playing_song_actions";
 
 const mapStateToProps = state => {
   return {
@@ -7,4 +8,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(SongIndex);
+const mapDispatchToProps = dispatch => {
+  return {
+    setQueue: songs => dispatch(setQueue(songs))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SongIndex);
