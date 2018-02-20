@@ -1,5 +1,5 @@
 import React from "react";
-import SongIndex from "./song_index";
+import SongIndexContainer from "./song_index_container";
 import AlbumIndexItemContainer from "./album_index_item_container";
 
 const AlbumShow = props => {
@@ -13,7 +13,7 @@ const AlbumShow = props => {
       <div className="album-show-content">
         <aside className="album-show-info">{album}</aside>
         <div className="album-song-index">
-          <SongIndex songs={props.songs} />
+          <SongIndexContainer songs={props.songs} />
         </div>
       </div>
     </section>

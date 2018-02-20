@@ -1,5 +1,5 @@
 import React from "react";
-import SongIndex from "./song_index";
+import SongIndexContainer from "./song_index_container";
 
 class PlaylistShow extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class PlaylistShow extends React.Component {
   render() {
     return (
       <section className="playlist-show">
-        <SongIndex songs={this.props.songs} />
+        <SongIndexContainer songs={this.props.songs} />
         <button
           onClick={this.handleDeleteClick}
           className={`red-btn delete-playlist-btn`}
