@@ -19,8 +19,10 @@ class SongIndexItem extends React.Component {
       if (this.props.isSongPlaying) {
         this.props.toggleSongPlaying();
         PlayingSongUtil.playNewSong(this.props);
+        this.props.setQueuePosition(this.props.listNum - 1);
       } else {
         PlayingSongUtil.playNewSong(this.props);
+        this.props.setQueuePosition(this.props.listNum - 1);
       }
     } else {
       if (this.props.isSongPlaying) {

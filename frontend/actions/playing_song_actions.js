@@ -5,6 +5,7 @@ export const SET_INTERVAL_ID = "SET_INTERVAL_ID";
 export const GOTO_NEXT_SONG = "GOTO_NEXT_SONG";
 export const GOTO_PREVIOUS_SONG = "GOTO_PREVIOUS_SONG";
 export const SET_QUEUE = "SET_QUEUE";
+export const SET_QUEUE_POSITION = "SET_QUEUE_POSITION";
 
 export const toggleSongPlaying = () => {
   return {
@@ -49,5 +50,12 @@ export const setQueue = songs => {
   return {
     type: SET_QUEUE,
     songs
+  };
+};
+
+export const setQueuePosition = queuePosition => {
+  return {
+    type: SET_QUEUE_POSITION,
+    queuePosition
   };
 };

@@ -15,7 +15,8 @@ import {
   SET_INTERVAL_ID,
   GOTO_NEXT_SONG,
   GOTO_PREVIOUS_SONG,
-  SET_QUEUE
+  SET_QUEUE,
+  SET_QUEUE_POSITION
 } from "../actions/playing_song_actions";
 
 const audio = document.createElement("audio");
@@ -87,6 +88,8 @@ const uiReducer = (state = initialState, action) => {
     case GOTO_PREVIOUS_SONG:
       queuePosition = state.queuePosition - 1;
       return Object.assign({}, state, { queuePosition });
+    case SET_QUEUE_POSITION:
+      return Object.assign({}, state, { queuePosition: action.queuePosition });
     default:
       return state;
   }
