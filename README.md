@@ -4,6 +4,11 @@ Procify is a web application that allows users to listen to songs and create pla
 
 ## Notable Features
 
+* Simultaneous search of all playlists, songs, artists, and albums.
+* Volume control of a playing song.
+* Seeking a playing song.
+* Playlist CRUD
+
 ### Conditional Fetching of Data
 
 To keep React components presentational, data was fetched and stored in the Redux store by the parent component. Here is the parent component:
@@ -49,25 +54,25 @@ const components = {
 const component = innerCollectionUtil.switchOnType(
   ownProps, components, {}, 'component'
   );
-  ```
+```
 
-  To get the correct action, the arguments would have to be:
+To get the correct action, the arguments would have to be:
 
-  ```
-  const actions = {
-    fetchSongs,
-    fetchPlaylist,
-    fetchCurrentUsersPlaylists,
-    fetchAlbum,
-    fetchAlbums,
-    fetchArtist,
-    fetchArtists
-  };
+```
+const actions = {
+  fetchSongs,
+  fetchPlaylist,
+  fetchCurrentUsersPlaylists,
+  fetchAlbum,
+  fetchAlbums,
+  fetchArtist,
+  fetchArtists
+};
 
-  const fetchAction = innerCollectionUtil.switchOnType(
-    ownProps, {}, actions, 'action'
-    );
-  ```
+const fetchAction = innerCollectionUtil.switchOnType(
+  ownProps, {}, actions, 'action'
+  );
+```
 
 Given the action and the correct component, the parent component can fetch data upon mounting:
 
@@ -86,7 +91,6 @@ Now, the parent component can simply render the required component as `<this.pro
 
 While this approach with a switch statement and conditionally fetching data seems like overkill for one component, this dramatically increases scalability. Adding another component to the parent component (say, another section on the nav bar) is incredibly easy. Another action would have to be added to the `actions` object, the new component would be added to `components`, and another switch clause would be written. In action, if `playlists` were just added, this switch clause would be added:
 
-
 ```
 case 'playlists':
 result = {
@@ -96,8 +100,8 @@ result = {
   };
   return result[decision];
 ```
-Just with that, the `PlaylistIndex` would be properly displayed and the proper data would be fetched.
 
+Just with that, the `PlaylistIndex` would be properly displayed and the proper data would be fetched.
 
 ### Dropdown Menu Positioning
 
@@ -125,7 +129,4 @@ Now this can be passed down as inline style to the `DropdownMenu` component itse
 
 ### Coming Soon
 
-- Simultaneous search of all playlists, songs, artists, and albums.
-- Volume control of a playing song.
-- Seeking a playing song.
-- Queue for playing songs
+* Queue for playing songs
