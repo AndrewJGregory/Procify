@@ -5,9 +5,24 @@ import _ from "lodash";
 
 class SongIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(this.props.songs, nextProps.songs)) {
-      this.props.setQueue(nextProps.songs);
+    if (!this.areArraysOfObjectsEqual(this.props.songs, this.props.queue)) {
+      if (!_.isEqual(this.props.playingSong, nextProps.playingSong)) {
+        const possibleNextSong = this.props.songs[nextProps.queuePosition];
+        if (_.isEqual(nextProps.playingSong, possibleNextSong)) {
+          this.props.setQueue(this.props.songs);
+        }
+      }
     }
+  }
+
+  areArraysOfObjectsEqual(arrayOne, arrayTwo) {
+    if (arrayOne.length !== arrayTwo.length) {
+      return false;
+    }
+
+    return arrayOne.reduce((acc, el, idx) => {
+      return _.isEqual(el, arrayTwo[idx]) && acc;
+    }, true);
   }
 
   render() {

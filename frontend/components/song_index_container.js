@@ -4,8 +4,12 @@ import { setQueue } from "../actions/playing_song_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const songs = ownProps.songs || Object.values(state.entities.songs);
+  const { playingSong, queue, queuePosition } = state.ui;
   return {
-    songs
+    songs,
+    playingSong,
+    queue,
+    queuePosition
   };
 };
 
