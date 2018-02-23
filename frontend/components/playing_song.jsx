@@ -144,11 +144,7 @@ class PlayingSong extends React.Component {
     const nextQueuePosition = this.props.queuePosition - 1;
     if (nextQueuePosition >= 0) {
       this.props.gotoPreviousSong();
-      const nextSong = this.props.queue[nextQueuePosition];
-      this.props.pauseSong();
-      this.props.selectPlayingSong(nextSong);
-      this.props.loadNewSong(nextSong);
-      this.props.playSong();
+      this.play(nextQueuePosition);
     }
   }
 
@@ -157,12 +153,19 @@ class PlayingSong extends React.Component {
     const nextQueuePosition = this.props.queuePosition + 1;
     if (nextQueuePosition < this.props.queue.length) {
       this.props.gotoNextSong();
-      const nextSong = this.props.queue[nextQueuePosition];
-      this.props.pauseSong();
-      this.props.selectPlayingSong(nextSong);
-      this.props.loadNewSong(nextSong);
-      this.props.playSong();
+      this.play(nextQueuePosition);
     }
+  }
+
+  play(nextQueuePosition) {
+    const nextSong = this.props.queue[nextQueuePosition];
+    if (!this.props.isSongPlaying) {
+      this.props.toggleSongPlaying();
+    }
+    this.props.pauseSong();
+    this.props.selectPlayingSong(nextSong);
+    this.props.loadNewSong(nextSong);
+    this.props.playSong();
   }
 
   render() {
