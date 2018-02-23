@@ -59,3 +59,30 @@ export const setQueuePosition = queuePosition => {
     queuePosition
   };
 };
+
+export const pauseSong = () => (dispatch, getState) => {
+  const state = getState();
+  const audio = state.ui.audio;
+  audio.pause();
+  dispatch(toggleSongPlaying());
+};
+
+export const playSong = () => (dispatch, getState) => {
+  const state = getState();
+  const audio = state.ui.audio;
+  audio.play();
+  dispatch(toggleSongPlaying());
+};
+
+export const loadNewSong = song => (dispatch, getState) => {
+  const state = getState();
+  const audio = state.ui.audio;
+  dispatch(setAudioSrc(song.url));
+  audio.load();
+};
+
+export const playNewSong = song => dispatch => {
+  dispatch(selectPlayingSong(song));
+  dispatch(loadNewSong(song));
+  dispatch(playSong());
+};

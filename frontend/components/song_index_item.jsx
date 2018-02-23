@@ -2,7 +2,6 @@ import React from "react";
 import AddSongFormContainer from "./add_song_form_container";
 import DropdownMenu from "./dropdown_menu";
 import { Link } from "react-router-dom";
-import * as PlayingSongUtil from "../util/playing_song_util";
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -18,18 +17,11 @@ class SongIndexItem extends React.Component {
     if (this.props.playingSongId !== this.props.song.id) {
       if (this.props.isSongPlaying) {
         this.props.toggleSongPlaying();
-        PlayingSongUtil.playNewSong(this.props);
-        this.props.setQueuePosition(this.props.listNum - 1);
-      } else {
-        PlayingSongUtil.playNewSong(this.props);
-        this.props.setQueuePosition(this.props.listNum - 1);
       }
+      this.props.playNewSong(this.props.song);
+      this.props.setQueuePosition(this.props.listNum - 1);
     } else {
-      if (this.props.isSongPlaying) {
-        PlayingSongUtil.pause(this.props);
-      } else {
-        PlayingSongUtil.rePlay(this.props);
-      }
+      this.props.isSongPlaying ? this.props.pauseSong() : this.props.playSong();
     }
   }
 

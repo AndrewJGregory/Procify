@@ -6,7 +6,11 @@ import {
   selectPlayingSong,
   setTime,
   gotoNextSong,
-  gotoPreviousSong
+  gotoPreviousSong,
+  pauseSong,
+  playSong,
+  loadNewSong,
+  playNewSong
 } from "../actions/playing_song_actions";
 
 const mapStateToProps = state => {
@@ -48,7 +52,11 @@ export const mapDispatchToProps = dispatch => {
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
     setTime: time => dispatch(setTime(time)),
     gotoNextSong: () => dispatch(gotoNextSong()),
-    gotoPreviousSong: () => dispatch(gotoPreviousSong())
+    gotoPreviousSong: () => dispatch(gotoPreviousSong()),
+    pauseSong: () => dispatch(pauseSong()),
+    playSong: () => dispatch(playSong()),
+    loadNewSong: song => dispatch(loadNewSong(song)),
+    playNewSong: song => dispatch(playNewSong(song))
   };
 };
 

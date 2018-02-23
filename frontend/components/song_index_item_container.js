@@ -14,7 +14,11 @@ import {
   setAudioSrc,
   selectPlayingSong,
   setTime,
-  setQueuePosition
+  setQueuePosition,
+  pauseSong,
+  playSong,
+  loadNewSong,
+  playNewSong
 } from "../actions/playing_song_actions";
 
 import { withRouter } from "react-router-dom";
@@ -59,7 +63,12 @@ const mapDispatchToProps = dispatch => {
     selectPlayingSong: song => dispatch(selectPlayingSong(song)),
     selectHoveredSongId: id => dispatch(selectHoveredSongId(id)),
     setTime: time => dispatch(setTime(time)),
-    setQueuePosition: queuePosition => dispatch(setQueuePosition(queuePosition))
+    setQueuePosition: queuePosition =>
+      dispatch(setQueuePosition(queuePosition)),
+    pauseSong: () => dispatch(pauseSong()),
+    playSong: () => dispatch(playSong()),
+    loadNewSong: song => dispatch(loadNewSong(song)),
+    playNewSong: song => dispatch(playNewSong(song))
   };
 };
 

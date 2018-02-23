@@ -1,7 +1,6 @@
 import React from "react";
 import secToMin from "sec-to-min";
 import { Link } from "react-router-dom";
-import * as PlayingSongUtil from "../util/playing_song_util";
 
 class PlayingSong extends React.Component {
   constructor(props) {
@@ -35,16 +34,12 @@ class PlayingSong extends React.Component {
 
   handleClick(e) {
     if (this.props.playingSong.title) {
-      if (this.props.isSongPlaying) {
-        PlayingSongUtil.pause(this.props);
-      } else {
-        PlayingSongUtil.rePlay(this.props, this);
-      }
+      this.props.isSongPlaying ? this.props.pauseSong() : this.props.playSong();
     }
   }
 
   componentWillUnmount() {
-    PlayingSongUtil.pause(this.props);
+    this.props.pauseSong();
     this.props.selectPlayingSong({});
     this.props.setAudioSrc("");
   }
@@ -150,10 +145,10 @@ class PlayingSong extends React.Component {
     if (nextQueuePosition >= 0) {
       this.props.gotoPreviousSong();
       const nextSong = this.props.queue[nextQueuePosition];
-      PlayingSongUtil.pause(this.props);
+      this.props.pauseSong();
       this.props.selectPlayingSong(nextSong);
-      PlayingSongUtil.loadNewSong(this.props, nextSong);
-      PlayingSongUtil.rePlay(this.props);
+      this.props.loadNewSong(nextSong);
+      this.props.playSong();
     }
   }
 
@@ -163,10 +158,10 @@ class PlayingSong extends React.Component {
     if (nextQueuePosition < this.props.queue.length) {
       this.props.gotoNextSong();
       const nextSong = this.props.queue[nextQueuePosition];
-      PlayingSongUtil.pause(this.props);
+      this.props.pauseSong();
       this.props.selectPlayingSong(nextSong);
-      PlayingSongUtil.loadNewSong(this.props, nextSong);
-      PlayingSongUtil.rePlay(this.props);
+      this.props.loadNewSong(nextSong);
+      this.props.playSong();
     }
   }
 
