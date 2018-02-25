@@ -23,12 +23,9 @@ class PlayingSong extends React.Component {
   }
 
   findDuration(props) {
-    let duration;
-    if (props.audio.duration) {
-      duration = secToMin(props.audio.duration);
-    } else {
-      duration = "0:00";
-    }
+    const duration = props.audio.duration
+      ? secToMin(props.audio.duration)
+      : "0:00";
     return duration;
   }
 
@@ -51,7 +48,19 @@ class PlayingSong extends React.Component {
     window.setInterval(() => {
       const currentTime = secToMin(nextProps.audio.currentTime);
       const progress = this.findProgress(nextProps.audio);
-      this.setState({ currentTime, progress });
+      this.setState({ currentTime, progress }, () => {
+        if (nextProps.audio.currentTime === nextProps.audio.duration) {
+          let nextQueuePosition = this.props.queuePosition + 1;
+          if (nextQueuePosition < this.props.queue.length) {
+            this.props.gotoNextSong();
+            this.play(nextQueuePosition);
+          } else if (nextQueuePosition === this.props.queue.length) {
+            nextQueuePosition = 0;
+            this.props.gotoNextSong();
+            this.play(nextQueuePosition);
+          }
+        }
+      });
     }, 1000);
   }
 
