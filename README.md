@@ -7,7 +7,8 @@ Procify is a web application that allows users to listen to songs and create pla
 * Simultaneous search of all playlists, songs, artists, and albums.
 * Volume control of a playing song.
 * Seeking a playing song.
-* Playlist CRUD
+* Playlist CRUD.
+* Queue for playing songs.
 
 ### Conditional Fetching of Data
 
@@ -126,7 +127,3 @@ const menuPos = {
 ```
 
 Now this can be passed down as inline style to the `DropdownMenu` component itself to correctly position the component at the exact spot that is clicked.
-
-### Coming Soon
-
-* Queue for playing songs
