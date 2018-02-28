@@ -1,3 +1,5 @@
+@import "base/colors.scss";
+
 .album-show-content {
   display: flex;
   justify-content: space-between;
@@ -16,7 +18,7 @@
 }
 
 .album-info {
-  color: #A9A19F;
+  color: $martini;
   margin: 5px 0;
 }
 

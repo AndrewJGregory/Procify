@@ -1,7 +1,9 @@
+@import "base/colors.scss";
+
 #playing-song {
   bottom: 0;
   width: 100%;
-  background-color: #282828;
+  background-color: $mine-shaft;
   height: 110px;
   color: white;
   position: fixed;
@@ -63,7 +65,7 @@ i {
 }
 
 #artist-name-playing {
-  color: #a1a28b;
+  color: $sage;
   font-size: 12px;
 }
 
@@ -87,7 +89,7 @@ i {
   border-radius: 2px;
   height: 4px;
   width: 82px;
-  background-color: #404040;
+  background-color: $tundora;
 }
 
 .track-bar::-webkit-slider-thumb,
@@ -108,7 +110,7 @@ i {
 
 .track-bar,
 .progress-bar {
-  background-color: #404040;
+  background-color: $tundora;
   height: 4px;
   width: 100%;
   border-radius: 2px;
@@ -119,7 +121,7 @@ i {
 }
 
 .progress-bar {
-  background-color: #a0a0a0;
+  background-color: $silver-chalice;
   position: absolute;
   top: 54px;
   left: 32px;

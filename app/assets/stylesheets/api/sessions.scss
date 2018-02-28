@@ -2,17 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "base/colors.scss";
 
 .logo-header {
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #D9DADC;
+  border-bottom: 1px solid $iron;
   margin-bottom: 15px;
 }
 
 .form-link {
   color: green;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .session-form {
@@ -27,22 +28,22 @@
   text-align: left;
   width: 100%;
   font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   margin: 15px 0px;
   background-color: white;
   color: black;
   &:focus {
-    border: 1px solid #909496;
+    border: 1px solid $oslo-gray;
   }
 }
 
 ::placeholder {
-  color: #A0A0A0;
+  color: $silver-chalice;
 }
 
 .session-form-contents .session-link {
-  background-color: #00AB42;
+  background-color: $mountain-meadow;
   height: 50px;
   border-radius: 50px;
   text-transform: uppercase;
@@ -56,24 +57,24 @@
 }
 
 .invalid-input {
-  border: 1px solid #BD3200;
+  border: 1px solid $fire;
 }
 
 .session-error {
-  color: #BD3200;
+  color: $fire;
   text-align: left;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   width: 100%;
 }
 
 .error-header {
-  background-color: #FF9A00;
+  background-color: $orange-peel;
   padding: 15px;
   margin: 20px 0;
   color: white;
   width: 100%;
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   box-sizing: border-box;
 }
 
@@ -106,7 +107,7 @@
 }
 
 .otherFormText {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .birthdayDay-input {
@@ -115,14 +116,14 @@
 
 .birthday-month-dropdown {
   width: 200%;
-  border-color: #cdcfd3;
-  color: #A6AEB5;
+  border-color: $iron;
+  color: $gray-chateau;
 }
 
 #dob-text {
   margin: 10px 0 -10px 0;
   padding: 0;
-  color: #A6AEB5;
+  color: $gray-chateau;
 }
 
 .form-email-header-text {
@@ -132,7 +133,7 @@
   font-weight: 600;
 }
 
-.signup-form-element:focus,  {
+.signup-form-element:focus {
   box-shadow: 0 0 5px rgba(80, 155, 245, 1);
   border: 2px solid rgba(81, 155, 245, 1);
 }

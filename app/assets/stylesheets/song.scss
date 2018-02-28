@@ -1,10 +1,12 @@
+@import "base/colors.scss";
+
 .song-index {
   margin: 0 100px;
 }
 
 .song-item {
   color: white;
-  font-family: 'Lato';
+  font-family: "Lato";
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
@@ -33,7 +35,7 @@
   display: flex;
   flex-direction: column;
   a {
-    color: #9EA4B7;
+    color: $santas-gray;
     margin: 5px 0;
   }
 }

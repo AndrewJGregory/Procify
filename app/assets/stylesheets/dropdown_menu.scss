@@ -1,14 +1,16 @@
+@import "base/colors.scss";
+
 .dropdown-menu {
-  background-color: #282828;
+  background-color: black;
   width: 200px;
   height: 165px;
-  color: #A9A9A9;
+  color: $martini;
   position: fixed;
   opacity: 1;
   li {
     color: white;
     margin: 10px;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: 1px;
     cursor: pointer;
   }

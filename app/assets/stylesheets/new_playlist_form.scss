@@ -1,3 +1,5 @@
+@import "base/colors.scss";
+
 .transparent-form-page {
   position: fixed;
   z-index: 1;
@@ -16,7 +18,7 @@
 }
 
 .x-mark {
-  background-image: image_url('transparent-x-mark.png');
+  background-image: image_url("transparent-x-mark.png");
   background-repeat: no-repeat;
   background-position: center;
   font-size: 36px;
@@ -28,7 +30,7 @@
 .transparent-form-header {
   color: white;
   font-size: 36px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .playlist-form-btns {
@@ -41,9 +43,9 @@
   height: 150px;
   padding-left: 50%;
   border: 0;
-  background-color: #282828;
-  caret-color: #2EBD54;
-  color: #535353;
+  background-color: $mine-shaft;
+  caret-color: $mountain-meadow;
+  color: $emperor;
   font-size: 36px;
   letter-spacing: 2px;
   font-weight: 700;
@@ -60,10 +62,10 @@
   color: white;
   padding: 11px 44px;
   border-radius: 50px;
-  background-color: #14BA5B;
+  background-color: $mountain-meadow;
   text-transform: uppercase;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
 }
 

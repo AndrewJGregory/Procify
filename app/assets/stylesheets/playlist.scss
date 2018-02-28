@@ -1,7 +1,9 @@
+@import "base/colors.scss";
+
 .music-note-container {
   width: 220px;
   height: 220px;
-  background-color: #282828;
+  background-color: $mine-shaft;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +16,8 @@
 }
 
 .gray-text {
-  color: #949CB3;
-  font-family: 'Lato', sans-serif;
+  color: $gull-gray;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
   letter-spacing: 0.5px;
 }

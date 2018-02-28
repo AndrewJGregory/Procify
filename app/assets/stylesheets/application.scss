@@ -16,11 +16,17 @@
  */
 
 @import "base/reset.scss";
-@import "base/colors.scss";
 
-button:focus {outline:0;}
-input:focus {outline:0;}
-html, #root, body, #app {
+button:focus {
+  outline: 0;
+}
+input:focus {
+  outline: 0;
+}
+html,
+#root,
+body,
+#app {
   height: 100%;
 }
 
@@ -30,14 +36,14 @@ html, #root, body, #app {
 
 .procify-font {
   text-transform: uppercase;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: "Luckiest Guy", cursive;
   letter-spacing: 1px;
   font-size: 24px;
 }
 
 .procify-font-large {
   text-transform: uppercase;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: "Luckiest Guy", cursive;
   letter-spacing: 1px;
   font-size: 36px;
 }

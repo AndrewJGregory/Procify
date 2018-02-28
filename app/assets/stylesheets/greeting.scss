@@ -1,10 +1,10 @@
+@import "base/colors.scss";
+
 .greeting-page {
   background-size: 100% 100%;
   height: 100%;
-  background-image: linear-gradient(
-  rgba(0, 0, 0, 0.65),
-  rgba(0, 0, 0, 0.65)
-  ), image_url('greeting-background.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    image_url("greeting-background.jpeg");
   display: flex;
   justify-content: center;
 }
@@ -14,7 +14,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .greeting-side {
@@ -28,14 +28,14 @@
 .separator-text {
   text-transform: uppercase;
   padding: 30px 0;
-  color: #AAA8AF;
-  font-family: 'Mukta Malar', sans-serif;
+  color: $spun-pearl;
+  font-family: "Mukta Malar", sans-serif;
   letter-spacing: 1.25px;
   width: 315px;
 }
 
 .session-link {
-  background-color: #00C24B;
+  background-color: $jade;
   height: 40px;
   width: inherit;
   border-radius: 50px;
@@ -46,7 +46,7 @@
   cursor: pointer;
   letter-spacing: 3px;
   line-height: 40px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   letter-spacing: 1.25px;
 }
@@ -60,16 +60,17 @@
   padding-bottom: 10px;
 }
 
-.side-content-text, .greeting-ul {
+.side-content-text,
+.greeting-ul {
   color: white;
   font-size: 20px;
   text-align: left;
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .side-content-text {
   margin: 40px 0;
-  letter-spacing: 1.0px;
+  letter-spacing: 1px;
 }
 
 .greeting-ul {
@@ -82,7 +83,7 @@
 }
 
 .side-header-text {
-  color: #00DB4D;
+  color: $malachite;
   font-size: 48px;
   padding-bottom: 15px;
 }
@@ -113,5 +114,5 @@
 }
 
 .green {
-  color: #00C24B;
+  color: $jade;
 }

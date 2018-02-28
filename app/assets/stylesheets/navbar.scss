@@ -1,3 +1,5 @@
+@import "base/colors.scss";
+
 .nav-bar {
   display: flex;
   justify-content: center;
@@ -15,7 +17,7 @@
   padding: 20px;
   padding-bottom: 0px;
   a {
-    color: #949cb3;
+    color: $gull-gray;
     font-family: sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -44,7 +46,7 @@
 .active-nav-link:after {
   content: "";
   height: 2px;
-  background-color: #1db954;
+  background-color: $mountain-meadow;
   width: 30px;
   position: relative;
   top: 4px;

@@ -1,3 +1,5 @@
+@import "base/colors.scss";
+
 #sidebar {
   left: 0;
   height: calc(100vh - 110px);
@@ -10,12 +12,12 @@
   padding: 20px 20px 0 20px;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: #9F9392;
+  color: $dusty-gray;
   font-weight: 700;
 }
 
 div li a {
-  color: #9F9392;
+  color: $dusty-gray;
 }
 .search-bar-container {
   display: flex;

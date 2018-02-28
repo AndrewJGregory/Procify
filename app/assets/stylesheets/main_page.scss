@@ -1,44 +1,33 @@
+@import "base/colors.scss";
+
 #main-page {
   width: 100%;
   height: 100%;
 }
 
 .albums {
-  background-image:
-  linear-gradient(
-  #683827, #0B0604
-  );
+  background-image: linear-gradient($irish-coffee, $asphalt);
 }
 
 .tracks {
-  background-image: linear-gradient(
-  #1E2E66, #0B0604
-  );
+  background-image: linear-gradient($biscay, $asphalt);
 }
 
 .playlists {
-  background-image: linear-gradient(
-  #6D2C25, #0B0604
-  );
+  background-image: linear-gradient($pickled-bean, $asphalt);
 }
 
-.artists, .account {
-  background-image: linear-gradient(
-  #121212, black
-  );
+.artists,
+.account {
+  background-image: linear-gradient($cod-gray, $asphalt);
 }
 
 .featured {
-  background-image: linear-gradient(
-  #435444, black
-  );
+  background-image: linear-gradient($gray-asparagus, $asphalt);
 }
 
-
 .results {
-  background-image: linear-gradient(
-  #101010, black
-  );
+  background-image: linear-gradient($cod-gray, $asphalt);
 }
 
 .add-song-success-msg {
@@ -48,7 +37,7 @@
   width: 100%;
   color: white;
   height: 50px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   letter-spacing: 1px;
   z-index: 1;
   i {
