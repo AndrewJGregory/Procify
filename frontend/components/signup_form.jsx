@@ -174,6 +174,7 @@ class SignupForm extends React.Component {
                 </select>
                 <input
                   type="number"
+                  min="1"
                   value={this.state.birthdayDay}
                   placeholder="Day"
                   className={`session-form-input
@@ -184,6 +185,7 @@ class SignupForm extends React.Component {
                 />
                 <input
                   type="number"
+                  min="1"
                   value={this.state.birthdayYear}
                   placeholder="Year"
                   className={`session-form-input
