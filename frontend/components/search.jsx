@@ -8,13 +8,24 @@ class Search extends React.Component {
     this.updateInput = this.updateInput.bind(this);
   }
 
+  componentDidMount() {
+    const query = this.props.location.pathname.match(/.*\/(.*?)$/)[1];
+    if (query) {
+      this.setState({ query }, () => {
+        this.props.search(this.state.query);
+      });
+    }
+  }
+
   updateInput(type) {
     return e => {
       this.setState({ [type]: e.target.value }, () => {
         if (this.state.query) {
           this.props.search(this.state.query);
+          this.props.history.push(`/search/results/${this.state.query}`);
         } else {
           this.props.clearSearchResults();
+          this.props.history.push("/search/results");
         }
       });
     };
