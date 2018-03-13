@@ -1,5 +1,13 @@
 import * as searchUtil from "../util/search_util.jsx";
 export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
+export const MOVE_TO_ENTITIES = "MOVE_TO_ENTITIES";
+
+export const moveToEntities = results => {
+  return {
+    type: MOVE_TO_ENTITIES,
+    results
+  };
+};
 
 export const receiveSearchResults = results => {
   return {

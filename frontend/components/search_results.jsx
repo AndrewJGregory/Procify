@@ -6,81 +6,90 @@ import PlaylistIndex from "./playlist_index";
 import * as searchUtil from "../util/search_util.jsx";
 import Navbar from "./navbar";
 
-const SearchResults = props => {
-  const {
-    artistsHeader,
-    albumsHeader,
-    songsHeader,
-    playlistsHeader
-  } = searchUtil.makeSearchHeaders(
-    props.artists,
-    props.albums,
-    props.songs,
-    props.playlists
-  );
+export default class SearchResults extends React.Component {
+  componentWillUnmount() {
+    this.props.moveToEntities(this.props);
+    this.props.clearSearchResults();
+  }
 
-  const { category } = props.params;
-  const navbarWords = [
-    "all results",
-    "artists",
-    "tracks",
-    "albums",
-    "playlists"
-  ];
+  render() {
+    const {
+      artistsHeader,
+      albumsHeader,
+      songsHeader,
+      playlistsHeader
+    } = searchUtil.makeSearchHeaders(
+      this.props.artists,
+      this.props.albums,
+      this.props.songs,
+      this.props.playlists
+    );
 
-  const possibleContent = {
-    artists: (
-      <div>
-        {artistsHeader}
-        <ArtistIndex artists={props.artists} />
-      </div>
-    ),
-    tracks: (
-      <div>
-        {songsHeader}
-        <SongIndexContainer songs={props.songs} />
-      </div>
-    ),
-    albums: (
-      <div>
-        {albumsHeader}
-        <AlbumIndex albums={props.albums} />
-      </div>
-    ),
-    playlists: (
-      <div>
-        {playlistsHeader}
-        <PlaylistIndex
-          playlists={props.playlists}
-          shouldBtnBeDisplayed={false}
+    const { category } = this.props.params;
+    const navbarWords = [
+      "all results",
+      "artists",
+      "tracks",
+      "albums",
+      "playlists"
+    ];
+
+    const possibleContent = {
+      artists: (
+        <div>
+          {artistsHeader}
+          <ArtistIndex artists={this.props.artists} />
+        </div>
+      ),
+      tracks: (
+        <div>
+          {songsHeader}
+          <SongIndexContainer songs={this.props.songs} />
+        </div>
+      ),
+      albums: (
+        <div>
+          {albumsHeader}
+          <AlbumIndex albums={this.props.albums} />
+        </div>
+      ),
+      playlists: (
+        <div>
+          {playlistsHeader}
+          <PlaylistIndex
+            playlists={this.props.playlists}
+            shouldBtnBeDisplayed={false}
+          />
+        </div>
+      ),
+
+      results: (
+        <div>
+          {artistsHeader}
+          <ArtistIndex artists={this.props.artists} />
+          {albumsHeader}
+          <AlbumIndex albums={this.props.albums} />
+          {songsHeader}
+          <SongIndexContainer songs={this.props.songs} />
+          {playlistsHeader}
+          <PlaylistIndex
+            playlists={this.props.playlists}
+            shouldBtnBeDisplayed={false}
+          />
+        </div>
+      )
+    };
+
+    const content = possibleContent[this.props.type];
+    return (
+      <section className="search-results">
+        <Navbar
+          type={this.props.type}
+          category={category}
+          navbarWords={navbarWords}
         />
-      </div>
-    ),
-
-    results: (
-      <div>
-        {artistsHeader}
-        <ArtistIndex artists={props.artists} />
-        {albumsHeader}
-        <AlbumIndex albums={props.albums} />
-        {songsHeader}
-        <SongIndexContainer songs={props.songs} />
-        {playlistsHeader}
-        <PlaylistIndex
-          playlists={props.playlists}
-          shouldBtnBeDisplayed={false}
-        />
-      </div>
-    )
-  };
-
-  const content = possibleContent[props.type];
-  return (
-    <section className="search-results">
-      <Navbar type={props.type} category={category} navbarWords={navbarWords} />
-      {content}
-    </section>
-  );
-};
-
-export default SearchResults;
+        {content}
+      </section>
+    );
+  }
+}

@@ -4,6 +4,8 @@ import {
   REMOVE_PLAYLIST
 } from "../actions/playlist_actions";
 
+import { MOVE_TO_ENTITIES } from "../actions/search_actions";
+
 const playlistReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;

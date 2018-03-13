@@ -8,10 +8,6 @@ class Search extends React.Component {
     this.updateInput = this.updateInput.bind(this);
   }
 
-  componentWillUnmount() {
-    this.props.clearSearchResults();
-  }
-
   updateInput(type) {
     return e => {
       this.setState({ [type]: e.target.value }, () => {
