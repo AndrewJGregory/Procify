@@ -1,7 +1,7 @@
 import React from "react";
 import ArtistIndex from "./artist_index";
 import AlbumIndex from "./album_index";
-import SongIndex from "./song_index";
+import SongIndexContainer from "./song_index_container";
 import PlaylistIndex from "./playlist_index";
 import * as searchUtil from "../util/search_util.jsx";
 import Navbar from "./navbar";
@@ -38,7 +38,7 @@ const SearchResults = props => {
     tracks: (
       <div>
         {songsHeader}
-        <SongIndex songs={props.songs} />
+        <SongIndexContainer songs={props.songs} />
       </div>
     ),
     albums: (
@@ -64,7 +64,7 @@ const SearchResults = props => {
         {albumsHeader}
         <AlbumIndex albums={props.albums} />
         {songsHeader}
-        <SongIndex songs={props.songs} />
+        <SongIndexContainer songs={props.songs} />
         {playlistsHeader}
         <PlaylistIndex
           playlists={props.playlists}
