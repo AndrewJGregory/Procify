@@ -20,7 +20,12 @@ class NavbarWithNewPlaylistBtn extends React.Component {
           <div className="new-playlist-btn-container">
             <NewPlaylistFormBtnContainer />
           </div>
-          <Navbar type={type} category={category} navbarWords={navbarWords} />
+          <Navbar
+            type={type}
+            category={category}
+            navbarWords={navbarWords}
+            query=""
+          />
         </div>
       </section>
     );

@@ -87,6 +87,7 @@ export default class SearchResults extends React.Component {
           type={this.props.type}
           category={category}
           navbarWords={navbarWords}
+          query={this.props.query}
         />
         {content}
       </section>

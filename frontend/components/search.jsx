@@ -22,10 +22,12 @@ class Search extends React.Component {
       this.setState({ [type]: e.target.value }, () => {
         if (this.state.query) {
           this.props.search(this.state.query);
-          this.props.history.push(`/search/results/${this.state.query}`);
+          this.props.history.push(
+            `/search/${this.props.match.params.type}/${this.state.query}`
+          );
         } else {
           this.props.clearSearchResults();
-          this.props.history.push("/search/results");
+          this.props.history.push(`/search/${this.props.match.params.type}/`);
         }
       });
     };
@@ -48,7 +50,10 @@ class Search extends React.Component {
             />
           </div>
         </div>
-        <SearchResultsContainer type={this.props.match.params.type} />
+        <SearchResultsContainer
+          type={this.props.match.params.type}
+          query={this.state.query}
+        />
       </section>
     );
   }

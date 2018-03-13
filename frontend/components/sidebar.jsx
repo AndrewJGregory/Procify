@@ -2,10 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let activeYourMusicClass = "";
     let activeSearchClass = "";
@@ -26,11 +22,11 @@ class Sidebar extends React.Component {
             <li className="procify-font">procify</li>
             <div className="search-bar-container">
               <li className="search-bar">
-                <Link to="/search/results" className={`${activeSearchClass}`}>
+                <Link to="/search/results/" className={`${activeSearchClass}`}>
                   Search
                 </Link>
               </li>
-              <Link to="/search/results">
+              <Link to="/search/results/">
                 <i
                   className={`fa fa-search ${activeSearchClass}`}
                   aria-hidden="true"
@@ -40,7 +36,7 @@ class Sidebar extends React.Component {
             <li className="sidebar-link
               sidebar-music-link">
               <Link
-                to="/collection/playlists"
+                to="/collection/playlists/"
                 className={`${activeYourMusicClass}`}
               >
                 Your Music
