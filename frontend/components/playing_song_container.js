@@ -14,9 +14,17 @@ import {
 } from "../actions/playing_song_actions";
 
 const mapStateToProps = state => {
-  const artist = state.entities.artists[state.ui.playingSong.artist_id];
+  const currentArtistId = state.ui.playingSong.artist_id;
+  const artist =
+    state.entities.artists[currentArtistId] ||
+    state.search.artists[currentArtistId];
   let playingSongAlbum;
-  Object.values(state.entities.albums).forEach(album => {
+
+  const allAlbums = Object.values(state.entities.albums).concat(
+    Object.values(state.search.albums)
+  );
+
+  allAlbums.forEach(album => {
     if (album.song_ids && album.song_ids.includes(state.ui.playingSong.id)) {
       playingSongAlbum = album;
     }

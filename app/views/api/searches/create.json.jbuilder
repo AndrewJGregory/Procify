@@ -10,11 +10,7 @@ end
   end
 end
 
-@songs.each do |song|
-  json.songs do
-    json.partial! 'api/songs/show', song: song
-  end
-end
+json.partial! 'api/songs/index', songs: @songs
 
 @playlists.each do |playlist|
   json.playlists do
