@@ -1,17 +1,14 @@
 import { connect } from "react-redux";
 import Greeting from "./greeting";
-import { signup } from "../actions/session_actions";
+import { login } from "../actions/session_actions";
 
 const mapDispatchToProps = dispatch => {
-  const randomNum = parseInt(Math.random() * 100000);
-  const username = "Guest".concat(randomNum);
-  const password = "abcdefghij";
-  const email = "Guest Email";
-  const birthday = "1993-04-01";
-  const user = { username, password, email, birthday };
+  const username = "guest-demo";
+  const password = "thisisjustaguest";
+  const user = { username, password };
 
   return {
-    loginAsGuest: () => dispatch(signup(user))
+    loginAsGuest: () => dispatch(login(user))
   };
 };
 

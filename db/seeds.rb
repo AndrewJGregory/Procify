@@ -17,6 +17,7 @@ Artist.destroy_all
 ### USERS ###
 user_one = User.create!(username: 'andrew', password: 'password', email: 'andrew@email.com', birthday: '11061993')
 user_two = User.create!(username: 'cheryl', password: 'password', email: 'cookies@gmail.com', birthday: '11221961')
+guest_user = User.create!(username: 'guest-demo', password: 'thisisjustaguest', email: 'guestdemo@gmail.com', birthday: '12311999')
 ### END USERS ###
 
 ### ARTISTS ###
