@@ -20,7 +20,7 @@ Above the list of songs is a nav bar with Playlists, Songs, Albums, and Artists.
 
 Initially, I struggled with how to conditionally fetch data based on which page was displayed. In the case of songs as seen in the picture, the component is `SongIndex`. The corresponding action to fetch data from the Rails backend and fill the Redux store with the necessary state is `fetchSongs`. Now, the question is how to conditionally display the correct component given the route. Having a wildcard parameter in the URL of `type` allows this to be possible:
 
-```
+```js
 export const switchOnType = (props, components, actions, decision) => {
   let result;
   switch (props.match.params.type) {
@@ -40,7 +40,7 @@ export const switchOnType = (props, components, actions, decision) => {
 
 This function does a great deal of work. To get the correct component, an object full of possible components would have to be passed in along with the correct decision of 'component':
 
-```
+```js
 const components = {
   SongIndexContainer,
   PlaylistShowContainer,
@@ -59,7 +59,7 @@ const component = innerCollectionUtil.switchOnType(
 
 To get the correct action, the arguments would have to be:
 
-```
+```js
 const actions = {
   fetchSongs,
   fetchPlaylist,
@@ -77,7 +77,7 @@ const fetchAction = innerCollectionUtil.switchOnType(
 
 Given the action and the correct component, the parent component can fetch data upon mounting:
 
-```
+```js
 componentDidMount() {
   if (innerCollectionUtil.shouldFetchInfo(this.props)) {
     const id = innerCollectionUtil.switchOnType(
@@ -92,7 +92,7 @@ Now, the parent component can simply render the required component as `<this.pro
 
 While this approach with a switch statement and conditionally fetching data seems like overkill for one component, this dramatically increases scalability. Adding another component to the parent component (say, another section on the nav bar) is incredibly easy. Another action would have to be added to the `actions` object, the new component would be added to `components`, and another switch clause would be written. In action, if `playlists` were just added, this switch clause would be added:
 
-```
+```js
 case 'playlists':
 result = {
   component: components.PlaylistIndexContainer,
@@ -112,14 +112,14 @@ Each song displays three dots when hovered. When this three dots are clicked, a 
 
 The three dots have an event listener listening for `click`. The positions of the cursor is easily extracted, where `e` is the event:
 
-```
+```js
 const xPos = e.clientX;
 const yPos = e.clientY;
 ```
 
 These positions are stored in the Redux store and formatted as CSS style as such:
 
-```
+```js
 const menuPos = {
   top: this.props.yPos,
   left: this.props.xPos
