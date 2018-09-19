@@ -17,7 +17,8 @@ class NewPlaylistForm extends React.Component {
 
   createNewPlaylist(e) {
     e.preventDefault();
-    if (this.state.title) {
+    const removedWhiteSpace = this.state.title.replace(/\s+/g, "");
+    if (this.state.title && removedWhiteSpace) {
       this.props.createNewPlaylist(this.state).then(playlist => {
         this.props.swapPlaylistFormShow();
         const playlistId = Object.keys(playlist)[0];
