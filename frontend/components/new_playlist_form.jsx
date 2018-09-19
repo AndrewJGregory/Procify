@@ -17,14 +17,16 @@ class NewPlaylistForm extends React.Component {
 
   createNewPlaylist(e) {
     e.preventDefault();
-    this.props.createNewPlaylist(this.state).then(playlist => {
-      this.props.swapPlaylistFormShow();
-      const playlistId = Object.keys(playlist)[0];
+    if (this.state.title) {
+      this.props.createNewPlaylist(this.state).then(playlist => {
+        this.props.swapPlaylistFormShow();
+        const playlistId = Object.keys(playlist)[0];
 
-      this.props.history.push(
-        `/user/${this.props.currentUserId}/playlists/${playlistId}`
-      );
-    });
+        this.props.history.push(
+          `/user/${this.props.currentUserId}/playlists/${playlistId}`
+        );
+      });
+    }
   }
 
   render() {
