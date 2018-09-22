@@ -1,11 +1,7 @@
 import React from "react";
-import PlaylistIndex from "./playlist_index";
+import PlaylistIndexContainer from "./playlist_index_container";
 
 class AddSongForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchCurrentUsersPlaylists(this.props.currentUserId);
     this.props.toggleDropdownMenu();
@@ -20,10 +16,7 @@ class AddSongForm extends React.Component {
             onClick={() => this.props.swapAddSongFormShow()}
           />
           <header className="transparent-form-header" />
-          <PlaylistIndex
-            playlists={this.props.playlists}
-            currentUserId={this.props.currentUserId}
-          />
+          <PlaylistIndexContainer />
         </section>
       </main>
     );

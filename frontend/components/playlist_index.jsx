@@ -2,11 +2,10 @@ import React from "react";
 import PlaylistIndexItemContainer from "./playlist_index_item_container";
 import NewPlaylistFormBtnContainer from "./new_playlist_form_btn_container";
 
-const PlaylistIndex = ({ playlists, shouldBtnBeDisplayed }) => {
+const PlaylistIndex = ({ playlists, shouldBtnBeDisplayed = true }) => {
   let playlistItems = playlists.map(playlist => {
     return <PlaylistIndexItemContainer key={playlist.id} playlist={playlist} />;
   });
-
   if (playlists.length === 0 && shouldBtnBeDisplayed) {
     playlistItems = (
       <li>
