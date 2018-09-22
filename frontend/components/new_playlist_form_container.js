@@ -5,12 +5,6 @@ import { swapPlaylistFormShow } from "../actions/ui_actions";
 
 import NewPlaylistForm from "./new_playlist_form";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    currentUserId: state.ui.currentUserId
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     createNewPlaylist: playlist => dispatch(createNewPlaylist(playlist)),
@@ -18,5 +12,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(NewPlaylistForm)
+  connect(
+    null,
+    mapDispatchToProps
+  )(NewPlaylistForm)
 );
