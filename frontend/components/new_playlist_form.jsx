@@ -21,8 +21,10 @@ class NewPlaylistForm extends React.Component {
     if (this.state.title && removedWhiteSpace) {
       this.props.createNewPlaylist(this.state).then(playlist => {
         this.props.swapPlaylistFormShow();
-        const { id, user_id } = Object.values(playlist)[0];
-        this.props.history.push(`/user/${user_id}/playlists/${id}`);
+        if (!this.props.isAddSongFormDisplayed) {
+          const { id, user_id } = Object.values(playlist)[0];
+          this.props.history.push(`/user/${user_id}/playlists/${id}`);
+        }
       });
     }
   }
