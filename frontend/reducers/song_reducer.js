@@ -8,15 +8,12 @@ import isEmpty from "lodash/isEmpty";
 const songReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SONGS:
+    case RECEIVE_ARTIST:
+    case RECEIVE_ALBUM:
+    case RECEIVE_NEW_PLAYLIST:
       return Object.assign({}, state, action.payload.songs);
     case RECEIVE_SONG:
       return Object.assign({}, state, { [action.song.id]: action.song });
-    case RECEIVE_NEW_PLAYLIST:
-      return Object.assign({}, state, action.payload.songs);
-    case RECEIVE_ALBUM:
-      return Object.assign({}, state, action.payload.songs);
-    case RECEIVE_ARTIST:
-      return Object.assign({}, state, action.payload.songs);
     case MOVE_TO_ENTITIES:
       if (!isEmpty(action.results.songs)) {
         let newSongs = {};

@@ -10,14 +10,12 @@ const artistReducer = (state = {}, action) => {
     case RECEIVE_ARTISTS:
       return Object.assign({}, state, action.artists);
     case RECEIVE_ARTIST:
-      return Object.assign({}, state, action.payload.artist);
-    case RECEIVE_SONGS:
-      return Object.assign({}, state, action.payload.artists);
-    case RECEIVE_ALBUMS:
-      return Object.assign({}, state, action.payload.artists);
     case RECEIVE_ALBUM:
       return Object.assign({}, state, action.payload.artist);
+    case RECEIVE_SONGS:
+    case RECEIVE_ALBUMS:
     case RECEIVE_NEW_PLAYLIST:
+      return Object.assign({}, state, action.payload.artists);
       return Object.assign({}, state, action.payload.artists);
     case MOVE_TO_ENTITIES:
       if (!isEmpty(action.results.artists)) {
