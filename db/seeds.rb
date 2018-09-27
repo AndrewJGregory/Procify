@@ -26,60 +26,53 @@ artist_meg_myers = Artist.create!(name: 'Meg Myers', img_url: 'https://s3.amazon
 ### END ARTISTS ###
 
 ### PLAYLISTS ###
-playlist_one = Playlist.create!(title: 'gym', user_id: user_one.id)
-playlist_two = Playlist.create!(title: 'hangout', user_id: user_two.id)
+playlist_one = Playlist.create!(title: 'gym', user_id: guest_user.id)
+playlist_two = Playlist.create!(title: 'hangout', user_id: guest_user.id)
 ### END PLAYLISTS ###
 
 ### SONGS ###
-song_two = Song.create!(title: 'The Come Up', artist_id: artist_logic.id, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3', playlist_id: playlist_one.id)
+song_two = Song.create!(title: 'The Come Up', artist_id: artist_logic.id, url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+The+Come+Up.mp3')
 
 song_four = Song.create!(
   title: '30,000',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+30%2C000.mp3',
-  playlist_id: playlist_two.id
 )
 
 song_five = Song.create!(
   title: 'Man of the Year',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Man+of+the+Year.mp3',
-  playlist_id: playlist_two.id
 )
 
 song_six = Song.create!(
   title: 'Roll Call',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Roll+Call.mp3',
-  playlist_id: playlist_two.id
 )
 
 song_seven = Song.create!(
   title: 'Welcome to Forever',
   artist_id: artist_logic.id,
   url: 'https://s3.amazonaws.com/procify-dev/Young+Sinatra/Logic+-+Welcome+to+Forever+ft.+Jon+Bellion.mp3',
-  playlist_id: playlist_one.id
 )
 
 song_eight = Song.create!(
   title: 'Coffins',
   artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/MisterWives+-+Coffins.mp3',
-  playlist_id: playlist_one.id
 )
 
 song_nine = Song.create!(
   title: 'Vagabond',
   artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/MisterWives+-+Vagabond.mp3',
-  playlist_id: playlist_two.id
 )
 
 song_ten = Song.create!(
   title: 'Riptide',
   artist_id: artist_meg_myers.id,
   url: 'https://s3.amazonaws.com/procify-dev/Reflections/Misterwives+-+Riptide.mp3',
-  playlist_id: playlist_two.id
 )
 
 ### END SONGS ###
