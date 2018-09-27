@@ -10,63 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_114_233_401) do
+ActiveRecord::Schema.define(version: 20180927133642) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'album_songs', force: :cascade do |t|
-    t.integer 'album_id', null: false
-    t.integer 'song_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "album_songs", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.integer "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'albums', force: :cascade do |t|
-    t.string 'title', null: false
-    t.string 'img_url', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'artist_id', null: false
+  create_table "albums", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "img_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "artist_id", null: false
   end
 
-  create_table 'artists', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'img_url', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "artists", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "img_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'playlist_songs', force: :cascade do |t|
-    t.integer 'playlist_id', null: false
-    t.integer 'song_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "playlist_songs", force: :cascade do |t|
+    t.integer "playlist_id", null: false
+    t.integer "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'playlists', force: :cascade do |t|
-    t.string 'title', null: false
-    t.integer 'user_id', null: false
-    t.integer 'song_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "playlists", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'songs', force: :cascade do |t|
-    t.string 'title', null: false
-    t.integer 'playlist_id'
-    t.integer 'artist_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'url'
+  create_table "songs", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "playlist_id"
+    t.integer "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username', null: false
-    t.string 'password_digest', null: false
-    t.string 'session_token', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'email', null: false
-    t.string 'birthday', null: false
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "birthday", null: false
   end
+
 end
